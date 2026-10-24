@@ -1,0 +1,1320 @@
+{
+  "type": "browser-synthetic-regression",
+  "started": "2026-10-24T12:01:24.579Z",
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "dpr": 1
+  },
+  "audioBefore": {
+    "at": "2026-10-24T12:01:24.579Z",
+    "contextState": "running",
+    "currentTime": 3.3306666666666667,
+    "sampleRate": 48000,
+    "ready": true,
+    "running": true,
+    "unavailable": false,
+    "sfxEnabled": true,
+    "settings": {
+      "sfx": true,
+      "sfxVol": 0.8,
+      "bgm": false,
+      "bgmVol": 0.55,
+      "mute": false
+    },
+    "music": {
+      "supported": true,
+      "playing": false,
+      "song": null
+    },
+    "note": "API状態の確認。スピーカーから実際に聴こえることの確認とは異なります。"
+  },
+  "notes": [
+    "人工配置・固定出目を含む合成DOM/PointerEvent検証。",
+    "実機の指操作、聴感、ブラウザの実際の背景タブ遷移は別途確認が必要。"
+  ],
+  "results": [
+    {
+      "name": "12体・8種を描画キューへ渡す",
+      "pass": true,
+      "detail": {
+        "ids": [
+          [
+            "0",
+            "king"
+          ],
+          [
+            "1",
+            "warrior"
+          ],
+          [
+            "2",
+            "warrior"
+          ],
+          [
+            "3",
+            "archer"
+          ],
+          [
+            "4",
+            "archer"
+          ],
+          [
+            "5",
+            "mage"
+          ],
+          [
+            "6",
+            "demon-king"
+          ],
+          [
+            "7",
+            "goblin"
+          ],
+          [
+            "8",
+            "goblin"
+          ],
+          [
+            "9",
+            "skeleton-archer"
+          ],
+          [
+            "10",
+            "skeleton-archer"
+          ],
+          [
+            "11",
+            "dark-mage"
+          ]
+        ],
+        "order": [
+          "10",
+          "8",
+          "11",
+          "岩",
+          "6",
+          "7",
+          "9",
+          "岩",
+          "岩",
+          "1",
+          "3",
+          "岩",
+          "0",
+          "2",
+          "5",
+          "4"
+        ]
+      }
+    },
+    {
+      "name": "初期の全駒が敵王の方向を向く",
+      "pass": true,
+      "detail": [
+        {
+          "id": "0",
+          "direction": "NE"
+        },
+        {
+          "id": "1",
+          "direction": "NE"
+        },
+        {
+          "id": "2",
+          "direction": "NE"
+        },
+        {
+          "id": "3",
+          "direction": "NE"
+        },
+        {
+          "id": "4",
+          "direction": "NE"
+        },
+        {
+          "id": "5",
+          "direction": "NE"
+        },
+        {
+          "id": "6",
+          "direction": "SW"
+        },
+        {
+          "id": "7",
+          "direction": "SW"
+        },
+        {
+          "id": "8",
+          "direction": "SW"
+        },
+        {
+          "id": "9",
+          "direction": "SW"
+        },
+        {
+          "id": "10",
+          "direction": "SW"
+        },
+        {
+          "id": "11",
+          "direction": "SW"
+        }
+      ]
+    },
+    {
+      "name": "部隊・自軍へ・旧盤面ツールを撤去",
+      "pass": true
+    },
+    {
+      "name": "HP領域が各駒の足元座標に対応",
+      "pass": true
+    },
+    {
+      "name": "移動プレビューがコア候補と一致",
+      "pass": true
+    },
+    {
+      "name": "長いパンは行動・選択・プレビューを確定しない",
+      "pass": true
+    },
+    {
+      "name": "パンで背景を再生成しない",
+      "pass": true,
+      "detail": {
+        "builds": 1
+      }
+    },
+    {
+      "name": "閾値を超えて戻したドラッグをタップにしない",
+      "pass": true
+    },
+    {
+      "name": "pointercancel後の指離しで確定しない",
+      "pass": true
+    },
+    {
+      "name": "盤外へ出て戻った指で確定しない",
+      "pass": true
+    },
+    {
+      "name": "複数指を確定にしない",
+      "pass": true
+    },
+    {
+      "name": "blurで進行中ポインターを破棄",
+      "pass": true
+    },
+    {
+      "name": "極端なパンでも盤面周辺で制限",
+      "pass": true,
+      "detail": {
+        "x": -0.44999999999999946,
+        "y": -0.44999999999999946
+      }
+    },
+    {
+      "name": "四隅の駒 0 を指のパンで中央へ運び選択",
+      "pass": true
+    },
+    {
+      "name": "四隅の駒 1 を指のパンで中央へ運び選択",
+      "pass": true
+    },
+    {
+      "name": "四隅の駒 9 を指のパンで中央へ運び選択",
+      "pass": true
+    },
+    {
+      "name": "四隅の駒 10 を指のパンで中央へ運び選択",
+      "pass": true
+    },
+    {
+      "name": "長いパン後も盤面のネイティブスクロールは0",
+      "pass": true,
+      "detail": {
+        "top": 0,
+        "left": 0
+      }
+    },
+    {
+      "name": "HPはキャンバス描画でDOMの名前ラベルを重ねない",
+      "pass": true
+    },
+    {
+      "name": "密集した同職種2体を身体タップで選択",
+      "pass": true
+    },
+    {
+      "name": "密集したもう1体を身体タップで取り違えない",
+      "pass": true
+    },
+    {
+      "name": "手前に露出したHP目盛りから魔法使いを選択",
+      "pass": true
+    },
+    {
+      "name": "後ろのHPと前の身体が重なる位置は前景の剣士を選択",
+      "pass": true,
+      "detail": {
+        "selected": 2,
+        "behindHP": 8,
+        "foreground": 2
+      }
+    },
+    {
+      "name": "岩の背後の暗黒魔法使いを足元で選択",
+      "pass": true
+    },
+    {
+      "name": "数字キーで王を選択",
+      "pass": true
+    },
+    {
+      "name": "プレビュー取消は状態を変えない",
+      "pass": true
+    },
+    {
+      "name": "移動中は経路方向SWで歩行アニメーション",
+      "pass": true
+    },
+    {
+      "name": "確定連打で1回だけコア結果を反映し移動後は自軍NE",
+      "pass": true
+    },
+    {
+      "name": "Zキーで移動前のAP・位置・フラグを復元",
+      "pass": true
+    },
+    {
+      "name": "Escで選択解除",
+      "pass": true
+    },
+    {
+      "name": "移動を戻すと初期の敵王への待機方向を復元",
+      "pass": true
+    },
+    {
+      "name": "一般兵撃破で次ターンのダイス強化と通知",
+      "pass": true
+    },
+    {
+      "name": "岩で遮られた弓攻撃を拒否",
+      "pass": true
+    },
+    {
+      "name": "魔法の岩越しプレビュー",
+      "pass": true
+    },
+    {
+      "name": "魔法はコアどおりHP・AP更新",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー range",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": -1,
+        "blocked": "edge"
+      }
+    },
+    {
+      "name": "弓の結果 range",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー pushSuccess",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": 4,
+        "blocked": null
+      }
+    },
+    {
+      "name": "弓の結果 pushSuccess",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー pushUnit",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": -1,
+        "blocked": "unit"
+      }
+    },
+    {
+      "name": "弓の結果 pushUnit",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー pushRock",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": -1,
+        "blocked": "obstacle"
+      }
+    },
+    {
+      "name": "弓の結果 pushRock",
+      "pass": true
+    },
+    {
+      "name": "攻撃後は攻撃者が敵王へ向き直り攻撃済み",
+      "pass": true
+    },
+    {
+      "name": "NWへ歩いた剣士だけが敵王へSEで待機",
+      "pass": true,
+      "detail": {
+        "0": "NE",
+        "1": "SE",
+        "2": "NE",
+        "3": "NE",
+        "4": "NE",
+        "5": "NE",
+        "6": "SW",
+        "7": "SE",
+        "8": "SW",
+        "9": "SW",
+        "10": "SW",
+        "11": "SW"
+      }
+    },
+    {
+      "name": "Undoは位置だけでなく全駒の記憶した向きも復元",
+      "pass": true,
+      "detail": {
+        "0": "NE",
+        "1": "NE",
+        "2": "NE",
+        "3": "NE",
+        "4": "NE",
+        "5": "NE",
+        "6": "SW",
+        "7": "SE",
+        "8": "SW",
+        "9": "SW",
+        "10": "SW",
+        "11": "SW"
+      }
+    },
+    {
+      "name": "再移動で同じ待機方向を再現",
+      "pass": true
+    },
+    {
+      "name": "魔王移動後は魔王だけSEへ向き、待機中の他11体は回転しない",
+      "pass": true,
+      "detail": {
+        "0": "NE",
+        "1": "SE",
+        "2": "NE",
+        "3": "NE",
+        "4": "NE",
+        "5": "NE",
+        "6": "SE",
+        "7": "SE",
+        "8": "SW",
+        "9": "SW",
+        "10": "SW",
+        "11": "SW"
+      }
+    },
+    {
+      "name": "敵王が移動しても剣士は以前のSEを保持",
+      "pass": true
+    },
+    {
+      "name": "再描画・パンでも待機方向を再計算しない",
+      "pass": true
+    },
+    {
+      "name": "攻撃中は敵兵へのSWを向く",
+      "pass": true
+    },
+    {
+      "name": "攻撃終了後は敵王の新しい位置へNEで待機",
+      "pass": true,
+      "detail": {
+        "0": "NE",
+        "1": "NE",
+        "2": "NE",
+        "3": "NE",
+        "4": "NE",
+        "5": "NE",
+        "6": "SE",
+        "7": "SE",
+        "8": "SW",
+        "9": "SW",
+        "10": "SW",
+        "11": "SW"
+      }
+    },
+    {
+      "name": "控えめ演出でも行動終了時に敵王へ向く",
+      "pass": true
+    },
+    {
+      "name": "演出中断後も確定した移動に対応する向きで待機",
+      "pass": true
+    },
+    {
+      "name": "局面リセットは全駒の向きを再初期化",
+      "pass": true
+    },
+    {
+      "name": "touch：移動ボタン前に移動は実行されない",
+      "pass": true
+    },
+    {
+      "name": "touch：移動モードで他11体だけ半透明・終了ボタンを隠す",
+      "pass": true
+    },
+    {
+      "name": "touch：検証先の床は選択中の魔法使いの身体と重なる",
+      "pass": true,
+      "detail": {
+        "floor": {
+          "x": 276.5,
+          "y": 184
+        },
+        "mage": {
+          "x": 276.5,
+          "y": 226
+        }
+      }
+    },
+    {
+      "name": "touch：身体より床を優先して王の前をプレビュー",
+      "pass": true
+    },
+    {
+      "name": "touch：移動先に実キャラの半透明プレビュー・HPは12体分だけ",
+      "pass": true
+    },
+    {
+      "name": "touch：通常設定は再タップやEでも確定・終了しない",
+      "pass": true
+    },
+    {
+      "name": "touch：占有マスは理由を示し選択駒を変えない",
+      "pass": true
+    },
+    {
+      "name": "touch：ボタン確定で予定の2AP・マスに1回だけ移動、透明度復元",
+      "pass": true
+    },
+    {
+      "name": "touch：Undoで元の魔法使いの位置へ戻る",
+      "pass": true
+    },
+    {
+      "name": "touch：取消は駒の選択に戻り、半透明とプレビューを消す",
+      "pass": true
+    },
+    {
+      "name": "touch：移動モード切替で背景やキャラキャッシュを再生成しない",
+      "pass": true
+    },
+    {
+      "name": "touch：簡易設定でも初回は必ずプレビュー",
+      "pass": true
+    },
+    {
+      "name": "touch：簡易設定はプレビュー済みマスの再タップで確定",
+      "pass": true
+    },
+    {
+      "name": "mouse：移動ボタン前に移動は実行されない",
+      "pass": true
+    },
+    {
+      "name": "mouse：移動モードで他11体だけ半透明・終了ボタンを隠す",
+      "pass": true
+    },
+    {
+      "name": "mouse：検証先の床は選択中の魔法使いの身体と重なる",
+      "pass": true,
+      "detail": {
+        "floor": {
+          "x": 276.5,
+          "y": 184
+        },
+        "mage": {
+          "x": 276.5,
+          "y": 226
+        }
+      }
+    },
+    {
+      "name": "mouse：身体より床を優先して王の前をプレビュー",
+      "pass": true
+    },
+    {
+      "name": "mouse：移動先に実キャラの半透明プレビュー・HPは12体分だけ",
+      "pass": true
+    },
+    {
+      "name": "mouse：通常設定は再タップやEでも確定・終了しない",
+      "pass": true
+    },
+    {
+      "name": "mouse：占有マスは理由を示し選択駒を変えない",
+      "pass": true
+    },
+    {
+      "name": "mouse：ボタン確定で予定の2AP・マスに1回だけ移動、透明度復元",
+      "pass": true
+    },
+    {
+      "name": "mouse：Undoで元の魔法使いの位置へ戻る",
+      "pass": true
+    },
+    {
+      "name": "mouse：取消は駒の選択に戻り、半透明とプレビューを消す",
+      "pass": true
+    },
+    {
+      "name": "mouse：移動モード切替で背景やキャラキャッシュを再生成しない",
+      "pass": true
+    },
+    {
+      "name": "mouse：簡易設定でも初回は必ずプレビュー",
+      "pass": true
+    },
+    {
+      "name": "mouse：簡易設定はプレビュー済みマスの再タップで確定",
+      "pass": true
+    },
+    {
+      "name": "メニュー表示中の盤面入力を遮断",
+      "pass": true
+    },
+    {
+      "name": "速度・確定方法・控えめ演出を保存",
+      "pass": true
+    },
+    {
+      "name": "効果音オフと消音状態を保存",
+      "pass": true
+    },
+    {
+      "name": "Escで設定を閉じる",
+      "pass": true
+    },
+    {
+      "name": "ルール表示に兵種性能がある",
+      "pass": true
+    },
+    {
+      "name": "行動履歴を開ける",
+      "pass": true
+    },
+    {
+      "name": "タイトルから rookie・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "タイトルから easy・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "タイトルから normal・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "タイトルから hard・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "CPU先手で開始",
+      "pass": true
+    },
+    {
+      "name": "実CPUが合法手を順に実行し敵王への待機方向で自軍へ復帰",
+      "pass": true,
+      "detail": {
+        "trails": [
+          [
+            17,
+            27,
+            37,
+            36
+          ],
+          [
+            12,
+            22,
+            32
+          ]
+        ],
+        "state": {
+          "pos": [
+            84,
+            73,
+            86,
+            82,
+            87,
+            85,
+            15,
+            26,
+            23,
+            36,
+            32,
+            14
+          ],
+          "hp": [
+            4,
+            3,
+            2,
+            2,
+            2,
+            2,
+            4,
+            3,
+            3,
+            2,
+            2,
+            2
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ap": 0,
+          "apGained": 0,
+          "side": 0,
+          "phase": "roll",
+          "turn": 2,
+          "winner": null,
+          "lost": [
+            0,
+            0
+          ],
+          "dice": null
+        },
+        "directions": [
+          [
+            "0",
+            "NE"
+          ],
+          [
+            "1",
+            "NE"
+          ],
+          [
+            "2",
+            "NE"
+          ],
+          [
+            "3",
+            "NE"
+          ],
+          [
+            "4",
+            "NE"
+          ],
+          [
+            "5",
+            "NE"
+          ],
+          [
+            "6",
+            "SW"
+          ],
+          [
+            "7",
+            "SW"
+          ],
+          [
+            "8",
+            "SW"
+          ],
+          [
+            "9",
+            "SW"
+          ],
+          [
+            "10",
+            "SW"
+          ],
+          [
+            "11",
+            "SW"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "画面外のCPU行動へ追従",
+      "pass": true
+    },
+    {
+      "name": "Spaceで本来のダイスとAPを確定",
+      "pass": true
+    },
+    {
+      "name": "行動可能APがあるターン終了は確認待ち",
+      "pass": true
+    },
+    {
+      "name": "2回目のターン終了でCPUへ",
+      "pass": true
+    },
+    {
+      "name": "ランダム先手が両軍のいずれか",
+      "pass": true
+    },
+    {
+      "name": "CPU演出中のタイトル復帰で旧進行を停止",
+      "pass": true
+    },
+    {
+      "name": "王撃破の勝利プレビュー",
+      "pass": true
+    },
+    {
+      "name": "王撃破→勝利・対戦統計",
+      "pass": true
+    },
+    {
+      "name": "結果から再戦は12体初期状態",
+      "pass": true
+    },
+    {
+      "name": "合法CPU王撃破の状態→敗北画面",
+      "pass": true
+    },
+    {
+      "name": "結果からタイトルへ",
+      "pass": true
+    },
+    {
+      "name": "規定ターン終了→引き分け画面",
+      "pass": true
+    },
+    {
+      "name": "結果を閉じて終局盤面を見られる",
+      "pass": true
+    }
+  ],
+  "finished": "2026-10-24T12:01:45.357Z",
+  "passed": 106,
+  "failed": 0,
+  "finalState": {
+    "pos": [
+      84,
+      73,
+      76,
+      82,
+      87,
+      85,
+      15,
+      26,
+      23,
+      17,
+      12,
+      14
+    ],
+    "hp": [
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2
+    ],
+    "flags": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ap": 0,
+    "apGained": 0,
+    "side": 0,
+    "phase": "roll",
+    "turn": 1,
+    "winner": null,
+    "lost": [
+      0,
+      0
+    ],
+    "dice": null
+  },
+  "diagnostics": {
+    "tileWidth": 75,
+    "tileHeight": 42,
+    "characterScale": 1.25,
+    "hpLayer": "floor-before-characters",
+    "sceneBuilds": 1,
+    "center": {
+      "x": 5.099999999999998,
+      "y": 7.499999999999998
+    },
+    "pan": {
+      "x": -321,
+      "y": -415.0999999999999
+    },
+    "p95": 0.8000000715255737,
+    "max": 1.3000000715255737,
+    "units": [
+      {
+        "id": "0",
+        "character": "king",
+        "x": 4.5,
+        "y": 8.5,
+        "direction": "NE",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 33.878099999999996
+      },
+      {
+        "id": "1",
+        "character": "warrior",
+        "x": 3.5,
+        "y": 7.5,
+        "direction": "NE",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 34.0481
+      },
+      {
+        "id": "2",
+        "character": "warrior",
+        "x": 6.5,
+        "y": 7.5,
+        "direction": "NE",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 34.2181
+      },
+      {
+        "id": "3",
+        "character": "archer",
+        "x": 2.5,
+        "y": 8.5,
+        "direction": "NE",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 34.388099999999994
+      },
+      {
+        "id": "4",
+        "character": "archer",
+        "x": 7.5,
+        "y": 8.5,
+        "direction": "NE",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 34.558099999999996
+      },
+      {
+        "id": "5",
+        "character": "mage",
+        "x": 5.5,
+        "y": 8.5,
+        "direction": "NE",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 34.7281
+      },
+      {
+        "id": "6",
+        "character": "demon-king",
+        "x": 5.5,
+        "y": 1.5,
+        "direction": "SW",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 34.8981
+      },
+      {
+        "id": "7",
+        "character": "goblin",
+        "x": 6.5,
+        "y": 2.5,
+        "direction": "SW",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 35.068099999999994
+      },
+      {
+        "id": "8",
+        "character": "goblin",
+        "x": 3.5,
+        "y": 2.5,
+        "direction": "SW",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 35.238099999999996
+      },
+      {
+        "id": "9",
+        "character": "skeleton-archer",
+        "x": 7.5,
+        "y": 1.5,
+        "direction": "SW",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 35.4081
+      },
+      {
+        "id": "10",
+        "character": "skeleton-archer",
+        "x": 2.5,
+        "y": 1.5,
+        "direction": "SW",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 35.5781
+      },
+      {
+        "id": "11",
+        "character": "dark-mage",
+        "x": 4.5,
+        "y": 1.5,
+        "direction": "SW",
+        "opacity": 1,
+        "action": "idle",
+        "actionTime": 35.748099999999994
+      }
+    ],
+    "labels": [
+      {
+        "u": 0,
+        "x": 480,
+        "y": 617,
+        "w": 40,
+        "h": 12
+      },
+      {
+        "u": 1,
+        "x": 484.5,
+        "y": 575,
+        "w": 31,
+        "h": 12
+      },
+      {
+        "u": 2,
+        "x": 597,
+        "y": 638,
+        "w": 31,
+        "h": 12
+      },
+      {
+        "u": 3,
+        "x": 414,
+        "y": 575,
+        "w": 22,
+        "h": 12
+      },
+      {
+        "u": 4,
+        "x": 601.5,
+        "y": 680,
+        "w": 22,
+        "h": 12
+      },
+      {
+        "u": 5,
+        "x": 526.5,
+        "y": 638,
+        "w": 22,
+        "h": 12
+      },
+      {
+        "u": 6,
+        "x": 780,
+        "y": 491,
+        "w": 40,
+        "h": 12
+      },
+      {
+        "u": 7,
+        "x": 784.5,
+        "y": 533,
+        "w": 31,
+        "h": 12
+      },
+      {
+        "u": 8,
+        "x": 672,
+        "y": 470,
+        "w": 31,
+        "h": 12
+      },
+      {
+        "u": 9,
+        "x": 864,
+        "y": 533,
+        "w": 22,
+        "h": 12
+      },
+      {
+        "u": 10,
+        "x": 676.5,
+        "y": 428,
+        "w": 22,
+        "h": 12
+      },
+      {
+        "u": 11,
+        "x": 751.5,
+        "y": 470,
+        "w": 22,
+        "h": 12
+      }
+    ],
+    "last": {
+      "totalMs": 0.30000007152557373,
+      "characterMs": 0.20000004768371582,
+      "order": [
+        "10",
+        "8",
+        "11",
+        "岩",
+        "6",
+        "7",
+        "9",
+        "岩",
+        "岩",
+        "1",
+        "3",
+        "岩",
+        "0",
+        "2",
+        "5",
+        "4"
+      ],
+      "occluded": [],
+      "warnings": []
+    },
+    "cache": {
+      "mode": "cached",
+      "options": {
+        "mode": "cached",
+        "lineBoil": true,
+        "footFix": true,
+        "xray": true,
+        "characterScale": 1.25,
+        "footOffset": 3
+      },
+      "camera": {
+        "scale": 0.5,
+        "tx": 650,
+        "ty": 340,
+        "dpr": 1,
+        "width": 1300,
+        "height": 1100
+      },
+      "characterFrameScale": 0.625,
+      "lastFrame": {
+        "totalMs": 0.30000007152557373,
+        "characterMs": 0.20000004768371582,
+        "order": [
+          "10",
+          "8",
+          "11",
+          "岩",
+          "6",
+          "7",
+          "9",
+          "岩",
+          "岩",
+          "1",
+          "3",
+          "岩",
+          "0",
+          "2",
+          "5",
+          "4"
+        ],
+        "occluded": [],
+        "warnings": []
+      },
+      "scene": {
+        "buildMs": 30.200000047683716,
+        "bgBytesRGBA": 5720000,
+        "propBytesRGBA": 310080,
+        "props": 4
+      },
+      "caches": {
+        "characters": {
+          "king": {
+            "frames": 212,
+            "bytesRGBA": 8517312,
+            "buildMs": 191.70000004768372,
+            "frameW": 108,
+            "frameH": 93,
+            "k": 0.625
+          },
+          "warrior": {
+            "frames": 240,
+            "bytesRGBA": 10368000,
+            "buildMs": 344.7000000476837,
+            "frameW": 108,
+            "frameH": 100,
+            "k": 0.625
+          },
+          "archer": {
+            "frames": 184,
+            "bytesRGBA": 7125952,
+            "buildMs": 147,
+            "frameW": 103,
+            "frameH": 94,
+            "k": 0.625
+          },
+          "mage": {
+            "frames": 188,
+            "bytesRGBA": 9317280,
+            "buildMs": 109.20000004768372,
+            "frameW": 118,
+            "frameH": 105,
+            "k": 0.625
+          },
+          "demon-king": {
+            "frames": 224,
+            "bytesRGBA": 10752000,
+            "buildMs": 192.79999995231628,
+            "frameW": 120,
+            "frameH": 100,
+            "k": 0.625
+          },
+          "goblin": {
+            "frames": 188,
+            "bytesRGBA": 7483152,
+            "buildMs": 130.70000004768372,
+            "frameW": 107,
+            "frameH": 93,
+            "k": 0.625
+          },
+          "skeleton-archer": {
+            "frames": 208,
+            "bytesRGBA": 8716032,
+            "buildMs": 214.79999995231628,
+            "frameW": 108,
+            "frameH": 97,
+            "k": 0.625
+          },
+          "dark-mage": {
+            "frames": 204,
+            "bytesRGBA": 8759760,
+            "buildMs": 119.20000004768372,
+            "frameW": 113,
+            "frameH": 95,
+            "k": 0.625
+          }
+        },
+        "totalFrames": 1648,
+        "totalBytesRGBA": 71041336
+      },
+      "syncPauses": [
+        {
+          "id": "king",
+          "ms": 191.70000004768372,
+          "frames": 212,
+          "at": 699.6000000238419
+        },
+        {
+          "id": "warrior",
+          "ms": 344.7000000476837,
+          "frames": 240,
+          "at": 1068.8000000715256
+        },
+        {
+          "id": "archer",
+          "ms": 147,
+          "frames": 184,
+          "at": 3578.8000000715256
+        },
+        {
+          "id": "mage",
+          "ms": 109.20000004768372,
+          "frames": 188,
+          "at": 3707.8000000715256
+        },
+        {
+          "id": "demon-king",
+          "ms": 192.79999995231628,
+          "frames": 224,
+          "at": 4196.899999976158
+        },
+        {
+          "id": "goblin",
+          "ms": 130.70000004768372,
+          "frames": 188,
+          "at": 4918.800000071526
+        },
+        {
+          "id": "skeleton-archer",
+          "ms": 214.79999995231628,
+          "frames": 208,
+          "at": 5461.5
+        },
+        {
+          "id": "dark-mage",
+          "ms": 119.20000004768372,
+          "frames": 204,
+          "at": 6147.300000071526
+        }
+      ],
+      "memoryNote": "bytesRGBA は幅×高さ×4 の理論値。ブラウザの実メモリ (GPU 側の複製などを含む) とは異なる"
+    }
+  },
+  "audioAfter": {
+    "at": "2026-10-24T12:01:45.357Z",
+    "contextState": "running",
+    "currentTime": 17.84,
+    "sampleRate": 48000,
+    "ready": true,
+    "running": true,
+    "unavailable": false,
+    "sfxEnabled": true,
+    "settings": {
+      "sfx": true,
+      "sfxVol": 0.8,
+      "bgm": false,
+      "bgmVol": 0.55,
+      "mute": false
+    },
+    "music": {
+      "supported": true,
+      "playing": false,
+      "song": null
+    },
+    "note": "API状態の確認。スピーカーから実際に聴こえることの確認とは異なります。"
+  },
+  "storageRestored": true
+}

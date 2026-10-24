@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-24T11:28:00.191Z",
+  "recordedAt": "2026-10-24T12:02:28.509Z",
   "pathBase": "dice-tactics-kingdom/",
   "digest": "SHA-256",
   "note": "コピーの現在値を記録。app/view/fx/kingdom-board などを編集した場合は copySHA256 と ownFiles を再計算する。元の照合データは更新しない。",
@@ -86,7 +86,7 @@
       "source": "dice-tactics/src/ui/app.js",
       "copy": "src/ui/app.js",
       "sourceSHA256": "a187d7c4ff7faae6381cd23d91690fc4d21f0b0358d362cee51017d964e3be7c",
-      "copySHA256": "38d22693ebd5dc509e81748cf925bcd387b4757c2343e218330b0e0851878fd5",
+      "copySHA256": "37cac019808b89ead022e7c073db0361ef60c4f124047eabfd895ecb4351c204",
       "identical": false
     },
     {
@@ -174,7 +174,7 @@
       "source": "dice-tactics/src/ui/view.js",
       "copy": "src/ui/view.js",
       "sourceSHA256": "d8d90bf255071d88dca328aa98815e0c48e3fe721db5ed8db690fa50ed9f567c",
-      "copySHA256": "ac372d92e39b9ded25011f3b8e88cc1f3e80f76ae5e3b508df3bb31f9fea2daf",
+      "copySHA256": "b2b1efa89594daa06f1c8ff444086cc7fe881f257de362a98431aa7c0516a3a0",
       "identical": false
     },
     {
@@ -486,8 +486,8 @@
       "source": "Storybook_Character_Studio/src/rendering/renderer.js",
       "copy": "vendor/inkstone/src/rendering/renderer.js",
       "sourceSHA256": "20e2467b40587626822e59a9ddfd8f5710c1dbf6ba285df352e8e161b6d91bd7",
-      "copySHA256": "20e2467b40587626822e59a9ddfd8f5710c1dbf6ba285df352e8e161b6d91bd7",
-      "identical": true
+      "copySHA256": "54d73cc028b29c1f52bbe8473e9223b47bea5dba5d07f061201df86e39eb286f",
+      "identical": false
     },
     {
       "origin": "Storybook Character Studio",
@@ -567,11 +567,11 @@
   "ownFiles": [
     {
       "file": "index.html",
-      "SHA256": "dce9dfebade0a96152bb6665c3d02e949089d9ef5b0fa0569e2a223dd14c25bb"
+      "SHA256": "bcca984125a22eaad86485209e741c1ef245f029a21b635eefc71026247f0d60"
     },
     {
       "file": "styles.css",
-      "SHA256": "17da075e282720ee77d9203e8982dea7c7d8664c71553f25fa247555af40ed4b"
+      "SHA256": "aa96e4edca065090c2be7464be30a32920e15db3c8af4123f3c286bc82902809"
     },
     {
       "file": "src/ui/kingdom-assets.js",
@@ -579,7 +579,7 @@
     },
     {
       "file": "src/ui/kingdom-board.js",
-      "SHA256": "1532efad7ea3de5dc6ee1f292c0d7de153016968cabaa57f7ec59a3aaf74eec3"
+      "SHA256": "eaae0e6aa3586df764c85b1b7815563d58955b9e0bc00a8aabc608d6152b9a9a"
     },
     {
       "file": "package.json",
@@ -595,19 +595,19 @@
     },
     {
       "file": "README.md",
-      "SHA256": "cbd93393e8febda67558e82582606c3fab3d8457d269e75f1d37dc3406a6500d"
+      "SHA256": "59e392c16640d81c9ee36d1f8fb4172b59875f879c5ad2796e0d2b49a1fa6003"
     },
     {
       "file": "docs/SOURCES.md",
-      "SHA256": "0dad287fe9346b5f4b5116b1a02b323176b0b5460b7c1e2a24d03f987c77048e"
+      "SHA256": "be90dcadc3546a47f029a89456b4378f1b587923e0020707a898efab85ce9033"
     },
     {
       "file": "docs/FEATURES.md",
-      "SHA256": "aa9a7d38ca7c4f0ff8f3e38d47a9a9709087441292a195388e25fc3a7bea4265"
+      "SHA256": "bcbc333f198f8a041039a8024f100149468d2b168e34994a3f2f8cb92b9a4a4d"
     },
     {
       "file": "docs/TEST_REPORT.md",
-      "SHA256": "882fe1ec993da44675f27629dfabf322282344b6695e7c330bb99d264ad4ea40"
+      "SHA256": "369d96a1f0f0a971b95c8189a177e3877ed94538106ecadff8c22aca37249e28"
     },
     {
       "file": "tests/compatibility.test.js",
@@ -615,7 +615,7 @@
     },
     {
       "file": "tests/browser-qa.js",
-      "SHA256": "13363abf589f4e0958527ba17c73f2473485f26cffd87625caec05a54c420db6"
+      "SHA256": "a366346804f8933d0478fb556baa92286ef6d52454af2b2ef564646d14de4c85"
     },
     {
       "file": "tests/reference/core/ai.js",
@@ -679,7 +679,7 @@
     },
     {
       "file": "tests/reference/README.md",
-      "SHA256": "f482382ab3121b977d0334f29fe08b49f24d6049b4e0d8c6f7bc1d4058c58778"
+      "SHA256": "f1bf78da26d7acdc5a533da43aa756ed723305a11fa46c4f0aba3209a8cadd42"
     },
     {
       "file": ".gitignore",
@@ -688,6 +688,14 @@
     {
       "file": ".gitattributes",
       "SHA256": "de9f2768bc8b40ea332883cde4e5608bcf4b1aee51882382a6ea63675c283965"
+    },
+    {
+      "file": "src/ui/kingdom-facing.js",
+      "SHA256": "49f5baf6ba096c01fd4519c84cbb19d19ceb8f6ca250b9907449ad46f5f19b01"
+    },
+    {
+      "file": "tests/facing.test.js",
+      "SHA256": "ff5e7e5c3b54addae0c5ac16809321c7c033bed779786e195f6d0270beda9bfd"
     }
   ],
   "summary": {
@@ -697,7 +705,8 @@
       "src/ui/fx.js",
       "src/ui/view.js",
       "vendor/inkstone/src/dungeon/architecture.js",
-      "vendor/inkstone/src/dungeon/props.js"
+      "vendor/inkstone/src/dungeon/props.js",
+      "vendor/inkstone/src/rendering/renderer.js"
     ],
     "copiedGitDirectories": []
   },

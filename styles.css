@@ -129,3 +129,11 @@
   .title-sub{font-size:12px}.title-levels{gap:8px}.level-btn{min-height:59px}.title-note{font-size:11px}
 }
 
+/* 移動は携帯・PC共通。移動先選択と確定は常に同じ操作を使う。 */
+.btn.move{min-width:72px;min-height:46px;background:#e4ece1;color:#285e52;border:1px solid #6c9687;font-size:16px}
+.info.moving{background:#edf1e5;border-top-color:#6c9687}
+.info.moving .info-main{color:#285e52;font-size:16px}
+.info:has(#btn-cancel:not([hidden])){height:108px}
+.info-actions .btn.cancel{min-height:42px;font-size:13px}
+.info-actions .btn.confirm{min-width:94px;min-height:44px}
+.tray.choosing-move .tray-buttons{display:none}

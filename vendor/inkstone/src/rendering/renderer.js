@@ -217,7 +217,7 @@ export function createRenderer(o = {}) {
      * 1フレーム描く。
      * @param {object} f
      * @param {number} [f.timeSeconds=0] 画面全体の演出の時刻 (松明の炎など)
-     * @param {object[]} [f.units] [{ id, character, x, y, direction, action, actionTime, mirror?, shakeX?, xray? }]
+     * @param {object[]} [f.units] [{ id, character, x, y, direction, action, actionTime, mirror?, shakeX?, xray?, opacity? }]
      * @param {object[]} [f.projectiles] [{ id?, character, x, y, direction, distance, stuck?, stuckFor?, embedded? }]
      * @param {object[]} [f.effects] [{ type: 'hitSpark', x, y, progress }]
      * @param {(ctx, api) => void} [f.floorOverlay] 背景の直後 (床の上・キャラの下) に描くフック
@@ -241,7 +241,9 @@ export function createRenderer(o = {}) {
           items.push({ kind: 'unit', name: u.id ?? def.label, unit: u, def, action, t: u.actionTime ?? 0, fp: u.footprint || unitFootprint(u), ghost: u.xray !== false });
         }
         let a = performance.now();
-        for (const it of items) drawShadowAt(it.unit.x, it.unit.y);
+        // KINGDOM: フレームキャッシュを作り直さず、駒ごとの透明度を合成時に適用。
+        const opacity = u => Number.isFinite(u.opacity) ? Math.max(0, Math.min(1, u.opacity)) : 1;
+        for (const it of items) { ctx.save(); ctx.globalAlpha = opacity(it.unit); drawShadowAt(it.unit.x, it.unit.y); ctx.restore(); }
         charMs += performance.now() - a;
         camTransform(ctx, cam);
         for (const t of st.room.torches) { const c = torchCup(t); drawFlame(ctx, c.x, c.y - 24, T + t.a); }
@@ -258,11 +260,11 @@ export function createRenderer(o = {}) {
         for (const it of order) {
           if (it.kind === 'prop') { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(it.sprite.c, it.sprite.x, it.sprite.y); }
           else if (it.kind === 'projectile') { camTransform(ctx, cam); drawArrowProjectile(ctx, it.arrow, st.characterScale); }
-          else { a = performance.now(); drawUnitBody(it.unit, it.def, it.action, it.t); charMs += performance.now() - a; }
+          else { a = performance.now(); ctx.save(); ctx.globalAlpha = opacity(it.unit); drawUnitBody(it.unit, it.def, it.action, it.t); ctx.restore(); charMs += performance.now() - a; }
         }
         const occluded = [];
         if (st.xray) for (const it of order) if (it.kind === 'unit' && it.ghost && isOccluded(it, order)) {
-          a = performance.now(); drawGhost(it.unit, it.def, it.action, it.t); charMs += performance.now() - a; occluded.push(it.name);
+          a = performance.now(); drawGhost(it.unit, it.def, it.action, it.t, .38 * opacity(it.unit)); charMs += performance.now() - a; occluded.push(it.name);
         }
         for (const e of f.effects || []) {
           if (e.type === 'hitSpark') { const p = iso(e.x, e.y, 0); camTransform(ctx, cam); drawHitSpark(ctx, p.x, p.y + st.footOffset - 48 * st.characterScale, e.progress ?? 0); }

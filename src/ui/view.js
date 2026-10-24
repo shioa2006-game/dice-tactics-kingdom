@@ -16,9 +16,12 @@ export async function init(config,onCell) {
 }
 export function render(game) {
   Board.render(game); renderStatus(game); renderTray(game); renderInfo(game); renderLog(game);
-  $('#btn-cancel').hidden=!game.preview;
+  $('#btn-cancel').hidden=!game.preview&&!game.moveMode;
+  $('#btn-move').hidden=game.busy||game.moveMode||!!game.preview||game.mode!=='act'||game.sel<0||cfg.unitSide[game.sel]!==HUMAN||!R.moveOptions(game.state,game.sel).length;
   $('#btn-cancel').disabled=game.busy;
-  $('#btn-main').hidden=!!game.preview;
+  $('#btn-main').hidden=!!game.preview||game.moveMode;
+  $('#btn-undo').hidden=game.moveMode||game.mode!=='act';
+  $('#tray').classList.toggle('choosing-move',game.moveMode);
 }
 function options(game) {
   const moves = new Map(), targets = new Map();
@@ -165,9 +168,11 @@ function renderInfo(game) {
   $('#info-main').innerHTML = main;
   $('#info-sub').innerHTML = sub || '';
   $('#btn-confirm').hidden = !confirm;
+  $('#btn-confirm').textContent=game.preview?.kind==='move'?'ここへ移動':'確定';
+  $('#btn-cancel').textContent=game.moveMode?'移動を取消':'取消';
   const portrait=$('#selection-portrait');
   if(portrait){
-    const show=game.sel>=0&&game.state.pos[game.sel]>=0&&!game.preview&&!game.msg&&!game.busy;
+    const show=game.sel>=0&&game.state.pos[game.sel]>=0&&!game.preview&&!game.moveMode&&!game.msg&&!game.busy;
     portrait.hidden=!show;
     if(show){const src=Board.portrait(game.sel);if(portrait.getAttribute('src')!==src)portrait.src=src;}
   }
@@ -199,6 +204,7 @@ function infoContent(game) {
     return { main: game.msg.text, sub: u >= 0 && s.pos[u] >= 0 ? unitLine(s, u) : '', cls: game.msg.cls };
   }
   if (game.preview) return { main: game.preview.text, sub: game.preview.sub, cls: 'preview', confirm: !game.busy };
+  if (game.moveMode) return {main:`${unitName(cfg,game.sel)}の移動先を選択`,sub:'青緑の床をタップ → プレビュー → 確定。ドラッグで見渡せます。',cls:'moving'};
   if (game.busy && game.mode === 'act') return { main: game.actNote || '…', sub: '' };
   if (game.busy && game.mode === 'roll') return { main: 'ダイスを振っています…', sub: '' };
   if (game.mode === 'cpu' && !(game.sel >= 0 && s.pos[game.sel] >= 0)) return { main: game.cpuNote || 'CPU の手番です。', sub: game.cpuSub || '' };
@@ -208,8 +214,8 @@ function infoContent(game) {
     let sub = '';
     if (game.mode === 'act' && own) {
       const { moves, targets } = options(game);
-      if (moves.size && targets.size) sub = '青緑のマスへ移動、赤い枠の敵を攻撃。攻撃はプレビューを確認して確定。';
-      else if (moves.size) sub = '青緑のマスから移動先を選択（数字は消費 AP）。';
+      if (moves.size && targets.size) sub = '「移動」で床を選択。赤い枠の敵はタップして攻撃をプレビュー。';
+      else if (moves.size) sub = '「移動」を押してから床を選択（数字は消費AP）。';
       else if (targets.size) sub = '赤い枠の敵をタップで攻撃をプレビュー。';
       else sub = moveBlockReason(s, game.sel);
     } else if (!own) sub = threatText(game);
@@ -286,7 +292,7 @@ function renderRules() {
       <li><span class="legend" style="background:transparent;border-top:2px dashed #ff7a2e;height:0;margin-bottom:4px"></span>橙の点線 = CPU が直前のターンに動かした経路</li>
       <li><span class="legend" style="background:#3a322b"></span>低く崩れた石積み = 岩（通れない。弓の射線を遮る）</li>
       <li>足元の目盛り = HP（空欄は失ったHP）。小さな印: <b>!</b> 今攻撃できる / <b>•</b> 移動済み / <b>✓</b> 攻撃済み。名前・番号は選択情報と部隊一覧で確認。</li>
-      <li>青緑の円 = あなた、赤茶の菱形 = CPU。金の点線は上下左右の射程目安（遮蔽判定前）。赤い枠だけが現在攻撃可能。盤面をドラッグして見渡せる。重なった駒はタップ後の候補から選ぶ。</li>
+      <li>青緑の円 = あなた、赤茶の菱形 = CPU。金の点線は上下左右の射程目安（遮蔽判定前）。赤い枠だけが現在攻撃可能。盤面をドラッグして見渡せる。重なった駒はタップ後の候補から選ぶ。移動は駒を選択→「移動」→床を選択→「ここへ移動」。携帯・PCで同じ操作。移動中は他の駒を薄く表示し、実際に駒がいるマスへは進めない。</li>
     </ul>`;
 }
 

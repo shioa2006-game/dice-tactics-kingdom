@@ -41,9 +41,10 @@ export function installQA(app) {
     const first = settings.first; settings.first='human'; app.newGame(); settings.first=first;
     game.id++; Board.cancelAnimation();
     const s = R.beginTurn(R.createGame(cfg,{firstSide:extra.side??0}),[2,2,1]);
-    if(kind==='dense'||kind==='victory'||kind==='defeat') s.pos.set(DENSE);
+    if(kind==='dense'||kind==='victory'||kind==='defeat'||kind==='facing') s.pos.set(DENSE);
     if(kind==='range'||kind.startsWith('push')) s.pos.set(RANGE);
     if(kind==='victory'){s.pos[1]=24;s.hp[6]=1;}
+    if(kind==='facing')s.pos[7]=61;
     if(kind==='defeat'){s.pos[7]=63;s.pos[3]=73;s.hp[0]=1;}
     if(kind==='pushSuccess')s.pos[6]=14;
     if(kind==='pushUnit'){s.pos[6]=14;s.pos[10]=4;}
@@ -62,6 +63,10 @@ export function installQA(app) {
     fixture(kind,{selected}); panel.open=false;
     $('qa-report').textContent = JSON.stringify({type:'manual-fixture',fixture:kind,artificial:true,state:snapshot(game.state)},null,2);
   }
+  button('向き確認：初期',()=>manual('facing',1));
+  button('向き確認：剣士を移動',async()=>{if(game.busy||game.state.pos[1]!==53)return;panel.open=false;await app.act({type:'move',unit:1,to:51});});
+  button('向き確認：魔王を移動',async()=>{if(game.busy||game.state.pos[1]!==51||game.state.side!==0||game.state.pos[6]!==34)return;game.state=R.beginTurn(R.endTurn(game.state),[2,2,1]);render();panel.open=false;await app.act({type:'move',unit:6,to:30});});
+  button('向き確認：剣士が攻撃',async()=>{if(game.busy||game.state.side!==1||game.state.pos[6]!==30)return;game.state=R.beginTurn(R.endTurn(game.state),[2,2,1]);render();panel.open=false;await app.act({type:'attack',unit:1,target:7});});
   button('検証局面：密集',()=>manual('dense',1));
   button('検証局面：射程',()=>manual('range',3));
   button('検証局面：勝利直前',()=>manual('victory',1));
@@ -77,10 +82,10 @@ export function installQA(app) {
     throw Error(label+'（'+timeout+'ms以内に条件を満たさず）');
   }
   async function frame(){await sleep(90);}
-  let pointerId=1000;
+  let pointerId=1000,inputType='touch';
   function pointer(type,x,y,id=pointerId,primary=true) {
     const v=$('viewport'),r=v.getBoundingClientRect();
-    v.dispatchEvent(new PointerEvent(type,{bubbles:true,cancelable:true,pointerId:id,pointerType:'touch',isPrimary:primary,button:0,buttons:type==='pointerup'||type==='pointercancel'?0:1,clientX:r.left+x,clientY:r.top+y}));
+    v.dispatchEvent(new PointerEvent(type,{bubbles:true,cancelable:true,pointerId:id,pointerType:inputType,isPrimary:primary,button:0,buttons:type==='pointerup'||type==='pointercancel'?0:1,clientX:r.left+x,clientY:r.top+y}));
   }
   function tap(x,y){pointerId++;pointer('pointerdown',x,y);pointer('pointerup',x,y);}
   function tapCell(c){const p=Board.toViewport(c%10+.5,Math.floor(c/10)+.5);tap(p.x,p.y);}
@@ -113,6 +118,13 @@ export function installQA(app) {
   function setCheck(id,value){if($(id).checked!==value)$(id).click();}
   async function confirm(){ $('btn-confirm').click();await until(()=>!game.busy,'行動完了',4500);await frame(); }
 
+  function facesKing(u) {
+    const id=+u.id,a=game.state.pos[id],b=game.state.pos[cfg.leaderOf[cfg.unitSide[id]^1]];
+    if(b<0)return true;
+    const dx=b%10-a%10,dy=Math.floor(b/10)-Math.floor(a/10);
+    const h=dx>0?'SE':'NW',v=dy>0?'SW':'NE';
+    return Math.abs(dx)===Math.abs(dy)?[h,v].includes(u.direction):u.direction===(Math.abs(dx)>Math.abs(dy)?h:v);
+  }
   async function runTests() {
     restoreManual();run.disabled=true;fullRun.disabled=true;panel.open=false;
     const storage=snapshotStorage(),previousSettings={...settings};
@@ -127,10 +139,10 @@ export function installQA(app) {
       await group('描画と入力安全性',async()=>{
         fixture();await frame();let d=Board.diagnostics.info;
         check('12体・8種を描画キューへ渡す',d.units.length===12&&new Set(d.units.map(u=>u.character)).size===8,{ids:d.units.map(u=>[u.id,u.character]),order:d.last?.order});
-        check('初期の自軍は右上NE・敵軍は左下SWを向く',d.units.every(u=>u.direction===(+u.id<6?'NE':'SW')),d.units.map(u=>({id:u.id,direction:u.direction})));
+        check('初期の全駒が敵王の方向を向く',d.units.every(facesKing),d.units.map(u=>({id:u.id,direction:u.direction})));
         check('部隊・自軍へ・旧盤面ツールを撤去',!$('btn-roster')&&!$('btn-focus')&&!$('roster-panel')&&!document.querySelector('.board-tools'));
         check('HP領域が各駒の足元座標に対応',d.labels.length===12&&d.labels.every(l=>{const u=d.units.find(u=>+u.id===l.u),p=Board.toViewport(u.x,u.y);return Math.abs(l.x+l.w/2+d.pan.x-p.x)<1&&Math.abs(l.y+l.h/2+d.pan.y-(p.y+9))<3;}));
-        select(0);tapCell(94);check('移動プレビューがコア候補と一致',game.preview?.action.to===94&&game.preview.path.at(-1)===94);
+        select(0);$('btn-move').click();tapCell(94);check('移動プレビューがコア候補と一致',game.preview?.action.to===94&&game.preview.path.at(-1)===94);
         const initial=snapshot(game.state),preview=JSON.stringify(game.preview.action),pan={...d.pan},builds=d.sceneBuilds;
         pointerId++;pointer('pointerdown',140,180);for(let i=1;i<=28;i++){pointer('pointermove',140+i*3,180+i*2);await sleep(8);}pointer('pointerup',224,236);
         d=Board.diagnostics.info;
@@ -157,14 +169,14 @@ export function installQA(app) {
         fixture('range');await frame();tapHP(11);check('岩の背後の暗黒魔法使いを足元で選択',game.sel===11);
       });
       await group('移動・確定・取消・主要キー',async()=>{
-        fixture();await frame();key('1');check('数字キーで王を選択',game.sel===0);tapCell(94);
+        fixture();await frame();key('1');check('数字キーで王を選択',game.sel===0);key('m');tapCell(94);
         const initial=snapshot(game.state);$('btn-cancel').click();check('プレビュー取消は状態を変えない',!game.preview&&equal(initial,snapshot(game.state)));
-        tapCell(94);const expected=R.applyAction(game.state,game.preview.action).state;$('btn-confirm').click();$('btn-confirm').click();key('Enter');
+        $('btn-move').click();tapCell(94);const expected=R.applyAction(game.state,game.preview.action).state;$('btn-confirm').click();$('btn-confirm').click();key('Enter');
         await sleep(60);check('移動中は経路方向SWで歩行アニメーション',Board.diagnostics.animation?.event.type==='move'&&Board.diagnostics.info.units.some(u=>u.action==='walk'&&u.direction==='SW'));
         await until(()=>!game.busy,'連打後の移動完了');await frame();check('確定連打で1回だけコア結果を反映し移動後は自軍NE',equal(snapshot(expected),snapshot(game.state))&&Board.diagnostics.info.units.find(u=>u.id==='0').direction==='NE');
         key('z');await until(()=>!game.busy,'Undo完了');check('Zキーで移動前のAP・位置・フラグを復元',equal(initial,snapshot(game.state)));
         key('Escape');await frame();check('Escで選択解除',game.sel===-1);
-        check('移動を戻した後も両軍の待機方向NE/SWへ戻る',!Board.diagnostics.animation&&Board.diagnostics.info.units.every(u=>u.action==='idle'&&u.direction===(cfg.unitSide[+u.id]===0?'NE':'SW')));
+        check('移動を戻すと初期の敵王への待機方向を復元',!Board.diagnostics.animation&&Board.diagnostics.info.units.every(u=>u.action==='idle'&&facesKing(u)));
       });
       await group('射程・攻撃・押し出し',async()=>{
         fixture('dense');game.state.hp[7]=1;render();await frame();select(1);tapHP(7);await confirm();
@@ -179,7 +191,57 @@ export function installQA(app) {
           const pv=game.preview;check('弓プレビュー '+kind,pv?.kind==='attack'&&pv.opt.hit.blocked===reason&&pv.opt.hit.dest===dest,pv?.opt.hit);
           expected=R.applyAction(game.state,pv.action).state;await confirm();check('弓の結果 '+kind,equal(snapshot(expected),snapshot(game.state)));
         }
-        check('攻撃後も両軍の待機方向NE/SW・攻撃済み',!Board.diagnostics.animation&&Board.diagnostics.info.units.every(u=>u.action==='idle'&&u.direction===(cfg.unitSide[+u.id]===0?'NE':'SW'))&&(game.state.flags[3]&2)!==0);
+        check('攻撃後は攻撃者が敵王へ向き直り攻撃済み',!Board.diagnostics.animation&&Board.diagnostics.info.units.every(u=>u.action==='idle')&&facesKing(Board.diagnostics.info.units.find(u=>u.id==='3'))&&(game.state.flags[3]&2)!==0);
+      });
+      await group('敵王への待機方向を駒ごとに保持',async()=>{
+        fixture('facing');await frame();
+        const dirs=()=>Object.fromEntries(Board.diagnostics.info.units.map(u=>[u.id,u.direction]));
+        const allBefore=dirs();select(1);$('btn-move').click();tapCell(51);await confirm();
+        check('NWへ歩いた剣士だけが敵王へSEで待機',dirs()[1]==='SE'&&Object.keys(allBefore).every(u=>u==='1'||dirs()[u]===allBefore[u]),dirs());
+        const beforeUndo=dirs();key('z');await until(()=>!game.busy,'向きのUndo');await frame();
+        check('Undoは位置だけでなく全駒の記憶した向きも復元',equal(dirs(),allBefore),dirs());
+        select(1);$('btn-move').click();tapCell(51);await confirm();check('再移動で同じ待機方向を再現',equal(dirs(),beforeUndo));
+        const waiting=dirs();
+        // CPU思考とは別の人工再生。合法手を通常の行動・演出・確定処理へ渡す。
+        game.state=R.beginTurn(R.endTurn(game.state),[2,2,1]);render();
+        await app.act({type:'move',unit:6,to:30});await frame();
+        check('魔王移動後は魔王だけSEへ向き、待機中の他11体は回転しない',dirs()[6]==='SE'&&Object.keys(waiting).every(u=>u==='6'||dirs()[u]===waiting[u]),dirs());
+        check('敵王が移動しても剣士は以前のSEを保持',dirs()[1]==='SE'&&!facesKing(Board.diagnostics.info.units.find(u=>u.id==='1')));
+        render();Board.centerOn(4.5,4.5);await frame();check('再描画・パンでも待機方向を再計算しない',dirs()[1]==='SE');
+        game.state=R.beginTurn(R.endTurn(game.state),[2,2,1]);render();select(1);tapHP(7);
+        $('btn-confirm').click();await sleep(60);
+        check('攻撃中は敵兵へのSWを向く',Board.diagnostics.info.units.some(u=>u.id==='1'&&u.action==='attack'&&u.direction==='SW'));
+        await until(()=>!game.busy,'向き攻撃完了');await frame();
+        check('攻撃終了後は敵王の新しい位置へNEで待機',dirs()[1]==='NE'&&game.state.hp[7]===2,dirs());
+        fixture('facing');setCheck('set-calm',true);await app.act({type:'move',unit:1,to:51});await frame();
+        check('控えめ演出でも行動終了時に敵王へ向く',dirs()[1]==='SE');setCheck('set-calm',false);
+        fixture('facing');const pending=app.act({type:'move',unit:1,to:51});await sleep(40);Board.cancelAnimation();await pending;await frame();
+        check('演出中断後も確定した移動に対応する向きで待機',game.state.pos[1]===51&&dirs()[1]==='SE'&&!game.busy);
+        fixture('facing');await frame();check('局面リセットは全駒の向きを再初期化',equal(dirs(),allBefore));
+      });
+      await group('携帯とPC共通の明示的移動',async()=>{
+        for(const type of ['touch','mouse']){
+          inputType=type;fixture();await frame();key('6');
+          const before=snapshot(game.state),originalPan=Board.diagnostics.info.pan;
+          tapCell(74);check(type+'：移動ボタン前に移動は実行されない',equal(before,snapshot(game.state))&&!game.preview);
+          if(game.sel>=0)app.cancel();key('6');$('btn-move').click();await frame();
+          const active=Board.diagnostics.info,cache=JSON.stringify(active.cache.caches);
+          check(type+'：移動モードで他11体だけ半透明・終了ボタンを隠す',game.moveMode&&active.units.every(u=>u.opacity===(u.id==='5'?1:.28))&&$('btn-main').hidden&&$('btn-cancel').textContent==='移動を取消');
+          const p=Board.toViewport(4.5,7.5),mage=active.units.find(u=>u.id==='5'),m=Board.toViewport(mage.x,mage.y);
+          check(type+'：検証先の床は選択中の魔法使いの身体と重なる',Math.abs(p.x-m.x)<18&&p.y>m.y-57&&p.y<m.y+4,{floor:p,mage:m});
+          tapCell(74);await frame();
+          check(type+'：身体より床を優先して王の前をプレビュー',game.sel===5&&game.preview?.cell===74&&game.preview.action.unit===5&&equal(before,snapshot(game.state))&&$('chooser').hidden);
+          check(type+'：移動先に実キャラの半透明プレビュー・HPは12体分だけ',Board.diagnostics.previewUnit?.character==='mage'&&Board.diagnostics.previewUnit.x===4.5&&Board.diagnostics.previewUnit.y===7.5&&Board.diagnostics.previewUnit.opacity===.55&&Board.diagnostics.info.labels.length===12&&$('btn-confirm').textContent==='ここへ移動');
+          tapCell(74);key('e');check(type+'：通常設定は再タップやEでも確定・終了しない',equal(before,snapshot(game.state))&&game.preview?.cell===74&&game.mode==='act');
+          tapCell(84);check(type+'：占有マスは理由を示し選択駒を変えない',game.moveMode&&game.sel===5&&!game.preview&&game.msg?.text.includes('ユニット')&&equal(before,snapshot(game.state)));
+          tapCell(74);const action=game.preview.action,expected=R.applyAction(game.state,action).state;await confirm();
+          check(type+'：ボタン確定で予定の2AP・マスに1回だけ移動、透明度復元',equal(snapshot(expected),snapshot(game.state))&&game.state.pos[5]===74&&!game.moveMode&&!Board.diagnostics.previewUnit&&Board.diagnostics.info.units.every(u=>u.opacity===1));
+          key('z');await until(()=>!game.busy,'密集移動Undo');await frame();check(type+'：Undoで元の魔法使いの位置へ戻る',equal(before,snapshot(game.state)));
+          $('btn-move').click();tapCell(74);$('btn-cancel').click();await frame();check(type+'：取消は駒の選択に戻り、半透明とプレビューを消す',game.sel===5&&!game.moveMode&&!game.preview&&!Board.diagnostics.previewUnit&&Board.diagnostics.info.units.every(u=>u.opacity===1));
+          check(type+'：移動モード切替で背景やキャラキャッシュを再生成しない',Board.diagnostics.info.sceneBuilds===active.sceneBuilds&&JSON.stringify(Board.diagnostics.info.cache.caches)===cache);
+          setCheck('set-quick',true);$('btn-move').click();tapCell(74);check(type+'：簡易設定でも初回は必ずプレビュー',game.preview?.cell===74&&equal(before,snapshot(game.state)));tapCell(74);await until(()=>!game.busy,'再タップ確定');await frame();check(type+'：簡易設定はプレビュー済みマスの再タップで確定',game.state.pos[5]===74&&!game.moveMode);setCheck('set-quick',false);
+        }
+        inputType='touch';
       });
       await group('設定・メニュー',async()=>{
         fixture();await frame();const state=snapshot(game.state);document.querySelector('[data-sheet="settings"]').click();
@@ -200,7 +262,7 @@ export function installQA(app) {
         check('CPU先手で開始',game.state.firstSide===1&&game.mode==='cpu');
         const pan={...Board.diagnostics.info.pan};await until(()=>game.mode==='roll'&&game.state.side===0,'実CPU手番から復帰',25000);
         await frame();
-        check('実CPUが合法手を順に実行し待機方向SWで自軍へ復帰',game.state.turn===2&&game.log.some(l=>l.text.includes('CPU のターン終了'))&&game.trails.length>0&&Board.diagnostics.info.units.filter(u=>cfg.unitSide[+u.id]===1).every(u=>u.action==='idle'&&u.direction==='SW'),{trails:game.trails,state:snapshot(game.state),directions:Board.diagnostics.info.units.map(u=>[u.id,u.direction])});
+        check('実CPUが合法手を順に実行し敵王への待機方向で自軍へ復帰',game.state.turn===2&&game.log.some(l=>l.text.includes('CPU のターン終了'))&&game.trails.length>0&&Board.diagnostics.info.units.filter(u=>cfg.unitSide[+u.id]===1).every(u=>u.action==='idle'&&facesKing(u)),{trails:game.trails,state:snapshot(game.state),directions:Board.diagnostics.info.units.map(u=>[u.id,u.direction])});
         check('画面外のCPU行動へ追従',Math.abs(Board.diagnostics.info.pan.x-pan.x)+Math.abs(Board.diagnostics.info.pan.y-pan.y)>20);
         key(' ','Space');await until(()=>game.mode==='act'&&!game.busy,'Spaceキーのダイス');check('Spaceで本来のダイスとAPを確定',game.state.ap===1+game.state.dice.reduce((a,b)=>a+b,0)&&game.state.ap>=1&&game.state.ap<=7);
         $('btn-main').click();check('行動可能APがあるターン終了は確認待ち',game.endArmed&&game.mode==='act');$('btn-main').click();check('2回目のターン終了でCPUへ',game.mode==='cpu');
@@ -264,6 +326,7 @@ export function installQA(app) {
           const error=R.validateAction(game.state,action);if(error)throw Error('入力作成側の非法手: '+error);
           const expected=R.applyAction(game.state,action).state;
           app.cancel();if(game.sel>=0)app.cancel();app.onCell(game.state.pos[action.unit]);
+          if(action.type==='move')$('btn-move').click();
           app.onCell(action.type==='move'?action.to:game.state.pos[action.target]);
           if(!game.preview||!equal(game.preview.action,action))throw Error('通常対局の入力からプレビューが一致しません: '+JSON.stringify({action,preview:game.preview?.action}));
           $('btn-confirm').click();await until(()=>!game.busy,'通常対局の確定',5000);

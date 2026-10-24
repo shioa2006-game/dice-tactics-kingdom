@@ -32,6 +32,7 @@ const game = {
   state: null, // ルールエンジンの状態（rules.js）
   mode: 'idle', // 'roll'（あなたがダイスを振る）| 'act'（あなたが行動中）| 'cpu' | 'over'
   sel: -1, // 選択中のユニット（敵なら情報の表示だけ）
+  moveMode: false, // 床を優先して移動先を選ぶ（携帯・PC共通）
   preview: null, // 確定前の行動案 {kind: 'move'|'attack', ...}
   busy: false, // 演出の再生中（入力を受け付けない）
   acting: -1, // CPU が動かしているユニット
@@ -79,6 +80,7 @@ function newGame() {
   const level = LEVELS[settings.level] ? settings.level : DEFAULT_LEVEL;
   Object.assign(game, {
     sel: -1,
+    moveMode: false,
     preview: null,
     busy: false,
     acting: -1,
@@ -163,12 +165,13 @@ async function act(action) {
   else game.undo = []; // 攻撃した後は取り消せない
   disarmEnd();
   game.actNote = describeAction(s, action);
-  Object.assign(game, { preview: null, msg: null, apFresh: false, busy: true });
+  Object.assign(game, { moveMode: false, preview: null, msg: null, apFresh: false, busy: true });
   logEvents(r.events, HUMAN);
   const id = game.id;
   render();
   await FX.playEvents(r.events, { speed: HUMAN_ANIM });
   if (id !== game.id) return;
+  Board.completeAction(s, r.state, action, r.events);
   game.busy = false;
   game.actNote = '';
   game.state = r.state;
@@ -183,7 +186,7 @@ function canStillAct(s, u) {
 }
 
 async function undoMove() {
-  if (game.mode !== 'act' || game.busy || game.undo.length === 0) return;
+  if (game.mode !== 'act' || game.busy || game.moveMode || game.undo.length === 0) return;
   const prev = game.undo.pop();
   const cur = game.state;
   const u = cfg.sideUnits[HUMAN].find((x) => cur.pos[x] !== prev.pos[x]);
@@ -194,13 +197,14 @@ async function undoMove() {
   snd(() => S.undo());
   if (u !== undefined) await FX.slide(u, cur.pos[u], prev.pos[u], HUMAN_ANIM);
   if (id !== game.id) return;
+  Board.restoreFacing(prev);
   Object.assign(game, { busy: false, state: prev, sel: u !== undefined ? u : game.sel });
   log('sys', '移動を取り消しました');
   render();
 }
 
 function requestEndTurn() {
-  if (game.mode !== 'act' || game.busy) return;
+  if (game.mode !== 'act' || game.busy || game.moveMode || game.preview) return;
   // まだ動ける駒と AP が残っているときは、もう一度押して確定（誤タップ防止）
   if (!game.endArmed && game.state.ap > 0 && game.canAct) {
     game.endArmed = true;
@@ -277,6 +281,7 @@ async function cpuTurn() {
     game.busy = true;
     await FX.playEvents(r.events, { speed: sp.anim });
     if (id !== game.id) return;
+    Board.completeAction(s, r.state, a, r.events);
     game.busy = false;
     game.state = r.state;
     for (const e of r.events) if (e.type === 'move') game.trails.push([e.from, ...e.path]);
@@ -465,7 +470,7 @@ function movePreview(m) {
     short,
     action: { type: 'move', unit: u, to: m.cell },
     text: `${N(u)} → ${C(m.cell)} へ移動 <b>${m.cost}AP</b>（残り${left}）`,
-    sub: sub + '　<span class="hint-tap">再タップで確定</span>',
+    sub: sub + (settings.quick ? '　同じマスを再タップ、または「ここへ移動」で確定' : '　「ここへ移動」で確定'),
   };
 }
 
@@ -511,6 +516,14 @@ function setMsg(text, cls = '', inspect = -1) {
 // 入力
 // ---------------------------------------------------------------------------
 
+function startMove() {
+  if (game.busy || game.mode !== 'act' || game.sel < 0 || cfg.unitSide[game.sel] !== HUMAN) return;
+  if (!R.moveOptions(game.state, game.sel).length) return;
+  disarmEnd();Board.closePanels();
+  Object.assign(game, {moveMode:true, preview:null, msg:null});
+  render();
+}
+
 function onCell(c) {
   const s = game.state;
   if (!s || game.busy) return;
@@ -518,6 +531,16 @@ function onCell(c) {
   const prevInspect = game.msg ? game.msg.inspect : -1;
   game.msg = null;
   const mine = game.mode === 'act' && game.sel >= 0 && cfg.unitSide[game.sel] === HUMAN;
+  // 移動モードでは身体・HPより床を優先し、他の駒の選択や攻撃は行わない。
+  if (mine && game.moveMode) {
+    const m = R.moveOptions(s, game.sel).find(o => o.cell === c);
+    if (!m) {
+      game.preview = null;
+      return setMsg(R.validateAction(s, {type:'move', unit:game.sel, to:c}) || '移動できません', 'error');
+    }
+    if (settings.quick && game.preview?.kind === 'move' && game.preview.cell === c) return confirmPreview();
+    game.preview = movePreview(m);snd(() => S.preview('move'));return render();
+  }
   // 攻撃できない敵をもう一度タップしたら、その敵を調べる（脅威の表示）
   if (mine && u >= 0 && u === prevInspect) {
     game.preview = null;
@@ -529,12 +552,9 @@ function onCell(c) {
     const pv = game.preview;
     // 同じ対象をもう一度タップ → 確定
     if (pv && ((pv.kind === 'move' && pv.cell === c) || (pv.kind === 'attack' && u === pv.target))) return confirmPreview();
-    const m = R.moveOptions(s, game.sel).find((o) => o.cell === c);
-    if (m) {
-      if (settings.quick) return act(m && { type: 'move', unit: game.sel, to: c });
-      game.preview = movePreview(m);
-      snd(() => S.preview('move'));
-      return render();
+    if (u < 0 && R.moveOptions(s, game.sel).some(o => o.cell === c)) {
+      game.preview = null;
+      return setMsg('「移動」を押してから、床の移動先を選んでください。');
     }
     if (u >= 0 && cfg.unitSide[u] !== HUMAN) {
       const a = R.attackOptions(s, game.sel).find((o) => o.target === u);
@@ -568,6 +588,7 @@ function selectOwn(k) {
   if (game.state.pos[u] < 0) return;
   game.preview = null;
   game.msg = null;
+  game.moveMode = false;
   game.sel = game.sel === u ? -1 : u;
   if (game.sel >= 0) snd(() => S.select());
   render();
@@ -575,7 +596,8 @@ function selectOwn(k) {
 
 function cancel() {
   if (game.busy) return;
-  if (game.preview) game.preview = null;
+  if (game.moveMode) { game.moveMode = false; game.preview = null; }
+  else if (game.preview) game.preview = null;
   else game.sel = -1;
   game.msg = null;
   render();
@@ -632,7 +654,8 @@ function onKey(e) {
       e.preventDefault();
       humanRoll();
     }
-  } else if (e.key === 'e' || e.key === 'E') { if (!game.preview) requestEndTurn(); }
+  } else if (e.key === 'm' || e.key === 'M') startMove();
+  else if (e.key === 'e' || e.key === 'E') { if (!game.preview && !game.moveMode) requestEndTurn(); }
   else if (e.key === 'z' || e.key === 'Z') undoMove();
   else if (/^[1-6]$/.test(e.key)) selectOwn(+e.key - 1);
 }
@@ -749,6 +772,7 @@ function computeHints() {
 }
 
 function render() {
+  if (game.moveMode && (game.mode !== 'act' || game.busy || game.sel < 0 || cfg.unitSide[game.sel] !== HUMAN || !R.moveOptions(game.state,game.sel).length)) game.moveMode = false;
   game.threatSet = game.threat && game.state ? threatened(game.state, HUMAN) : new Set();
   game.inspectThreat = game.state && !game.preview ? inspectThreat(game.state, game.msg && game.msg.inspect >= 0 ? -1 : game.sel) : null;
   computeHints();
@@ -930,6 +954,7 @@ applySettingsUI();
 
 document.getElementById('btn-main').addEventListener('click', onMain);
 document.getElementById('btn-undo').addEventListener('click', undoMove);
+document.getElementById('btn-move').addEventListener('click', startMove);
 document.getElementById('btn-confirm').addEventListener('click', confirmPreview);
 document.getElementById('btn-cancel').addEventListener('click', cancel);
 document.getElementById('btn-again').addEventListener('click', newGame);

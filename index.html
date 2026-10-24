@@ -38,7 +38,7 @@
     <section class="info" id="info" aria-live="polite" aria-label="選択と行動の情報">
       <img id="selection-portrait" class="selection-portrait" alt="" hidden>
       <div class="info-text"><div id="info-main" class="info-main"></div><div id="info-sub" class="info-sub"></div></div>
-      <div class="info-actions"><button id="btn-confirm" class="btn confirm" hidden>確定</button><button id="btn-cancel" class="btn ghost cancel" hidden>取消</button></div>
+      <div class="info-actions"><button id="btn-move" class="btn move" aria-keyshortcuts="M" hidden>移動</button><button id="btn-confirm" class="btn confirm" hidden>確定</button><button id="btn-cancel" class="btn ghost cancel" hidden>取消</button></div>
     </section>
 
     <section class="tray" id="tray" aria-label="ダイスと AP">
@@ -72,13 +72,13 @@
     <div class="sheet-head"><h2>設定</h2><button class="btn ghost sheet-close">閉じる</button></div>
     <div class="sheet-body settings">
       <div class="row speed-row"><span>CPU の再生速度</span><div class="seg" id="set-speed" role="radiogroup" aria-label="CPU の再生速度"><button data-v="slow" role="radio">ゆっくり</button><button data-v="normal" role="radio">標準</button><button data-v="fast" role="radio">速い</button></div></div>
-      <label class="row check"><input type="checkbox" id="set-quick"><span>移動は 1 タップで確定する<br><small>攻撃は常にプレビューしてから確定</small></span></label>
+      <label class="row check"><input type="checkbox" id="set-quick"><span>移動先の再タップでも確定する<br><small>移動モードで最初のタップは必ずプレビュー</small></span></label>
       <label class="row check"><input type="checkbox" id="set-calm"><span>演出を控えめにする</span></label>
       <div class="row audio"><label class="check"><input type="checkbox" id="set-sfx"><span>効果音</span></label><input type="range" id="set-sfx-vol" min="0" max="100" step="5" aria-label="効果音の音量"></div>
       <div class="row audio"><label class="check"><input type="checkbox" id="set-bgm"><span>BGM</span></label><input type="range" id="set-bgm-vol" min="0" max="100" step="5" aria-label="BGM の音量"></div>
       <p class="note">BGM は初めてオンにすると曲の準備に数秒かかります。音は最初のタップ後に有効になります。</p>
       <button id="btn-new" class="btn primary wide">タイトルに戻る（新しいゲーム）</button>
-      <p class="note key-note">Space：ダイスを振る　Enter：確定<br>E：ターン終了　Z：移動を戻す<br>1〜6：自軍の駒を選択　Esc：取り消し</p>
+      <p class="note key-note">Space：ダイスを振る　Enter：確定<br>M：移動モード　E：ターン終了　Z：移動を戻す<br>1〜6：自軍の駒を選択　Esc：取り消し</p>
     </div>
   </section>
 

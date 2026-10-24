@@ -5,6 +5,7 @@ import {characters} from '../../vendor/inkstone/characters/register.js';
 import {STANDARD_LAYOUT, DIRS, MOVED, ATTACKED, HUMAN, MAGE} from '../core/config.js';
 import * as R from '../core/rules.js';
 import {CHARACTER_IDS, NAMES} from './kingdom-assets.js';
+import {createFacing, directionToward} from './kingdom-facing.js';
 
 const $=id=>document.getElementById(id), W=1300, H=1100, TILE=75, SCALE=1.25;
 const defs=Object.fromEntries(characters.map(c=>[c.id,c]));
@@ -22,13 +23,14 @@ let cfg, game, renderer, viewport, onCell, ready=false;
 let pan={x:0,y:0}, cameraMotion=null, pointer=null, prevSize={w:0,h:0}, oldState=null, oldId=-1;
 let currentUnits=[], labels=[], moves=[], attacks=[], nominal=[], animation=null, generation=0, lastFrame=0;
 const pointers=new Set(), overrides=new Map(), portraits=new Map(), timings=[];
-// 待機時は常に両軍が向かい合う。行動中だけ進行方向・攻撃方向を上書きする。
-const idleDirection=u=>cfg.unitSide[u]===HUMAN?'NE':'SW';
+// 待機方向は各駒の行動完了時だけ更新。他の駒や王の移動・再描画では変えない。
+let facing;
 let lastInfo=null, builds=0, cancelWaits=new Set();
 let attackReady=new Set();
+let previewUnit=null;
 
 export async function init(config, cellHandler){
-  cfg=config;onCell=cellHandler;viewport=$('viewport');
+  cfg=config;facing=createFacing(cfg);onCell=cellHandler;viewport=$('viewport');
   renderer=createRenderer({canvas:$('kingdom-canvas'),width:W,height:H,dpr:Math.min(devicePixelRatio||1,1.5),characterScale:SCALE,footOffset:3,mode:'cached',characters,lineBoil:true,footFix:true,xray:true});
   renderer.setCamera({scale:.5,centerX:5,centerY:5});renderer.setRoom(room);builds++;
   installInput();makePortraits();drawTitle();
@@ -47,11 +49,11 @@ export async function init(config, cellHandler){
 export function render(g){
   game=g;
   if(oldState!==g.state){overrides.clear();animation=null;oldState=g.state;}
-  if(oldId!==g.id){oldId=g.id;cancelAnimation();closePanels();if(renderer)centerOn(5.1,7.5);}
+  if(oldId!==g.id){oldId=g.id;cancelAnimation();facing.reset(g.state);closePanels();if(renderer)centerOn(5.1,7.5);}
   moves=[];attacks=[];nominal=[];
   attackReady=new Set(g.mode==='act'&&!g.busy?cfg.sideUnits[HUMAN].filter(u=>R.attackOptions(g.state,u).length):[]);
-  if(g.mode==='act'&&!g.busy&&g.sel>=0&&cfg.unitSide[g.sel]===HUMAN){moves=R.moveOptions(g.state,g.sel);attacks=R.attackOptions(g.state,g.sel);}
-  if(g.sel>=0&&g.state.pos[g.sel]>=0){
+  if(g.mode==='act'&&!g.busy&&g.sel>=0&&cfg.unitSide[g.sel]===HUMAN){if(g.moveMode)moves=R.moveOptions(g.state,g.sel);else attacks=R.attackOptions(g.state,g.sel);}
+  if(g.sel>=0&&!g.moveMode&&g.state.pos[g.sel]>=0){
     const p=xy(g.state.pos[g.sel]),t=cfg.types[cfg.unitType[g.sel]];
     for(const [dx,dy] of DIRS)for(let d=t.minRange;d<=t.maxRange;d++){
       const x=Math.floor(p.x)+dx*d,y=Math.floor(p.y)+dy*d;
@@ -59,7 +61,7 @@ export function render(g){
     }
   }
   drawMinimap();
-  viewport?.setAttribute('aria-label',`戦術盤面、ドラッグで移動。${g.sel>=0?NAMES[g.sel]+' 選択中。':''}駒をタップして選択。重なった駒は候補から選べます。`);
+  viewport?.setAttribute('aria-label',`戦術盤面、ドラッグで移動。${g.sel>=0?NAMES[g.sel]+' 選択中。':''}${g.moveMode?'移動モード。床をタップして移動先をプレビューし、ここへ移動で確定。':'駒をタップして選択。重なった駒は候補から選べます。'}`);
 }
 
 export function toViewport(x,y){const p=renderer.worldToScreen(x,y);return{x:p.x+pan.x,y:p.y+pan.y};}
@@ -81,6 +83,11 @@ function inputAllowed(){return ready&&game&&!game.busy&&!['cpu','title'].include
 function chooseUnit(u){closePanels();if(!inputAllowed()||game.state.pos[u]<0)return;onCell(game.state.pos[u]);}
 function tap(x,y){
   if(!inputAllowed())return;if(panelOpen()){closePanels();return;}
+  if(game.moveMode){
+    const p=fromViewport(x,y),cx=Math.floor(p.x),cy=Math.floor(p.y);
+    if(cx>=0&&cy>=0&&cx<10&&cy<10)onCell(cy*10+cx);
+    return;
+  }
   const sx=x-pan.x,sy=y-pan.y;
   const bodies=currentUnits.filter(u=>{const q=renderer.worldToScreen(u.x,u.y);return Math.abs(sx-q.x)<18&&sy>q.y-57&&sy<q.y+4;});
   const hp=labels.findLast(l=>sx>=l.x&&sx<=l.x+l.w&&sy>=l.y&&sy<=l.y+l.h);
@@ -134,6 +141,9 @@ function installInput(){
 
 // イベントの表示専用上書き。ゲーム側が確定したstateを渡すと全て破棄する。
 export function beginEvents(){overrides.clear();animation=null;}
+// 演出を省略・中断した場合も、コントローラーが確定する行動と同じタイミングで更新する。
+export function completeAction(before,after,action,events){facing.complete(before,after,action,events);}
+export function restoreFacing(state){facing.restore(state);}
 export function cancelAnimation(){generation++;animation=null;cameraMotion=null;overrides.clear();for(const done of cancelWaits)done();cancelWaits.clear();}
 function boundedWait(ms){return new Promise(resolve=>{let timer;const done=()=>{clearTimeout(timer);cancelWaits.delete(done);resolve();};timer=setTimeout(done,ms);cancelWaits.add(done);});}
 export async function followEvents(events,{still=false}={}){
@@ -152,6 +162,7 @@ export async function animateEvent(e,{duration=250,still=false}={}){
   if(!still)await boundedWait(duration);
   if(my!==generation)return;
   if(e.type==='move'||e.type==='knockback')overrides.set(e.unit,{...overrides.get(e.unit),...xy(e.to)});
+  if(e.type==='attack')overrides.set(e.unit,{...overrides.get(e.unit),direction:['NE','SE','SW','NW'][e.dir]});
   if(e.type==='kill')overrides.set(e.unit,{...overrides.get(e.unit),hidden:true});
   animation=null;
 }
@@ -159,7 +170,7 @@ const direction=(a,b)=>{const p=xy(a),q=xy(b);return q.x>p.x?'SE':q.x<p.x?'NW':q
 function visualFrame(now){
   const units=[],effects=[],projectiles=[];
   for(let u=0;u<12;u++)if(game.state.pos[u]>=0&&!overrides.get(u)?.hidden){
-    units.push({id:String(u),character:CHARACTER_IDS[u],...xy(game.state.pos[u]),direction:idleDirection(u),action:'idle',actionTime:document.body.classList.contains('calm')?0:now/1000+u*.17,...overrides.get(u)});
+    units.push({id:String(u),character:CHARACTER_IDS[u],...xy(game.state.pos[u]),direction:facing.get(u),opacity:(game.moveMode&&u!==game.sel) ? .28 : 1,action:'idle',actionTime:document.body.classList.contains('calm')?0:now/1000+u*.17,...overrides.get(u)});
   }
   if(animation){
     const {event:e,start,duration}=animation,t=clamp((now-start)/duration,0,1),actor=units.find(u=>+u.id===e.unit);
@@ -176,6 +187,10 @@ function visualFrame(now){
     }else if(actor&&e.type==='kill'){actor.shakeX=Math.sin(t*45)*5;if(t>.8)units.splice(units.indexOf(actor),1);}
     else if(actor&&e.type==='knockbackBlocked')actor.shakeX=Math.sin(t*23)*5*(1-t);
   }
+  if(game.moveMode&&game.preview?.kind==='move'){
+    const u=game.sel,c=game.preview.cell;
+    units.push({id:'move-preview',preview:true,character:CHARACTER_IDS[u],...xy(c),direction:directionToward(c,game.state.pos[cfg.leaderOf[cfg.unitSide[u]^1]],cfg.W,facing.get(u)),action:'idle',actionTime:0,opacity:.55,xray:false});
+  }
   return{units,effects,projectiles};
 }
 
@@ -191,7 +206,7 @@ function floorOverlay(ctx,api){
   for(const u of game.threatSet)tile(ctx,api,s.pos[u],null,'#a44832',4,[7,5]);
   for(const trail of game.trails)line(ctx,api,trail,'#ad7755',3,[6,6]);
   if(pv?.kind==='move'){
-    line(ctx,api,[pv.from,...pv.path],'#316c60',5,[7,5]);tile(ctx,api,pv.cell,'#d5b86744','#92702f',5);
+    line(ctx,api,[pv.from,...pv.path],'#316c60',5,[7,5]);tile(ctx,api,pv.cell,'#d5b86765','#92702f',7);
     for(const u of pv.after)tile(ctx,api,s.pos[u],'#b65c3630','#ae563b',4);
     for(const u of pv.short)tile(ctx,api,s.pos[u],null,'#8e8476',3,[6,5]);
   }
@@ -256,11 +271,12 @@ function frame(now){
   requestAnimationFrame(frame);if(!ready||!game||document.hidden)return;
   if(cameraMotion){const m=cameraMotion,t=clamp((now-m.start)/m.duration,0,1),f=ease(t);pan={x:m.from.x+(m.to.x-m.from.x)*f,y:m.from.y+(m.to.y-m.from.y)*f};transform();if(t===1)cameraMotion=null;}
   if(now-lastFrame<30)return;lastFrame=now;
-  const f=visualFrame(now);currentUnits=f.units;
+  const f=visualFrame(now);currentUnits=f.units.filter(u=>!u.preview);previewUnit=f.units.find(u=>u.preview)||null;
   lastInfo=renderer.render({timeSeconds:now/1000,...f,floorOverlay,topOverlay});timings.push(lastInfo.totalMs);if(timings.length>300)timings.shift();
 }
 // 読み取り用診断。通常URLには人工局面や固定乱数の操作を置かない。
 export const diagnostics={
   get ready(){return ready;},get renderer(){return renderer;},get game(){return game;},get animation(){return animation;},
+  get previewUnit(){return previewUnit&&{...previewUnit};},
   get info(){const t=timings.slice().sort((a,b)=>a-b);return{tileWidth:TILE,tileHeight:42,characterScale:SCALE,hpLayer:'floor-before-characters',sceneBuilds:builds,center:centerWorld(),pan:{...pan},p95:t[Math.floor(t.length*.95)]||0,max:Math.max(0,...t),units:currentUnits.map(u=>({...u})),labels:labels.map(l=>({...l})),last:lastInfo,cache:renderer.getDiagnostics()};}
 };
