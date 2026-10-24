@@ -8,7 +8,9 @@ import {CHARACTER_IDS, NAMES} from './kingdom-assets.js';
 import {createFacing, directionToward} from './kingdom-facing.js';
 import {atlasDpr,loadCharacterAtlases} from './kingdom-atlas.js';
 
-const $=id=>document.getElementById(id), W=1300, H=1100, TILE=75, SCALE=1.25;
+import {CAMERA_SCALE, CHARACTER_SCALE as SCALE, TILE_WIDTH as TILE, TILE_HEIGHT} from './kingdom-display.js';
+
+const $=id=>document.getElementById(id), W=1300, H=1100;
 const defs=Object.fromEntries(characters.map(c=>[c.id,c]));
 const xy=c=>({x:c%10+.5,y:Math.floor(c/10)+.5});
 const clamp=(v,a,b)=>Math.max(a,Math.min(v,b));
@@ -33,7 +35,7 @@ let atlasLoad=null;
 export async function init(config, cellHandler){
   cfg=config;facing=createFacing(cfg);onCell=cellHandler;viewport=$('viewport');
   renderer=createRenderer({canvas:$('kingdom-canvas'),width:W,height:H,dpr:atlasDpr(devicePixelRatio||1),characterScale:SCALE,footOffset:3,mode:'cached',characters,lineBoil:true,footFix:true,xray:true});
-  renderer.setCamera({scale:.5,centerX:5,centerY:5});renderer.setRoom(room);builds++;
+  renderer.setCamera({scale:CAMERA_SCALE,centerX:5,centerY:5});renderer.setRoom(room);builds++;
   installInput();makePortraits();drawTitle();
   atlasLoad=await loadCharacterAtlases(renderer,characters,(loaded,total,fallback)=>{
     $('loading-detail').textContent=fallback?'キャラクター画像を再準備中':`キャラクター画像を読み込み中 ${loaded} / ${total}`;
@@ -232,7 +234,7 @@ function drawFootVitals(ctx,api){
       ctx.beginPath();ctx.arc(left+9+j*18,top,7,0,Math.PI*2);ctx.fillStyle=j<hp?color:'#f6efdf';ctx.fill();
       ctx.strokeStyle='#faf5e9';ctx.lineWidth=4;ctx.stroke();ctx.strokeStyle=color;ctx.lineWidth=1.6;ctx.stroke();
     }
-    const q=renderer.worldToScreen(u.x,u.y);labels.push({u:id,x:q.x-width/4-2,y:q.y+4,w:width/2+4,h:12});
+    const q=renderer.worldToScreen(u.x,u.y);labels.push({u:id,x:q.x-width*CAMERA_SCALE/2-2,y:q.y+10*CAMERA_SCALE-2,w:width*CAMERA_SCALE+4,h:18*CAMERA_SCALE+4});
     if(s.flags[id]||attackReady.has(id)){ctx.font='bold 19px sans-serif';ctx.fillStyle=color;ctx.textAlign='left';ctx.fillText(attackReady.has(id)?'!':s.flags[id]&ATTACKED?'✓':'•',left+width+3,top+7);}
   }
 }
@@ -279,5 +281,5 @@ export const diagnostics={
   get atlas(){return atlasLoad;},
   get ready(){return ready;},get renderer(){return renderer;},get game(){return game;},get animation(){return animation;},
   get previewUnit(){return previewUnit&&{...previewUnit};},
-  get info(){const t=timings.slice().sort((a,b)=>a-b);return{tileWidth:TILE,tileHeight:42,characterScale:SCALE,hpLayer:'floor-before-characters',sceneBuilds:builds,center:centerWorld(),pan:{...pan},p95:t[Math.floor(t.length*.95)]||0,max:Math.max(0,...t),units:currentUnits.map(u=>({...u})),labels:labels.map(l=>({...l})),last:lastInfo,cache:renderer.getDiagnostics()};}
+  get info(){const t=timings.slice().sort((a,b)=>a-b);return{tileWidth:TILE,tileHeight:TILE_HEIGHT,characterScale:SCALE,hpLayer:'floor-before-characters',sceneBuilds:builds,center:centerWorld(),pan:{...pan},p95:t[Math.floor(t.length*.95)]||0,max:Math.max(0,...t),units:currentUnits.map(u=>({...u})),labels:labels.map(l=>({...l})),last:lastInfo,cache:renderer.getDiagnostics()};}
 };

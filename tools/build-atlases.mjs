@@ -1,3 +1,4 @@
+import {FRAME_SCALE} from '../src/ui/kingdom-display.js';
 // localhost専用の生成サーバー。StudioのCanvas描画を可逆圧縮WebPへ保存（--pngも可）。
 import http from 'node:http';
 import fs from 'node:fs/promises';
@@ -29,14 +30,14 @@ const server=http.createServer(async(req,res)=>{
    let size=0,chunks=[];for await(const chunk of req){size+=chunk.length;if(size>32*1024*1024)throw Error('Payload too large');chunks.push(chunk);}
    const data=JSON.parse(Buffer.concat(chunks));
    if(u.pathname==='/__atlas/save'){
-    const {meta,png,dpr}=data;if(!ids.includes(meta.id)||![1,1.5].includes(dpr)||meta.k!==.625*dpr)throw Error('Invalid atlas');
+    const {meta,png,dpr}=data;if(!ids.includes(meta.id)||![1,1.5].includes(dpr)||meta.k!==FRAME_SCALE*dpr)throw Error('Invalid atlas');
     if(!png.startsWith('data:image/png;base64,'))throw Error('PNG required');
     let bytes=Buffer.from(png.split(',')[1],'base64');if(bytes.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw Error('Invalid PNG');
     if(format==='webp')bytes=await encode(bytes);
     const sha256=crypto.createHash('sha256').update(bytes).digest('hex');
     const file=`${meta.id}-${dpr}-${sha256.slice(0,16)}.${format}`;
     await fs.writeFile(new URL(file,out),bytes);
-    (variants[dpr]??={dpr,k:.625*dpr,characters:{}}).characters[meta.id]={...meta,file,sha256,bytes:bytes.length};
+    (variants[dpr]??={dpr,k:FRAME_SCALE*dpr,characters:{}}).characters[meta.id]={...meta,file,sha256,bytes:bytes.length};
     res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify({file,bytes:bytes.length}));return;
    }
    if(u.pathname==='/__atlas/finish'){

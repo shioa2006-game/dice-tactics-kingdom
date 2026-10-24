@@ -1,3 +1,4 @@
+import {FRAME_SCALE} from '../src/ui/kingdom-display.js';
 import {characters} from '../vendor/inkstone/characters/register.js';
 import {createFrameCacheStore} from '../vendor/inkstone/src/rendering/cache.js';
 import {isolateDrawing} from '../vendor/inkstone/src/core/settings.js';
@@ -11,7 +12,7 @@ button.onclick=async()=>{
  try{
   for(const dpr of [1,1.5])for(const def of characters){
    report.textContent=`生成中 ${results.length+1}/16: ${def.id} DPR ${dpr}`;await sleep();
-   const store=createFrameCacheStore(),k=.625*dpr;
+   const store=createFrameCacheStore(),k=FRAME_SCALE*dpr;
    const e=isolateDrawing(draw,()=>store.get(def,k,draw));
    const columns=16,rows=Math.ceil(e.count/columns),canvas=document.createElement('canvas');
    canvas.width=e.frameW*columns;canvas.height=e.frameH*rows;

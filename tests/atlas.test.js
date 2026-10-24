@@ -1,3 +1,4 @@
+import {FRAME_SCALE} from '../src/ui/kingdom-display.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -11,7 +12,7 @@ const draw={lw:1,boil:true,footGround:true,linearStance:true};
 test('事前生成画像の出典が現在のStudio描画コードと一致する',async()=>assert.deepEqual(manifest.source,await atlasSource()));
 test('16画像のSHA-256・全方向・全コマ・動作周期・足元原点を保持する',async()=>{
  for(const dpr of [1,1.5]){
-  const variant=manifest.variants[dpr];assert.equal(Object.keys(variant.characters).length,8);let count=0;
+  const variant=manifest.variants[dpr];assert.equal(variant.k,FRAME_SCALE*dpr);assert.equal(Object.keys(variant.characters).length,8);let count=0;
   for(const def of characters){
    const m=variant.characters[def.id],bytes=await fs.readFile(new URL('assets/characters/'+m.file,root));
    assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),m.sha256);assert.equal(bytes.length,m.bytes);

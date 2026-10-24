@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-24T15:48:20.162Z",
+  "recordedAt": "2026-10-24T21:57:25.364035+00:00",
   "pathBase": "dice-tactics-kingdom/",
   "digest": "SHA-256",
   "note": "コピーの現在値を記録。app/view/fx/kingdom-board などを編集した場合は copySHA256 と ownFiles を再計算する。元の照合データは更新しない。",
@@ -579,7 +579,7 @@
     },
     {
       "file": "src/ui/kingdom-board.js",
-      "SHA256": "c10ab384c808bbfc59a34ac873378ada999dda1303b241caedacebc88021b767"
+      "SHA256": "6b21055a6d89bf1f412d6d1b7881f3bfd3e020c74190417730dade9d1bed7344"
     },
     {
       "file": "package.json",
@@ -595,7 +595,7 @@
     },
     {
       "file": "README.md",
-      "SHA256": "7bbf22b394b1d5ff933aac2021ed1165d18d270e9fc6f5edaee76839d47b403e"
+      "SHA256": "7863097a2244f1d7aca1ebdcc8e1ba98f74fdfc294c72beca985c7282b633df7"
     },
     {
       "file": "docs/SOURCES.md",
@@ -607,7 +607,7 @@
     },
     {
       "file": "docs/TEST_REPORT.md",
-      "SHA256": "d8fc7e7328d3ed004de15c9622372bb83ed392cae3a4517e7b2ea9c45b6b4de6"
+      "SHA256": "9ab1f67fe7cd87b4ecaa15835c8b57f48a51b86e8553758e83f3bccc531333ce"
     },
     {
       "file": "tests/compatibility.test.js",
@@ -615,7 +615,7 @@
     },
     {
       "file": "tests/browser-qa.js",
-      "SHA256": "a366346804f8933d0478fb556baa92286ef6d52454af2b2ef564646d14de4c85"
+      "SHA256": "9d44806a5fce4fc80cd397eaf3c6aedf7aa71cf7d9e42751c3cf1f5ade372d01"
     },
     {
       "file": "tests/reference/core/ai.js",
@@ -703,7 +703,7 @@
     },
     {
       "file": "docs/ANIMATION_ASSETS.md",
-      "SHA256": "ef429b8afb62b646114b53be957a917586c7124e6bc21565531d1bd349c98c46"
+      "SHA256": "cdf5faf914ba0f4829c16f97348ff0a6a7ccdfb833515fb9f46345f17b1d2dca"
     },
     {
       "file": "docs/STARTUP_PERFORMANCE.md",
@@ -711,15 +711,15 @@
     },
     {
       "file": "tools/atlas-source.mjs",
-      "SHA256": "be66b25df37ffd01389b82e4ca5b9cb356256b88d980836e0de76a89d7bb9f00"
+      "SHA256": "6bd24beef5060550e9a1861ab1787648cfb26486216a66d23315fe6d0a297635"
     },
     {
       "file": "tools/build-atlases.mjs",
-      "SHA256": "45f7d4d0d1a05cc8286023d01fddc23b688f8ad80ba6f0d96865a9cb35984182"
+      "SHA256": "fbcb98d2dafdd03af75b1cde47ccc42fa5fca20285b65b8efcd9adade2a1fbfc"
     },
     {
       "file": "tools/export-atlases.js",
-      "SHA256": "aa656e3550557483e0ffc9c7f6fde38fb216683a5146d7cfcca62386288baa8e"
+      "SHA256": "9b324dc3519c6ab34b7c993d95708692b7370a4b0b12963c885eac902ba22ede"
     },
     {
       "file": "tools/encode-atlas.py",
@@ -727,7 +727,7 @@
     },
     {
       "file": "tests/atlas.test.js",
-      "SHA256": "460e2a18559a73badd834e2d1112abb04e955defaca6650531bb6f807cf50bd4"
+      "SHA256": "3120aa5f2414c8c28a8f6057ae9d034d7d552f90ceb74f3b2ae3ebae4b488881"
     },
     {
       "file": "tests/atlas-qa.html",
@@ -735,7 +735,7 @@
     },
     {
       "file": "tests/atlas-qa.js",
-      "SHA256": "3afa622bd612267abec95ae08f253faed36ef6be9afbefc7dde3cc620ad92931"
+      "SHA256": "bc5fb11951f2560501112d69359da716a9d5898675e0eee47a6f979408e88979"
     },
     {
       "file": "tests/fixtures/invalid-atlas.json",
@@ -754,72 +754,92 @@
       "SHA256": "f1dedbe554c063e3c41c54bca8625b697fc64f7f35fd66821c5384fd22d150fa"
     },
     {
-      "file": "assets/characters/archer-1-95f98f3072852717.webp",
-      "SHA256": "95f98f307285271702e6979237c6575311102b59993a50723fc1f17ed939a042"
-    },
-    {
-      "file": "assets/characters/archer-1.5-9e62d352bc46bf50.webp",
-      "SHA256": "9e62d352bc46bf50e24f00137bb4a846386f980020be3e7ee845aa059b65a2e7"
-    },
-    {
-      "file": "assets/characters/dark-mage-1-4a897e61f1a3cfdd.webp",
-      "SHA256": "4a897e61f1a3cfdd357ac15587315cf4d0d4f41f9ba56ab73c69fb7310e84620"
-    },
-    {
-      "file": "assets/characters/dark-mage-1.5-a92f3d22cbc2630a.webp",
-      "SHA256": "a92f3d22cbc2630a6398886fba55dbab16e4c7a3b41b169406637b19abcc29b8"
-    },
-    {
-      "file": "assets/characters/demon-king-1-bdc18b882e29602a.webp",
-      "SHA256": "bdc18b882e29602a3b582fc1607b9496cca3ed0b69d1f34778daf5010f79d768"
-    },
-    {
-      "file": "assets/characters/demon-king-1.5-35826cb4dd4836d8.webp",
-      "SHA256": "35826cb4dd4836d8ce3d2245f22f81f4d72e0366d85b8050ce9c5ee4d767d9c8"
-    },
-    {
-      "file": "assets/characters/goblin-1-1bea195b8342aa3f.webp",
-      "SHA256": "1bea195b8342aa3f45fec8dce15886de93acd01a7fcbc4d6e05fe79ca8a57b78"
-    },
-    {
-      "file": "assets/characters/goblin-1.5-90707783726865b8.webp",
-      "SHA256": "90707783726865b8b382b7b814c7c84c2f05876697b234154ee3d4ec9bebf062"
-    },
-    {
-      "file": "assets/characters/king-1-02f01610bc6fd278.webp",
-      "SHA256": "02f01610bc6fd278d1085d3d59fc7a290a95002ee45136264689feb7e847be42"
-    },
-    {
-      "file": "assets/characters/king-1.5-879bd4799651bb11.webp",
-      "SHA256": "879bd4799651bb11911ae45c49ce3ecd55e911908caa8adf8547d6beb2f7e7b6"
-    },
-    {
-      "file": "assets/characters/mage-1-ae605c0d5cc74e2e.webp",
-      "SHA256": "ae605c0d5cc74e2e9cd271e86a78a73e5f1caf0b2fc00c38f7c1dd4f64506500"
-    },
-    {
-      "file": "assets/characters/mage-1.5-645a9e204c2fdbd3.webp",
-      "SHA256": "645a9e204c2fdbd34ebc1795d618bc1f0548e5e2c648f8401bfdd1b990a8d946"
-    },
-    {
       "file": "assets/characters/manifest.json",
-      "SHA256": "ace6ad4f9da22641ee37cc3ba4a22216e5a442b8abb7849e5f7641f6b45973df"
+      "SHA256": "7c9219a34af33e0efc1dcb20a33725df5aef39b93734d587750104dadbec06d5"
     },
     {
-      "file": "assets/characters/skeleton-archer-1-32a748559cdbf91a.webp",
-      "SHA256": "32a748559cdbf91a59d32d861707640653ad4a8aeb4120564c0019618c977d3a"
+      "file": "src/ui/kingdom-display.js",
+      "SHA256": "05aaa80037c821322429485752dfebce81dd9c5cae4b6bf37a29532838bec564"
     },
     {
-      "file": "assets/characters/skeleton-archer-1.5-d3578a166d7527ad.webp",
-      "SHA256": "d3578a166d7527ad5911aa1a3795880af222c6b6068f0fcafc96147569a336b3"
+      "file": "screenshots/enlarged-board-390x844.png",
+      "SHA256": "2a8a0c8cb073ed8f88d4e1a047eb08ef6d044b9f5ae9b63d7ad8ce0b2b7f58a5"
     },
     {
-      "file": "assets/characters/warrior-1-b27450d764238f04.webp",
-      "SHA256": "b27450d764238f049b93ff1bc2ee5fa9acb92c51e146cc4dd4621a5039c3e353"
+      "file": "screenshots/enlarged-qa-390x844.json",
+      "SHA256": "5ffbb5923f666db66015107f553654228bede316b7e633b1f26d4ee07500491c"
     },
     {
-      "file": "assets/characters/warrior-1.5-69693534cc2aa85d.webp",
-      "SHA256": "69693534cc2aa85df9854f5232538475e37a89dd3f80ea3494d0292b699726ed"
+      "file": "screenshots/enlarged-atlas-qa.json",
+      "SHA256": "443e1ad2fc7e422e7ba9372b0a5207ebb7616206fb15fc00ed67229a0ab0367b"
+    },
+    {
+      "file": "screenshots/enlarged-startup-dpr1.5.json",
+      "SHA256": "0cab75b28e300fa0586a894a90ac87a3ad6b1ed1041dd75be3358929273d4bef"
+    },
+    {
+      "file": "assets/characters/archer-1-5880c572a8fa8b6a.webp",
+      "SHA256": "5880c572a8fa8b6a29df6d730a168d04ef1a2a516235a3d193292f2aea2e8817"
+    },
+    {
+      "file": "assets/characters/archer-1.5-b1901b109336aad6.webp",
+      "SHA256": "b1901b109336aad6e9bb604f5cf7c746f011301444b91740033cd4b976cb5285"
+    },
+    {
+      "file": "assets/characters/dark-mage-1-994c4a9551fd781b.webp",
+      "SHA256": "994c4a9551fd781babaf3c956e2c51c965108ca5e8397132f7149a63f4bc3b27"
+    },
+    {
+      "file": "assets/characters/dark-mage-1.5-8820c1cf8d8294f6.webp",
+      "SHA256": "8820c1cf8d8294f6d7d702970cb5c8a1d73a748a50618f273f50ae7420fe9ec8"
+    },
+    {
+      "file": "assets/characters/demon-king-1-508f6b89bec90385.webp",
+      "SHA256": "508f6b89bec90385613c9dc03e53259f96d48171585947e80115b6982a80f543"
+    },
+    {
+      "file": "assets/characters/demon-king-1.5-eede97273fba2a86.webp",
+      "SHA256": "eede97273fba2a867164c6b4986b3766631342570816afb03a37a6dede2b6276"
+    },
+    {
+      "file": "assets/characters/goblin-1-62eb7aad73dcbffe.webp",
+      "SHA256": "62eb7aad73dcbffebeac3cb391a993aa2dc8da07c2a00583d6914d139b5f38c9"
+    },
+    {
+      "file": "assets/characters/goblin-1.5-a861f62242b3a732.webp",
+      "SHA256": "a861f62242b3a73278fd1662857846803ac99ea584278b3e409356e78c177a39"
+    },
+    {
+      "file": "assets/characters/king-1-da3b63f9122db02f.webp",
+      "SHA256": "da3b63f9122db02fc562f5440f48136d0013bda7a171b60f147daffc4dbb0c22"
+    },
+    {
+      "file": "assets/characters/king-1.5-5045f8460b5880d8.webp",
+      "SHA256": "5045f8460b5880d8a40ebfada31da0509b5cf6ca92661591c8fd8bfde01e60f0"
+    },
+    {
+      "file": "assets/characters/mage-1-ce1b20ee91fef9d6.webp",
+      "SHA256": "ce1b20ee91fef9d67c0adbcb867c3133b1599c925f90ad8ccd2f5146f9294e6f"
+    },
+    {
+      "file": "assets/characters/mage-1.5-f072858b3f75093e.webp",
+      "SHA256": "f072858b3f75093e77384ed7682c5e64c41921868e79d7a7026d7574f50d8e2c"
+    },
+    {
+      "file": "assets/characters/skeleton-archer-1-834cd94389b24047.webp",
+      "SHA256": "834cd94389b24047b7e605d934f8457aebfab1d80c91ad07b216f9745257d4b1"
+    },
+    {
+      "file": "assets/characters/skeleton-archer-1.5-d5ca240cd944a29e.webp",
+      "SHA256": "d5ca240cd944a29e596f3ccccf3a09ff0da1ff1e4b618790d5b26fe206456fcb"
+    },
+    {
+      "file": "assets/characters/warrior-1-c3f4b20a2cb4994c.webp",
+      "SHA256": "c3f4b20a2cb4994c465b27cdbada4e3a6a4c1e7cac418bf812e02b8169ced904"
+    },
+    {
+      "file": "assets/characters/warrior-1.5-9d12eb56a756909c.webp",
+      "SHA256": "9d12eb56a756909c15f37f167714fea4d27b227e8948639aea756e8080fba689"
     }
   ],
   "summary": {

@@ -1,3 +1,4 @@
+import {CAMERA_SCALE} from '../src/ui/kingdom-display.js';
 // ?qa=1 専用の操作回帰ハーネス。通常ゲームには読み込まない。
 // 合成入力と人工局面の検査は、実機タッチ・目視・聴感の確認とは区別して記録する。
 import { planTurn } from '../src/core/ai.js';
@@ -141,7 +142,7 @@ export function installQA(app) {
         check('12体・8種を描画キューへ渡す',d.units.length===12&&new Set(d.units.map(u=>u.character)).size===8,{ids:d.units.map(u=>[u.id,u.character]),order:d.last?.order});
         check('初期の全駒が敵王の方向を向く',d.units.every(facesKing),d.units.map(u=>({id:u.id,direction:u.direction})));
         check('部隊・自軍へ・旧盤面ツールを撤去',!$('btn-roster')&&!$('btn-focus')&&!$('roster-panel')&&!document.querySelector('.board-tools'));
-        check('HP領域が各駒の足元座標に対応',d.labels.length===12&&d.labels.every(l=>{const u=d.units.find(u=>+u.id===l.u),p=Board.toViewport(u.x,u.y);return Math.abs(l.x+l.w/2+d.pan.x-p.x)<1&&Math.abs(l.y+l.h/2+d.pan.y-(p.y+9))<3;}));
+        check('HP領域が各駒の足元座標に対応',d.labels.length===12&&d.labels.every(l=>{const u=d.units.find(u=>+u.id===l.u),p=Board.toViewport(u.x,u.y);return Math.abs(l.x+l.w/2+d.pan.x-p.x)<1&&Math.abs(l.y+l.h/2+d.pan.y-(p.y+19*CAMERA_SCALE))<1;}));
         select(0);$('btn-move').click();tapCell(94);check('移動プレビューがコア候補と一致',game.preview?.action.to===94&&game.preview.path.at(-1)===94);
         const initial=snapshot(game.state),preview=JSON.stringify(game.preview.action),pan={...d.pan},builds=d.sceneBuilds;
         pointerId++;pointer('pointerdown',140,180);for(let i=1;i<=28;i++){pointer('pointermove',140+i*3,180+i*2);await sleep(8);}pointer('pointerup',224,236);

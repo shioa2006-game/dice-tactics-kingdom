@@ -1,9 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T15:38:55.567Z",
+  "generatedAt": "2026-10-24T21:54:12.977Z",
   "source": {
-    "hash": "e0fd19c8e3ae71b1b5e13d051096e3d147a1dddb52dbf631a321648f5ca9334d",
+    "hash": "07a2a8c8f7fea63e76b00ba20a51659ea9d2e8cf8ae0e40f4f963326ad9ed98d",
     "files": [
+      {
+        "file": "src/ui/kingdom-display.js",
+        "sha256": "05aaa80037c821322429485752dfebce81dd9c5cae4b6bf37a29532838bec564"
+      },
       {
         "file": "vendor/inkstone/characters/dark-mage/character.js",
         "sha256": "bb040540c25644bd1e11ac389b2b81b0ff23d92ebd0b2dd6201fed83b640fd47"
@@ -106,11 +110,11 @@
   "variants": {
     "1": {
       "dpr": 1,
-      "k": 0.625,
+      "k": 0.8125,
       "characters": {
         "king": {
           "id": "king",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -123,8 +127,8 @@
             "y0": -124,
             "y1": 24
           },
-          "frameWidth": 108,
-          "frameHeight": 93,
+          "frameWidth": 140,
+          "frameHeight": 121,
           "columns": 16,
           "rows": 14,
           "directions": [
@@ -207,13 +211,13 @@
             }
           },
           "frameCount": 212,
-          "file": "king-1-02f01610bc6fd278.webp",
-          "sha256": "02f01610bc6fd278d1085d3d59fc7a290a95002ee45136264689feb7e847be42",
-          "bytes": 419256
+          "file": "king-1-da3b63f9122db02f.webp",
+          "sha256": "da3b63f9122db02fc562f5440f48136d0013bda7a171b60f147daffc4dbb0c22",
+          "bytes": 505164
         },
         "warrior": {
           "id": "warrior",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -226,8 +230,8 @@
             "y0": -130,
             "y1": 29
           },
-          "frameWidth": 108,
-          "frameHeight": 100,
+          "frameWidth": 140,
+          "frameHeight": 130,
           "columns": 16,
           "rows": 15,
           "directions": [
@@ -317,13 +321,13 @@
             }
           },
           "frameCount": 240,
-          "file": "warrior-1-b27450d764238f04.webp",
-          "sha256": "b27450d764238f049b93ff1bc2ee5fa9acb92c51e146cc4dd4621a5039c3e353",
-          "bytes": 797514
+          "file": "warrior-1-c3f4b20a2cb4994c.webp",
+          "sha256": "c3f4b20a2cb4994c465b27cdbada4e3a6a4c1e7cac418bf812e02b8169ced904",
+          "bytes": 996226
         },
         "archer": {
           "id": "archer",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -336,8 +340,8 @@
             "y0": -126,
             "y1": 24
           },
-          "frameWidth": 103,
-          "frameHeight": 94,
+          "frameWidth": 134,
+          "frameHeight": 122,
           "columns": 16,
           "rows": 12,
           "directions": [
@@ -413,13 +417,13 @@
             }
           },
           "frameCount": 184,
-          "file": "archer-1-95f98f3072852717.webp",
-          "sha256": "95f98f307285271702e6979237c6575311102b59993a50723fc1f17ed939a042",
-          "bytes": 362206
+          "file": "archer-1-5880c572a8fa8b6a.webp",
+          "sha256": "5880c572a8fa8b6a29df6d730a168d04ef1a2a516235a3d193292f2aea2e8817",
+          "bytes": 421282
         },
         "mage": {
           "id": "mage",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -432,8 +436,8 @@
             "y0": -145,
             "y1": 22
           },
-          "frameWidth": 118,
-          "frameHeight": 105,
+          "frameWidth": 153,
+          "frameHeight": 136,
           "columns": 16,
           "rows": 12,
           "directions": [
@@ -510,13 +514,13 @@
             }
           },
           "frameCount": 188,
-          "file": "mage-1-ae605c0d5cc74e2e.webp",
-          "sha256": "ae605c0d5cc74e2e9cd271e86a78a73e5f1caf0b2fc00c38f7c1dd4f64506500",
-          "bytes": 363106
+          "file": "mage-1-ce1b20ee91fef9d6.webp",
+          "sha256": "ce1b20ee91fef9d67c0adbcb867c3133b1599c925f90ad8ccd2f5146f9294e6f",
+          "bytes": 472106
         },
         "demon-king": {
           "id": "demon-king",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -529,8 +533,8 @@
             "y0": -134,
             "y1": 26
           },
-          "frameWidth": 120,
-          "frameHeight": 100,
+          "frameWidth": 156,
+          "frameHeight": 130,
           "columns": 16,
           "rows": 14,
           "directions": [
@@ -616,13 +620,13 @@
             }
           },
           "frameCount": 224,
-          "file": "demon-king-1-bdc18b882e29602a.webp",
-          "sha256": "bdc18b882e29602a3b582fc1607b9496cca3ed0b69d1f34778daf5010f79d768",
-          "bytes": 356182
+          "file": "demon-king-1-508f6b89bec90385.webp",
+          "sha256": "508f6b89bec90385613c9dc03e53259f96d48171585947e80115b6982a80f543",
+          "bytes": 456048
         },
         "goblin": {
           "id": "goblin",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -635,8 +639,8 @@
             "y0": -120,
             "y1": 28
           },
-          "frameWidth": 107,
-          "frameHeight": 93,
+          "frameWidth": 139,
+          "frameHeight": 121,
           "columns": 16,
           "rows": 12,
           "directions": [
@@ -713,13 +717,13 @@
             }
           },
           "frameCount": 188,
-          "file": "goblin-1-1bea195b8342aa3f.webp",
-          "sha256": "1bea195b8342aa3f45fec8dce15886de93acd01a7fcbc4d6e05fe79ca8a57b78",
-          "bytes": 324080
+          "file": "goblin-1-62eb7aad73dcbffe.webp",
+          "sha256": "62eb7aad73dcbffebeac3cb391a993aa2dc8da07c2a00583d6914d139b5f38c9",
+          "bytes": 401344
         },
         "skeleton-archer": {
           "id": "skeleton-archer",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -732,8 +736,8 @@
             "y0": -126,
             "y1": 28
           },
-          "frameWidth": 108,
-          "frameHeight": 97,
+          "frameWidth": 140,
+          "frameHeight": 126,
           "columns": 16,
           "rows": 13,
           "directions": [
@@ -815,13 +819,13 @@
             }
           },
           "frameCount": 208,
-          "file": "skeleton-archer-1-32a748559cdbf91a.webp",
-          "sha256": "32a748559cdbf91a59d32d861707640653ad4a8aeb4120564c0019618c977d3a",
-          "bytes": 398292
+          "file": "skeleton-archer-1-834cd94389b24047.webp",
+          "sha256": "834cd94389b24047b7e605d934f8457aebfab1d80c91ad07b216f9745257d4b1",
+          "bytes": 500126
         },
         "dark-mage": {
           "id": "dark-mage",
-          "k": 0.625,
+          "k": 0.8125,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -834,8 +838,8 @@
             "y0": -126,
             "y1": 25
           },
-          "frameWidth": 113,
-          "frameHeight": 95,
+          "frameWidth": 147,
+          "frameHeight": 123,
           "columns": 16,
           "rows": 13,
           "directions": [
@@ -916,19 +920,19 @@
             }
           },
           "frameCount": 204,
-          "file": "dark-mage-1-4a897e61f1a3cfdd.webp",
-          "sha256": "4a897e61f1a3cfdd357ac15587315cf4d0d4f41f9ba56ab73c69fb7310e84620",
-          "bytes": 273422
+          "file": "dark-mage-1-994c4a9551fd781b.webp",
+          "sha256": "994c4a9551fd781babaf3c956e2c51c965108ca5e8397132f7149a63f4bc3b27",
+          "bytes": 355044
         }
       }
     },
     "1.5": {
       "dpr": 1.5,
-      "k": 0.9375,
+      "k": 1.21875,
       "characters": {
         "king": {
           "id": "king",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -941,8 +945,8 @@
             "y0": -124,
             "y1": 24
           },
-          "frameWidth": 162,
-          "frameHeight": 139,
+          "frameWidth": 210,
+          "frameHeight": 181,
           "columns": 16,
           "rows": 14,
           "directions": [
@@ -1025,13 +1029,13 @@
             }
           },
           "frameCount": 212,
-          "file": "king-1.5-879bd4799651bb11.webp",
-          "sha256": "879bd4799651bb11911ae45c49ce3ecd55e911908caa8adf8547d6beb2f7e7b6",
-          "bytes": 571852
+          "file": "king-1.5-5045f8460b5880d8.webp",
+          "sha256": "5045f8460b5880d8a40ebfada31da0509b5cf6ca92661591c8fd8bfde01e60f0",
+          "bytes": 598866
         },
         "warrior": {
           "id": "warrior",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -1044,8 +1048,8 @@
             "y0": -130,
             "y1": 29
           },
-          "frameWidth": 162,
-          "frameHeight": 150,
+          "frameWidth": 210,
+          "frameHeight": 194,
           "columns": 16,
           "rows": 15,
           "directions": [
@@ -1135,13 +1139,13 @@
             }
           },
           "frameCount": 240,
-          "file": "warrior-1.5-69693534cc2aa85d.webp",
-          "sha256": "69693534cc2aa85df9854f5232538475e37a89dd3f80ea3494d0292b699726ed",
-          "bytes": 1172300
+          "file": "warrior-1.5-9d12eb56a756909c.webp",
+          "sha256": "9d12eb56a756909c15f37f167714fea4d27b227e8948639aea756e8080fba689",
+          "bytes": 1385054
         },
         "archer": {
           "id": "archer",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -1154,8 +1158,8 @@
             "y0": -126,
             "y1": 24
           },
-          "frameWidth": 154,
-          "frameHeight": 141,
+          "frameWidth": 200,
+          "frameHeight": 183,
           "columns": 16,
           "rows": 12,
           "directions": [
@@ -1231,13 +1235,13 @@
             }
           },
           "frameCount": 184,
-          "file": "archer-1.5-9e62d352bc46bf50.webp",
-          "sha256": "9e62d352bc46bf50e24f00137bb4a846386f980020be3e7ee845aa059b65a2e7",
-          "bytes": 479030
+          "file": "archer-1.5-b1901b109336aad6.webp",
+          "sha256": "b1901b109336aad6e9bb604f5cf7c746f011301444b91740033cd4b976cb5285",
+          "bytes": 556994
         },
         "mage": {
           "id": "mage",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -1250,8 +1254,8 @@
             "y0": -145,
             "y1": 22
           },
-          "frameWidth": 177,
-          "frameHeight": 157,
+          "frameWidth": 230,
+          "frameHeight": 204,
           "columns": 16,
           "rows": 12,
           "directions": [
@@ -1328,13 +1332,13 @@
             }
           },
           "frameCount": 188,
-          "file": "mage-1.5-645a9e204c2fdbd3.webp",
-          "sha256": "645a9e204c2fdbd34ebc1795d618bc1f0548e5e2c648f8401bfdd1b990a8d946",
-          "bytes": 516702
+          "file": "mage-1.5-f072858b3f75093e.webp",
+          "sha256": "f072858b3f75093e77384ed7682c5e64c41921868e79d7a7026d7574f50d8e2c",
+          "bytes": 605572
         },
         "demon-king": {
           "id": "demon-king",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -1347,8 +1351,8 @@
             "y0": -134,
             "y1": 26
           },
-          "frameWidth": 180,
-          "frameHeight": 150,
+          "frameWidth": 234,
+          "frameHeight": 195,
           "columns": 16,
           "rows": 14,
           "directions": [
@@ -1434,13 +1438,13 @@
             }
           },
           "frameCount": 224,
-          "file": "demon-king-1.5-35826cb4dd4836d8.webp",
-          "sha256": "35826cb4dd4836d8ce3d2245f22f81f4d72e0366d85b8050ce9c5ee4d767d9c8",
-          "bytes": 525080
+          "file": "demon-king-1.5-eede97273fba2a86.webp",
+          "sha256": "eede97273fba2a867164c6b4986b3766631342570816afb03a37a6dede2b6276",
+          "bytes": 681684
         },
         "goblin": {
           "id": "goblin",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -1453,8 +1457,8 @@
             "y0": -120,
             "y1": 28
           },
-          "frameWidth": 160,
-          "frameHeight": 139,
+          "frameWidth": 208,
+          "frameHeight": 181,
           "columns": 16,
           "rows": 12,
           "directions": [
@@ -1531,13 +1535,13 @@
             }
           },
           "frameCount": 188,
-          "file": "goblin-1.5-90707783726865b8.webp",
-          "sha256": "90707783726865b8b382b7b814c7c84c2f05876697b234154ee3d4ec9bebf062",
-          "bytes": 432756
+          "file": "goblin-1.5-a861f62242b3a732.webp",
+          "sha256": "a861f62242b3a73278fd1662857846803ac99ea584278b3e409356e78c177a39",
+          "bytes": 533566
         },
         "skeleton-archer": {
           "id": "skeleton-archer",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -1550,8 +1554,8 @@
             "y0": -126,
             "y1": 28
           },
-          "frameWidth": 162,
-          "frameHeight": 145,
+          "frameWidth": 210,
+          "frameHeight": 188,
           "columns": 16,
           "rows": 13,
           "directions": [
@@ -1633,13 +1637,13 @@
             }
           },
           "frameCount": 208,
-          "file": "skeleton-archer-1.5-d3578a166d7527ad.webp",
-          "sha256": "d3578a166d7527ad5911aa1a3795880af222c6b6068f0fcafc96147569a336b3",
-          "bytes": 527984
+          "file": "skeleton-archer-1.5-d5ca240cd944a29e.webp",
+          "sha256": "d5ca240cd944a29e596f3ccccf3a09ff0da1ff1e4b618790d5b26fe206456fcb",
+          "bytes": 528260
         },
         "dark-mage": {
           "id": "dark-mage",
-          "k": 0.9375,
+          "k": 1.21875,
           "draw": {
             "lw": 1,
             "boil": true,
@@ -1652,8 +1656,8 @@
             "y0": -126,
             "y1": 25
           },
-          "frameWidth": 169,
-          "frameHeight": 142,
+          "frameWidth": 220,
+          "frameHeight": 185,
           "columns": 16,
           "rows": 13,
           "directions": [
@@ -1734,9 +1738,9 @@
             }
           },
           "frameCount": 204,
-          "file": "dark-mage-1.5-a92f3d22cbc2630a.webp",
-          "sha256": "a92f3d22cbc2630a6398886fba55dbab16e4c7a3b41b169406637b19abcc29b8",
-          "bytes": 405934
+          "file": "dark-mage-1.5-8820c1cf8d8294f6.webp",
+          "sha256": "8820c1cf8d8294f6d7d702970cb5c8a1d73a748a50618f273f50ae7420fe9ec8",
+          "bytes": 522626
         }
       }
     }

@@ -1,3 +1,4 @@
+import {CAMERA_SCALE, CHARACTER_SCALE} from '../src/ui/kingdom-display.js';
 import {characters} from '../vendor/inkstone/characters/register.js';
 import {createFrameCacheStore,drawCachedFrame} from '../vendor/inkstone/src/rendering/cache.js';
 import {isolateDrawing} from '../vendor/inkstone/src/core/settings.js';
@@ -32,10 +33,10 @@ document.getElementById('run').onclick=async()=>{
    result.results.push({id:def.id,dpr,frames,maxPremultipliedDiff,differingPixels,over2,worst,pass});
    original.dispose();baked.dispose();c.width=c.height=0;
   }
-  const renderer=createRenderer({canvas:document.getElementById('canvas'),width:100,height:100,dpr:1,characters,mode:'cached',characterScale:1.25});renderer.setCamera({scale:.5});
+  const renderer=createRenderer({canvas:document.getElementById('canvas'),width:100,height:100,dpr:1,characters,mode:'cached',characterScale:CHARACTER_SCALE});renderer.setCamera({scale:CAMERA_SCALE});
   const loaded=await loadCharacterAtlases(renderer,characters);
   result.results.push({name:'本番ローダー: 8種類を同期生成なしで登録',pass:loaded.mode==='atlas'&&renderer.getDiagnostics().syncPauses.length===0&&renderer.getDiagnostics().caches.totalFrames===1648,loaded});renderer.dispose();
-  const fallback=createRenderer({canvas:document.getElementById('canvas'),width:100,height:100,dpr:1,characters,mode:'cached',characterScale:1.25});fallback.setCamera({scale:.5});
+  const fallback=createRenderer({canvas:document.getElementById('canvas'),width:100,height:100,dpr:1,characters,mode:'cached',characterScale:CHARACTER_SCALE});fallback.setCamera({scale:CAMERA_SCALE});
   const recovered=await loadCharacterAtlases(fallback,[characters[0]],()=>{},{manifestURL:new URL('fixtures/invalid-atlas.json',import.meta.url)});
   result.results.push({name:'画像情報不正時は旧描画へ復帰',pass:recovered.mode==='fallback'&&fallback.getDiagnostics().caches.characters.king.source==='generated',recovered});fallback.dispose();
  }catch(e){result.results.push({pass:false,error:e.stack});}
