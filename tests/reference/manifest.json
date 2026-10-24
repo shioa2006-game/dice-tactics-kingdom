@@ -1,0 +1,77 @@
+{
+  "recordedAt": "2026-10-24T11:20:39.728Z",
+  "commit": "8bf10ff0c79edc59fd2252171f964fee7b9c70eb",
+  "note": "削除前の原本からバイトコピー。比較基準・テスト期待値を再生成しない。sourceは削除済みの歴史的パス。",
+  "files": [
+    {
+      "source": "dice-tactics/src/core/ai.js",
+      "target": "tests/reference/core/ai.js",
+      "SHA256": "8a63f768320e9868f701a1ff0ece954910142b0e857c95b3d17734e4c980413f"
+    },
+    {
+      "source": "dice-tactics/src/core/config.js",
+      "target": "tests/reference/core/config.js",
+      "SHA256": "0050d0f67beb87db72b8957bf7497c86e863c601a4930307c3c2f27fbe6b05ab"
+    },
+    {
+      "source": "dice-tactics/src/core/dice.js",
+      "target": "tests/reference/core/dice.js",
+      "SHA256": "b12c628fb9949b1e743377710d65f6b51d65ae657cb0f36a09f9980559dfe385"
+    },
+    {
+      "source": "dice-tactics/src/core/levels.js",
+      "target": "tests/reference/core/levels.js",
+      "SHA256": "4d5dbe0ad6154475bd1ae10261b551cd43e5a2d1fa89c8154fe1d03b662c735a"
+    },
+    {
+      "source": "dice-tactics/src/core/rng.js",
+      "target": "tests/reference/core/rng.js",
+      "SHA256": "ceb346138817fb8887a25023d63675c6bf81d66c4f8331806854bda396433bc0"
+    },
+    {
+      "source": "dice-tactics/src/core/rules.js",
+      "target": "tests/reference/core/rules.js",
+      "SHA256": "ed90220f64855e8e553788211d1406feb89f129a46afae62b9b5fd52b9f6ca17"
+    },
+    {
+      "source": "dice-tactics/tests/cpu.test.js",
+      "target": "tests/cpu.test.js",
+      "SHA256": "0acc389f978a0a3d0889bd2462cc76b58a14445a9dfe478c67faad663b43bcbf"
+    },
+    {
+      "source": "dice-tactics/tests/dice.test.js",
+      "target": "tests/dice.test.js",
+      "SHA256": "df1ff34757906f193c421e93d538e073ccbe08013423c639322c73528a22cd1e"
+    },
+    {
+      "source": "dice-tactics/tests/helpers.js",
+      "target": "tests/helpers.js",
+      "SHA256": "a065dc71d14357a7699dee003a469354081cd576bf1794166345cbda6c01eb53"
+    },
+    {
+      "source": "dice-tactics/tests/levels.test.js",
+      "target": "tests/levels.test.js",
+      "SHA256": "9e5cdc910c8a68580ce435236e27cde2023d2e52502376e59f296beb9191147f"
+    },
+    {
+      "source": "dice-tactics/tests/rules.test.js",
+      "target": "tests/rules.test.js",
+      "SHA256": "e0fa658489a450eba5843aebfc64bf31356f86b07a11086290c629d5a4e10d48"
+    },
+    {
+      "source": "dice-tactics/tests/fixtures/levels-golden.json",
+      "target": "tests/fixtures/levels-golden.json",
+      "SHA256": "f1e1fba9e2868162f60e08014b67030be5bf0c2ca3b61fc2a5e07c731e3fb904"
+    },
+    {
+      "source": "dice-tactics/tests/fixtures/standard-golden.json",
+      "target": "tests/fixtures/standard-golden.json",
+      "SHA256": "c46498d3fb98d73b4fda0e79c8184901de4bc777589faf66abb0c3c08268771e"
+    },
+    {
+      "source": "dice-tactics/RULES.md",
+      "target": "docs/ORIGINAL_RULES.md",
+      "SHA256": "5b6d15bd49182f16b5374e05ef2d450001a396631566559427849c2792da77c3"
+    }
+  ]
+}

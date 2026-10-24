@@ -1,0 +1,21 @@
+# ローカルの依存・キャッシュ・一時ファイル
+node_modules/
+.cache/
+coverage/
+*.log
+*.tmp
+*.bak
+
+# 環境固有の設定・認証情報
+.env
+.env.*
+!.env.example
+.codex/
+.claude/
+.idea/
+.vscode/
+
+# OSの管理ファイル
+.DS_Store
+Thumbs.db
+Desktop.ini

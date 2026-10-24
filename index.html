@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f1e7">
+  <title>DICE TACTICS: KINGDOM</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="app" id="app">
+    <main class="stage" id="stage">
+      <header class="status" aria-label="対局の状態">
+        <div class="brand-bar" aria-label="DICE TACTICS: KINGDOM"><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M6 3v5h3v3H7l-1 10H4v4h16v-4h-2l-1-10h-2V8h3V3h-3v3h-2V3h-2v3H9V3Z"/></svg><div><strong>DICE TACTICS</strong><span>KINGDOM</span></div></div>
+        <div class="side-stat m" id="stat-m"></div>
+        <div class="round-box">
+          <div id="round" class="round"></div>
+          <div id="turn" class="turn"></div>
+        </div>
+        <div class="side-stat h" id="stat-h"></div>
+      </header>
+
+      <div class="frame" id="frame">
+        <section id="viewport" tabindex="0" aria-label="戦術盤面。ドラッグで見渡す10×10の盤面">
+          <div id="world"><canvas id="kingdom-canvas" aria-label="石造りの盤面とキャラクター"></canvas></div>
+          <canvas id="minimap" width="180" height="126" aria-label="盤面全体と表示位置"></canvas>
+          <div id="chooser" class="board-panel chooser" hidden>
+            <div class="panel-heading"><strong>この位置の駒</strong><button id="btn-chooser-close" aria-label="候補を閉じる">×</button></div>
+            <div id="chooser-options"></div>
+          </div>
+          <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+          <div id="loading" role="status"><span class="loading-seal" aria-hidden="true">K</span><strong>石の広間を準備中</strong><span id="loading-detail">キャラクターを読み込んでいます</span></div>
+        </section>
+      </div>
+    </main>
+
+    <section class="info" id="info" aria-live="polite" aria-label="選択と行動の情報">
+      <img id="selection-portrait" class="selection-portrait" alt="" hidden>
+      <div class="info-text"><div id="info-main" class="info-main"></div><div id="info-sub" class="info-sub"></div></div>
+      <div class="info-actions"><button id="btn-confirm" class="btn confirm" hidden>確定</button><button id="btn-cancel" class="btn ghost cancel" hidden>取消</button></div>
+    </section>
+
+    <section class="tray" id="tray" aria-label="ダイスと AP">
+      <div class="tray-top">
+        <div class="dice-wrap"><div id="dice-owner" class="dice-owner"></div><div id="dice" class="dice"></div></div>
+        <div class="ap-box">
+          <div class="ap-head"><span class="ap-label">AP</span><span id="ap-num" class="ap-num"></span><span id="ap-of" class="ap-of"></span></div>
+          <div id="ap-chips" class="ap-chips" aria-hidden="true"></div><div id="ap-formula" class="ap-formula"></div>
+        </div>
+      </div>
+      <div class="tray-buttons"><button id="btn-undo" class="btn ghost undo" aria-keyshortcuts="Z">戻す</button><button id="btn-main" class="btn primary main"></button></div>
+    </section>
+
+    <nav class="aux" aria-label="補助メニュー">
+      <button class="aux-btn" data-sheet="log"><span class="aux-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h6"/></svg></span>履歴</button>
+      <button class="aux-btn" id="btn-threat" aria-pressed="false"><span class="aux-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v5m0 12v5M1 12h5m12 0h5"/></svg></span>射程</button>
+      <button class="aux-btn" data-sheet="rules"><span class="aux-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 7a4 4 0 0 1 8 0c0 3-4 3-4 6v1"/><circle cx="12" cy="19" r=".8"/></svg></span>ルール</button>
+      <button class="aux-btn" id="btn-mute" aria-pressed="false" title="すべての音を消す"><span class="aux-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3zm13-2a7 7 0 0 1 0 10m3-13a11 11 0 0 1 0 16"/></svg></span><span class="aux-label">消音</span></button>
+      <button class="aux-btn" data-sheet="settings"><span class="aux-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 3 1-2h4l1 2 2 1 2-.2 2 3-1 2v4l1 2-2 3-2-.2-2 1-1 2h-4l-1-2-2-1-2 .2-2-3 1-2V9L3 7l2-3 2 .2Z"/><circle cx="12" cy="11" r="3"/></svg></span>設定</button>
+    </nav>
+  </div>
+
+  <div class="sheet-back" id="sheet-back" hidden></div>
+  <section class="sheet" id="sheet-log" role="dialog" aria-modal="true" aria-label="行動履歴" hidden>
+    <div class="sheet-head"><h2>行動履歴</h2><button class="btn ghost sheet-close">閉じる</button></div><ol id="log" class="log"></ol>
+  </section>
+  <section class="sheet" id="sheet-rules" role="dialog" aria-modal="true" aria-label="ルール" hidden>
+    <div class="sheet-head"><h2>ルール</h2><button class="btn ghost sheet-close">閉じる</button></div><div class="sheet-body rules" id="rules-body"></div>
+  </section>
+  <section class="sheet" id="sheet-settings" role="dialog" aria-modal="true" aria-label="設定" hidden>
+    <div class="sheet-head"><h2>設定</h2><button class="btn ghost sheet-close">閉じる</button></div>
+    <div class="sheet-body settings">
+      <div class="row speed-row"><span>CPU の再生速度</span><div class="seg" id="set-speed" role="radiogroup" aria-label="CPU の再生速度"><button data-v="slow" role="radio">ゆっくり</button><button data-v="normal" role="radio">標準</button><button data-v="fast" role="radio">速い</button></div></div>
+      <label class="row check"><input type="checkbox" id="set-quick"><span>移動は 1 タップで確定する<br><small>攻撃は常にプレビューしてから確定</small></span></label>
+      <label class="row check"><input type="checkbox" id="set-calm"><span>演出を控えめにする</span></label>
+      <div class="row audio"><label class="check"><input type="checkbox" id="set-sfx"><span>効果音</span></label><input type="range" id="set-sfx-vol" min="0" max="100" step="5" aria-label="効果音の音量"></div>
+      <div class="row audio"><label class="check"><input type="checkbox" id="set-bgm"><span>BGM</span></label><input type="range" id="set-bgm-vol" min="0" max="100" step="5" aria-label="BGM の音量"></div>
+      <p class="note">BGM は初めてオンにすると曲の準備に数秒かかります。音は最初のタップ後に有効になります。</p>
+      <button id="btn-new" class="btn primary wide">タイトルに戻る（新しいゲーム）</button>
+      <p class="note key-note">Space：ダイスを振る　Enter：確定<br>E：ターン終了　Z：移動を戻す<br>1〜6：自軍の駒を選択　Esc：取り消し</p>
+    </div>
+  </section>
+
+  <div id="result" class="result" hidden>
+    <div class="result-box" role="dialog" aria-modal="true" aria-labelledby="result-title">
+      <div class="result-orn" id="result-orn"></div><div id="result-title" class="result-title"></div><div id="result-sub" class="result-sub"></div><table id="result-stats" class="result-stats"></table>
+      <div class="result-buttons"><button id="btn-again" class="btn primary">もう一度</button><button id="btn-close" class="btn ghost">盤面を見る</button></div>
+      <button id="btn-title" class="btn ghost wide result-title-btn">難易度を変える（タイトルへ）</button>
+    </div>
+  </div>
+
+  <div id="title" class="title-screen" hidden>
+    <div class="title-box" role="dialog" aria-modal="true" aria-labelledby="title-logo">
+      <div class="title-orn" id="title-orn" aria-hidden="true"></div>
+      <h1 id="title-logo" class="title-logo"><span>DICE TACTICS</span>KINGDOM</h1>
+      <canvas id="title-art" width="360" height="180" aria-label="王国と魔王軍のキャラクター"></canvas>
+      <p class="title-sub">ダイスを振り、仲間を導き、相手の王を討て。</p>
+      <div class="title-section-label">CPU の難易度</div>
+      <div class="title-levels" id="title-levels" role="radiogroup" aria-label="難易度"></div>
+      <div class="title-first"><span>先手</span><div class="seg" id="title-first" role="radiogroup" aria-label="先手"><button data-v="human" role="radio">あなた</button><button data-v="cpu" role="radio">CPU</button><button data-v="random" role="radio">ランダム</button></div></div>
+      <button id="btn-start" class="btn primary wide title-start">対局をはじめる</button>
+      <p class="title-note">どの難易度もルールとダイスは同じ。<br>CPU は未来の出目を見ません。</p>
+    </div>
+  </div>
+  <script type="module" src="src/ui/app.js"></script>
+</body>
+</html>

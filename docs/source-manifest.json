@@ -1,0 +1,714 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-24T11:28:00.191Z",
+  "pathBase": "dice-tactics-kingdom/",
+  "digest": "SHA-256",
+  "note": "コピーの現在値を記録。app/view/fx/kingdom-board などを編集した場合は copySHA256 と ownFiles を再計算する。元の照合データは更新しない。",
+  "sources": [
+    {
+      "name": "DICE TACTICS",
+      "directory": "dice-tactics",
+      "commit": "8bf10ff0c79edc59fd2252171f964fee7b9c70eb",
+      "status": "?? .claude/",
+      "method": "core 全6ファイル、CPU 呼出、音声をバイトコピー。app/view/fx は UI・演出アダプタとして編集。",
+      "preExistingUntracked": ".claude/",
+      "directoryPresent": false
+    },
+    {
+      "name": "Storybook Character Studio",
+      "directory": "Storybook_Character_Studio",
+      "commit": "97b7e03102a482d97cd0043990f0a39fe4866794",
+      "status": "",
+      "method": "node Storybook_Character_Studio/tools/export-game.mjs --characters king,warrior,archer,mage,demon-king,goblin,skeleton-archer,dark-mage --out vendor/inkstone",
+      "exportGeneratedAt": "2026-10-24T08:06:42.676Z",
+      "directoryPresent": false
+    },
+    {
+      "name": "前回モックアップ",
+      "directory": "mockup",
+      "commit": null,
+      "method": "mockup/app.js の描画・入力・パン構造を参考に新しい kingdom-board.js を作成。モックの固定 AP、人工配置、CPU 行動デモは通常ゲームに移植しない。",
+      "existingVendorManifestMismatch": [],
+      "directoryPresent": false
+    }
+  ],
+  "files": [
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/core/ai.js",
+      "copy": "src/core/ai.js",
+      "sourceSHA256": "8a63f768320e9868f701a1ff0ece954910142b0e857c95b3d17734e4c980413f",
+      "copySHA256": "8a63f768320e9868f701a1ff0ece954910142b0e857c95b3d17734e4c980413f",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/core/config.js",
+      "copy": "src/core/config.js",
+      "sourceSHA256": "0050d0f67beb87db72b8957bf7497c86e863c601a4930307c3c2f27fbe6b05ab",
+      "copySHA256": "0050d0f67beb87db72b8957bf7497c86e863c601a4930307c3c2f27fbe6b05ab",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/core/dice.js",
+      "copy": "src/core/dice.js",
+      "sourceSHA256": "b12c628fb9949b1e743377710d65f6b51d65ae657cb0f36a09f9980559dfe385",
+      "copySHA256": "b12c628fb9949b1e743377710d65f6b51d65ae657cb0f36a09f9980559dfe385",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/core/levels.js",
+      "copy": "src/core/levels.js",
+      "sourceSHA256": "4d5dbe0ad6154475bd1ae10261b551cd43e5a2d1fa89c8154fe1d03b662c735a",
+      "copySHA256": "4d5dbe0ad6154475bd1ae10261b551cd43e5a2d1fa89c8154fe1d03b662c735a",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/core/rng.js",
+      "copy": "src/core/rng.js",
+      "sourceSHA256": "ceb346138817fb8887a25023d63675c6bf81d66c4f8331806854bda396433bc0",
+      "copySHA256": "ceb346138817fb8887a25023d63675c6bf81d66c4f8331806854bda396433bc0",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/core/rules.js",
+      "copy": "src/core/rules.js",
+      "sourceSHA256": "ed90220f64855e8e553788211d1406feb89f129a46afae62b9b5fd52b9f6ca17",
+      "copySHA256": "ed90220f64855e8e553788211d1406feb89f129a46afae62b9b5fd52b9f6ca17",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/app.js",
+      "copy": "src/ui/app.js",
+      "sourceSHA256": "a187d7c4ff7faae6381cd23d91690fc4d21f0b0358d362cee51017d964e3be7c",
+      "copySHA256": "38d22693ebd5dc509e81748cf925bcd387b4757c2343e218330b0e0851878fd5",
+      "identical": false
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/art.js",
+      "copy": "src/ui/art.js",
+      "sourceSHA256": "b2be38f3879c27961244d84614d091110f39a3d08730d4e5c65f396b4023ad2d",
+      "copySHA256": "b2be38f3879c27961244d84614d091110f39a3d08730d4e5c65f396b4023ad2d",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/audio/engine.js",
+      "copy": "src/ui/audio/engine.js",
+      "sourceSHA256": "6d8aa61b2bea73db1f67de614f4f900df79c25f2b6e7e27a929096f7b2488336",
+      "copySHA256": "6d8aa61b2bea73db1f67de614f4f900df79c25f2b6e7e27a929096f7b2488336",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/audio/instruments.js",
+      "copy": "src/ui/audio/instruments.js",
+      "sourceSHA256": "170674e1a0824bdcadb412a4230af4faaa3e237824cdf0daa1505b444c5f7709",
+      "copySHA256": "170674e1a0824bdcadb412a4230af4faaa3e237824cdf0daa1505b444c5f7709",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/audio/music.js",
+      "copy": "src/ui/audio/music.js",
+      "sourceSHA256": "53613c16225dc352e6906eb764d80ea8c3b7c98f8254ef5d827bea3408d47998",
+      "copySHA256": "53613c16225dc352e6906eb764d80ea8c3b7c98f8254ef5d827bea3408d47998",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/audio/render.js",
+      "copy": "src/ui/audio/render.js",
+      "sourceSHA256": "1165e94c9a873ec9a0755e35e863d247ac3c93c5bf64d264712fa5f735376243",
+      "copySHA256": "1165e94c9a873ec9a0755e35e863d247ac3c93c5bf64d264712fa5f735376243",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/audio/score.js",
+      "copy": "src/ui/audio/score.js",
+      "sourceSHA256": "cbaf3c85362e897f47d8246186ff8711ad2673f92553aeacb6d0adb0ac8bcfd5",
+      "copySHA256": "cbaf3c85362e897f47d8246186ff8711ad2673f92553aeacb6d0adb0ac8bcfd5",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/audio/sfx.js",
+      "copy": "src/ui/audio/sfx.js",
+      "sourceSHA256": "96f4a5e6644440360813e730cb4e5c1b837d7822c37179473865b47859311131",
+      "copySHA256": "96f4a5e6644440360813e730cb4e5c1b837d7822c37179473865b47859311131",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/cpu-worker.js",
+      "copy": "src/ui/cpu-worker.js",
+      "sourceSHA256": "b43364e7bce85d19e27f22b710a8b96e4a0758bd14815ead02d6767b93a11641",
+      "copySHA256": "b43364e7bce85d19e27f22b710a8b96e4a0758bd14815ead02d6767b93a11641",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/cpu.js",
+      "copy": "src/ui/cpu.js",
+      "sourceSHA256": "84de2cc22f88315e6858389a40afa03de6214305921c9e32cb8354c3f84c646b",
+      "copySHA256": "84de2cc22f88315e6858389a40afa03de6214305921c9e32cb8354c3f84c646b",
+      "identical": true
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/fx.js",
+      "copy": "src/ui/fx.js",
+      "sourceSHA256": "519c4f11220deae1aac14f2701ebe0955836344e4cbfb496b3e1e6992f4d7794",
+      "copySHA256": "fac67547fa1681e1000f8f97e0cdd0135ade21b6ba3fcbb3c2e67cbc77011118",
+      "identical": false
+    },
+    {
+      "origin": "DICE TACTICS",
+      "source": "dice-tactics/src/ui/view.js",
+      "copy": "src/ui/view.js",
+      "sourceSHA256": "d8d90bf255071d88dca328aa98815e0c48e3fe721db5ed8db690fa50ed9f567c",
+      "copySHA256": "ac372d92e39b9ded25011f3b8e88cc1f3e80f76ae5e3b508df3bb31f9fea2daf",
+      "identical": false
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/characters/dark-mage/character.js",
+      "copy": "vendor/inkstone/characters/dark-mage/character.js",
+      "sourceSHA256": "bb040540c25644bd1e11ac389b2b81b0ff23d92ebd0b2dd6201fed83b640fd47",
+      "copySHA256": "bb040540c25644bd1e11ac389b2b81b0ff23d92ebd0b2dd6201fed83b640fd47",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/characters/demon-king/character.js",
+      "copy": "vendor/inkstone/characters/demon-king/character.js",
+      "sourceSHA256": "35a44259cd76fd42c8365e0197094f3cec0e1ef0e9697e4bb59db28d80c201c1",
+      "copySHA256": "35a44259cd76fd42c8365e0197094f3cec0e1ef0e9697e4bb59db28d80c201c1",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/characters/goblin/character.js",
+      "copy": "vendor/inkstone/characters/goblin/character.js",
+      "sourceSHA256": "4a31b1d0658fbdf3728cd932af411ce66879f34b55adbf67bcba06cced931c20",
+      "copySHA256": "4a31b1d0658fbdf3728cd932af411ce66879f34b55adbf67bcba06cced931c20",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/characters/king/character.js",
+      "copy": "vendor/inkstone/characters/king/character.js",
+      "sourceSHA256": "ddd4a9293c774a83cf8afd04ee8ad3a341b3b9be7cb11fa5f11dc6c600d2e939",
+      "copySHA256": "ddd4a9293c774a83cf8afd04ee8ad3a341b3b9be7cb11fa5f11dc6c600d2e939",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/characters/mage/character.js",
+      "copy": "vendor/inkstone/characters/mage/character.js",
+      "sourceSHA256": "4f1d0e77535cfb3214f971819aecb96f36ce06099971c71f2be6c235741df942",
+      "copySHA256": "4f1d0e77535cfb3214f971819aecb96f36ce06099971c71f2be6c235741df942",
+      "identical": true
+    },
+    {
+      "origin": "Studio official export output",
+      "generator": "Storybook_Character_Studio/tools/export-game.mjs",
+      "generatorSHA256": "be399a2b355ca65f0e11e2bc933c9b2938e1f42bcf037aa7a626c07c65aed730",
+      "copy": "vendor/inkstone/characters/register.js",
+      "copySHA256": "b7680c6ea0ab80babc0f6597ee68716e31d966b9e5823aa0abf4b9c687903aad",
+      "comparison": "正式エクスポートの生成ファイル。原本と同名でもコピーではない"
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/characters/skeleton-archer/character.js",
+      "copy": "vendor/inkstone/characters/skeleton-archer/character.js",
+      "sourceSHA256": "988764fb11686fc6b16f9357671eaf1eca0cafd19ee8e750cce1b9b8d87bf572",
+      "copySHA256": "988764fb11686fc6b16f9357671eaf1eca0cafd19ee8e750cce1b9b8d87bf572",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/characters/warrior/character.js",
+      "copy": "vendor/inkstone/characters/warrior/character.js",
+      "sourceSHA256": "c1abe9f7eb461c9e9201eb14d6c4e8825749dd95297351181b906cf6f7e51d44",
+      "copySHA256": "c1abe9f7eb461c9e9201eb14d6c4e8825749dd95297351181b906cf6f7e51d44",
+      "identical": true
+    },
+    {
+      "origin": "Studio official export output",
+      "generator": "Storybook_Character_Studio/tools/export-game.mjs",
+      "generatorSHA256": "be399a2b355ca65f0e11e2bc933c9b2938e1f42bcf037aa7a626c07c65aed730",
+      "copy": "vendor/inkstone/export-manifest.json",
+      "copySHA256": "52a03e71c8a7c079af407f1198a3860bdac9e07869496bad30afe863b0fd4700",
+      "comparison": "正式エクスポートの生成ファイル。原本と同名でもコピーではない"
+    },
+    {
+      "origin": "Studio official export output",
+      "generator": "Storybook_Character_Studio/tools/export-game.mjs",
+      "generatorSHA256": "be399a2b355ca65f0e11e2bc933c9b2938e1f42bcf037aa7a626c07c65aed730",
+      "copy": "vendor/inkstone/index.html",
+      "copySHA256": "9bb4f786ba2186196bb7133fd9a71a67c4f2e7b2a85c77749aa7b80d3bca2bbc",
+      "comparison": "正式エクスポートの生成ファイル。原本と同名でもコピーではない"
+    },
+    {
+      "origin": "Studio official export output",
+      "generator": "Storybook_Character_Studio/tools/export-game.mjs",
+      "generatorSHA256": "be399a2b355ca65f0e11e2bc933c9b2938e1f42bcf037aa7a626c07c65aed730",
+      "copy": "vendor/inkstone/main.js",
+      "copySHA256": "aaf202325b7f01077242d492d4b70be1496cbf8e69bb5b0c918aa58d64008e66",
+      "comparison": "正式エクスポートの生成ファイル。原本と同名でもコピーではない"
+    },
+    {
+      "origin": "Studio official export output",
+      "generator": "Storybook_Character_Studio/tools/export-game.mjs",
+      "generatorSHA256": "be399a2b355ca65f0e11e2bc933c9b2938e1f42bcf037aa7a626c07c65aed730",
+      "copy": "vendor/inkstone/package.json",
+      "copySHA256": "649a303c06e5316bfda8a2aa438192a51a679197b4aca0b4a48af2c83669502f",
+      "comparison": "正式エクスポートの生成ファイル。原本と同名でもコピーではない"
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/authoring.js",
+      "copy": "vendor/inkstone/src/authoring.js",
+      "sourceSHA256": "595408068621b9d2d3636217b5f6ac22fad9e0670554d73e0241b7f1bcdd59b7",
+      "copySHA256": "595408068621b9d2d3636217b5f6ac22fad9e0670554d73e0241b7f1bcdd59b7",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/archer-parts.js",
+      "copy": "vendor/inkstone/src/characters/archer-parts.js",
+      "sourceSHA256": "c46d86d33ad7354dcfa9e2638cbb99b67e99ed133b4603c09784bd22e64cb9ad",
+      "copySHA256": "c46d86d33ad7354dcfa9e2638cbb99b67e99ed133b4603c09784bd22e64cb9ad",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/archer-pose.js",
+      "copy": "vendor/inkstone/src/characters/archer-pose.js",
+      "sourceSHA256": "29dfd49e555c6cb0f0367d60cba8f7a55d31184205cd5f496c737b90a3c7d095",
+      "copySHA256": "29dfd49e555c6cb0f0367d60cba8f7a55d31184205cd5f496c737b90a3c7d095",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/archer.js",
+      "copy": "vendor/inkstone/src/characters/archer.js",
+      "sourceSHA256": "b9f69ba44aa5ed842563e24d3312e71cdc2f877b449ff2eb1296846cdbdec2c8",
+      "copySHA256": "b9f69ba44aa5ed842563e24d3312e71cdc2f877b449ff2eb1296846cdbdec2c8",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/painting.js",
+      "copy": "vendor/inkstone/src/characters/painting.js",
+      "sourceSHA256": "78069937944bc48dd906ccce37a5f1e18957ddb941ca2fd7d3364779b8c27044",
+      "copySHA256": "78069937944bc48dd906ccce37a5f1e18957ddb941ca2fd7d3364779b8c27044",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/registry.js",
+      "copy": "vendor/inkstone/src/characters/registry.js",
+      "sourceSHA256": "13bad43a78ed45830513079d58ae53654a31cb49761925433c7ba28cf6b75e0b",
+      "copySHA256": "13bad43a78ed45830513079d58ae53654a31cb49761925433c7ba28cf6b75e0b",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/rig.js",
+      "copy": "vendor/inkstone/src/characters/rig.js",
+      "sourceSHA256": "26e85fd7dd6e7afc3c8738fd78f90e89d54fe11d19f4be2f6e585b404a938dc9",
+      "copySHA256": "26e85fd7dd6e7afc3c8738fd78f90e89d54fe11d19f4be2f6e585b404a938dc9",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/skeleton.js",
+      "copy": "vendor/inkstone/src/characters/skeleton.js",
+      "sourceSHA256": "557ac64807bef2734ea0cf05104daad3703abcb3d5f4d35ded00f9fab3f2c0d7",
+      "copySHA256": "557ac64807bef2734ea0cf05104daad3703abcb3d5f4d35ded00f9fab3f2c0d7",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/characters/swordsman.js",
+      "copy": "vendor/inkstone/src/characters/swordsman.js",
+      "sourceSHA256": "800bfb8d0f2100955442e3badc3252b4bb5463d0a0f879636c56b167210f1547",
+      "copySHA256": "800bfb8d0f2100955442e3badc3252b4bb5463d0a0f879636c56b167210f1547",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/core/geometry.js",
+      "copy": "vendor/inkstone/src/core/geometry.js",
+      "sourceSHA256": "f8d0e3cf48139280393f472ca2c14ecadb8ea50ba96e0a6c240cfc6162c9bfde",
+      "copySHA256": "f8d0e3cf48139280393f472ca2c14ecadb8ea50ba96e0a6c240cfc6162c9bfde",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/core/ink.js",
+      "copy": "vendor/inkstone/src/core/ink.js",
+      "sourceSHA256": "5c47c378ed781e30438fdb880bae6c70eb29902d0b97efbccb2739f8e548f5a0",
+      "copySHA256": "5c47c378ed781e30438fdb880bae6c70eb29902d0b97efbccb2739f8e548f5a0",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/core/paint.js",
+      "copy": "vendor/inkstone/src/core/paint.js",
+      "sourceSHA256": "0865226416ec248499b1b91e1278052fa4d027666493ecf09796bdfdba65d1ed",
+      "copySHA256": "0865226416ec248499b1b91e1278052fa4d027666493ecf09796bdfdba65d1ed",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/core/palette.js",
+      "copy": "vendor/inkstone/src/core/palette.js",
+      "sourceSHA256": "46f374d330a6ed16f634258a03a021dc2d2ff41c2a4d18aa4d3ad316a5d18df2",
+      "copySHA256": "46f374d330a6ed16f634258a03a021dc2d2ff41c2a4d18aa4d3ad316a5d18df2",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/core/random.js",
+      "copy": "vendor/inkstone/src/core/random.js",
+      "sourceSHA256": "24416438bba7c28eaaf412619967f7ea3d5551a9bef20674a1eb0cbafb2ac33e",
+      "copySHA256": "24416438bba7c28eaaf412619967f7ea3d5551a9bef20674a1eb0cbafb2ac33e",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/core/settings.js",
+      "copy": "vendor/inkstone/src/core/settings.js",
+      "sourceSHA256": "3ccf1cf84f9324ba996e809c6c5585ddb6dc928e40aec6ff028e7f5d094339c7",
+      "copySHA256": "3ccf1cf84f9324ba996e809c6c5585ddb6dc928e40aec6ff028e7f5d094339c7",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/dungeon/architecture.js",
+      "copy": "vendor/inkstone/src/dungeon/architecture.js",
+      "sourceSHA256": "0594cb81c634b30fc7022ac71e06f695d0397cbd9b5cf5268965307cc173d82c",
+      "copySHA256": "20e0c6087747db0e2c1300406545038e41ac6b55dbe97b6c4684a17b70ed094a",
+      "identical": false
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/dungeon/props.js",
+      "copy": "vendor/inkstone/src/dungeon/props.js",
+      "sourceSHA256": "1106c48ddce0a567778e6774154de88bdb6fcc9ba75ed2514cd7fc0aa601b792",
+      "copySHA256": "322022630b575808722139cf5c8b3a13f34dd1be1a69d3226e5b62ea1eed4320",
+      "identical": false
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/dungeon/room.js",
+      "copy": "vendor/inkstone/src/dungeon/room.js",
+      "sourceSHA256": "2907044e9f8c96872a7d9a0f802642f4dd0c6e87c24108bc663f387dc0c68227",
+      "copySHA256": "2907044e9f8c96872a7d9a0f802642f4dd0c6e87c24108bc663f387dc0c68227",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/dungeon/stone.js",
+      "copy": "vendor/inkstone/src/dungeon/stone.js",
+      "sourceSHA256": "cc1aa1b0b04201e06a1033d4a92d362b824ffe7354f586bd7e40abaac8cc9241",
+      "copySHA256": "cc1aa1b0b04201e06a1033d4a92d362b824ffe7354f586bd7e40abaac8cc9241",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/index.js",
+      "copy": "vendor/inkstone/src/index.js",
+      "sourceSHA256": "e2e8b39a85749ba9ec87aae75f28fe7169a348dbf3292d792c536776dcaa1e87",
+      "copySHA256": "e2e8b39a85749ba9ec87aae75f28fe7169a348dbf3292d792c536776dcaa1e87",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/cache.js",
+      "copy": "vendor/inkstone/src/rendering/cache.js",
+      "sourceSHA256": "5b5604d1eec1042cc5b3e729b2e0a4cd7587b2b432fbd60eb959efcb7a0a6cd6",
+      "copySHA256": "5b5604d1eec1042cc5b3e729b2e0a4cd7587b2b432fbd60eb959efcb7a0a6cd6",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/camera.js",
+      "copy": "vendor/inkstone/src/rendering/camera.js",
+      "sourceSHA256": "409a3adf0ff96710cd4e09a047d07c6d84a21d3b35ee22e38913b966228cc09b",
+      "copySHA256": "409a3adf0ff96710cd4e09a047d07c6d84a21d3b35ee22e38913b966228cc09b",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/character-view.js",
+      "copy": "vendor/inkstone/src/rendering/character-view.js",
+      "sourceSHA256": "175ad1b598241068547a044c8a12e326d089b4c09b69d82461ecec36f39bb228",
+      "copySHA256": "175ad1b598241068547a044c8a12e326d089b4c09b69d82461ecec36f39bb228",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/depth-sort.js",
+      "copy": "vendor/inkstone/src/rendering/depth-sort.js",
+      "sourceSHA256": "47c5ab2ae47b5deaa50043eb5a611360750226073f6c9bca85a1b50a417963ed",
+      "copySHA256": "47c5ab2ae47b5deaa50043eb5a611360750226073f6c9bca85a1b50a417963ed",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/effects.js",
+      "copy": "vendor/inkstone/src/rendering/effects.js",
+      "sourceSHA256": "d8b3e4cfd3cd3b699c66e652261c471d699392160d691cf72dfc1b50e2ca637d",
+      "copySHA256": "d8b3e4cfd3cd3b699c66e652261c471d699392160d691cf72dfc1b50e2ca637d",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/overlays.js",
+      "copy": "vendor/inkstone/src/rendering/overlays.js",
+      "sourceSHA256": "c6ee52bc22244f80da0901f116f975e0f1d6c25cd9821f9a7c882e4961fc91f9",
+      "copySHA256": "c6ee52bc22244f80da0901f116f975e0f1d6c25cd9821f9a7c882e4961fc91f9",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/renderer.js",
+      "copy": "vendor/inkstone/src/rendering/renderer.js",
+      "sourceSHA256": "20e2467b40587626822e59a9ddfd8f5710c1dbf6ba285df352e8e161b6d91bd7",
+      "copySHA256": "20e2467b40587626822e59a9ddfd8f5710c1dbf6ba285df352e8e161b6d91bd7",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/scene.js",
+      "copy": "vendor/inkstone/src/rendering/scene.js",
+      "sourceSHA256": "53d92cca06d2ca5dfeac7f799b282d4fc72cca5d85d0ead86688bc0317517d82",
+      "copySHA256": "53d92cca06d2ca5dfeac7f799b282d4fc72cca5d85d0ead86688bc0317517d82",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/src/rendering/sprites.js",
+      "copy": "vendor/inkstone/src/rendering/sprites.js",
+      "sourceSHA256": "7c9f62f47bfa3e30f2a082658e0e30bc9a06727d471482ce3eb881db2b2149ab",
+      "copySHA256": "7c9f62f47bfa3e30f2a082658e0e30bc9a06727d471482ce3eb881db2b2149ab",
+      "identical": true
+    },
+    {
+      "origin": "Storybook Character Studio",
+      "source": "Storybook_Character_Studio/tools/serve.mjs",
+      "copy": "vendor/inkstone/tools/serve.mjs",
+      "sourceSHA256": "da7d2cd14ea85c0a0ecdd69f400a154e33fffe59cf4a90ec9d845440780e7c44",
+      "copySHA256": "da7d2cd14ea85c0a0ecdd69f400a154e33fffe59cf4a90ec9d845440780e7c44",
+      "identical": true
+    },
+    {
+      "origin": "Studio official export output",
+      "generator": "Storybook_Character_Studio/tools/export-game.mjs",
+      "generatorSHA256": "be399a2b355ca65f0e11e2bc933c9b2938e1f42bcf037aa7a626c07c65aed730",
+      "copy": "vendor/inkstone/USE_IN_GAME.md",
+      "copySHA256": "bdd3bcf6b19f0e284f1f7d2259ddee2f1848a4e6f9fc629552a1324ed5c10bb6",
+      "comparison": "正式エクスポートの生成ファイル。原本と同名でもコピーではない"
+    }
+  ],
+  "references": [
+    {
+      "file": "mockup/app.js",
+      "SHA256": "1750052a17922bed46e4d01005ed967c49cf3e7253b26138d6140194fb7ff486"
+    },
+    {
+      "file": "mockup/index.html",
+      "SHA256": "b650143215573f16b947b9136efaafb6bb5667b062f7229fe28abdce4c4d1208"
+    },
+    {
+      "file": "mockup/styles.css",
+      "SHA256": "3935217a6cbc17a10c8649e4b63a26289647035170e53eb9f853b825f87811ea"
+    },
+    {
+      "file": "mockup/docs/source-manifest.json",
+      "SHA256": "328d93a83a2d722ea8ba49d07a990967427e3d6de339706f61e616b926aa2f90"
+    },
+    {
+      "file": "Storybook_Character_Studio/docs/EXPORT_GUIDE.md",
+      "SHA256": "5c0e4e4679279d07775b6ea17e385d1d789e1ec9b7ebb6c8b0a751a4b0ac0ee4"
+    },
+    {
+      "file": "Storybook_Character_Studio/docs/API_REFERENCE.md",
+      "SHA256": "7a17c0b8e6a1fc07033e398403036d885ef6c8f35b9e23fd26782a3b665b9fb2"
+    },
+    {
+      "file": "Storybook_Character_Studio/docs/ROOM_GUIDE.md",
+      "SHA256": "57df9f3333cbd42ae27ab791420886b6047279518d5af65880a442aba2e920c1"
+    },
+    {
+      "file": "Storybook_Character_Studio/game/dungeon.js",
+      "SHA256": "83d7e30759502abd6db688556ed961266f8f2ff456780b2804fe0179539b4b2a"
+    },
+    {
+      "file": "dice-tactics/README.md",
+      "SHA256": "8e4afef42fa19b4db0f55106d26ad4e5422ef8f66eb5c788756d0e648f7c026b"
+    },
+    {
+      "file": "dice-tactics/RULES.md",
+      "SHA256": "5b6d15bd49182f16b5374e05ef2d450001a396631566559427849c2792da77c3"
+    }
+  ],
+  "ownFiles": [
+    {
+      "file": "index.html",
+      "SHA256": "dce9dfebade0a96152bb6665c3d02e949089d9ef5b0fa0569e2a223dd14c25bb"
+    },
+    {
+      "file": "styles.css",
+      "SHA256": "17da075e282720ee77d9203e8982dea7c7d8664c71553f25fa247555af40ed4b"
+    },
+    {
+      "file": "src/ui/kingdom-assets.js",
+      "SHA256": "1e94b08e065bc03b391d20f39278929d42c755b31be21a7fa8d26d80e3c9fff6"
+    },
+    {
+      "file": "src/ui/kingdom-board.js",
+      "SHA256": "1532efad7ea3de5dc6ee1f292c0d7de153016968cabaa57f7ec59a3aaf74eec3"
+    },
+    {
+      "file": "package.json",
+      "SHA256": "7e0f66d61668bc4e507f6e518db22629d58e26f0d08b16020388a8ae47873729"
+    },
+    {
+      "file": "serve.mjs",
+      "SHA256": "1e3f097470d1ed3bb2c5ee042763b2df57a4dd8986ec576530cc41044ce1f6a6"
+    },
+    {
+      "file": "launch.bat",
+      "SHA256": "6429da83e5615acb5c01b0c9e6d55052d7d52482b9fd1b5c9d5ee0d05c6d89a9"
+    },
+    {
+      "file": "README.md",
+      "SHA256": "cbd93393e8febda67558e82582606c3fab3d8457d269e75f1d37dc3406a6500d"
+    },
+    {
+      "file": "docs/SOURCES.md",
+      "SHA256": "0dad287fe9346b5f4b5116b1a02b323176b0b5460b7c1e2a24d03f987c77048e"
+    },
+    {
+      "file": "docs/FEATURES.md",
+      "SHA256": "aa9a7d38ca7c4f0ff8f3e38d47a9a9709087441292a195388e25fc3a7bea4265"
+    },
+    {
+      "file": "docs/TEST_REPORT.md",
+      "SHA256": "882fe1ec993da44675f27629dfabf322282344b6695e7c330bb99d264ad4ea40"
+    },
+    {
+      "file": "tests/compatibility.test.js",
+      "SHA256": "8354d84c172634e69bc29b71cba20ea9aba9fcfe2eb45a39dd02653562b95e6d"
+    },
+    {
+      "file": "tests/browser-qa.js",
+      "SHA256": "13363abf589f4e0958527ba17c73f2473485f26cffd87625caec05a54c420db6"
+    },
+    {
+      "file": "tests/reference/core/ai.js",
+      "SHA256": "8a63f768320e9868f701a1ff0ece954910142b0e857c95b3d17734e4c980413f"
+    },
+    {
+      "file": "tests/reference/core/config.js",
+      "SHA256": "0050d0f67beb87db72b8957bf7497c86e863c601a4930307c3c2f27fbe6b05ab"
+    },
+    {
+      "file": "tests/reference/core/dice.js",
+      "SHA256": "b12c628fb9949b1e743377710d65f6b51d65ae657cb0f36a09f9980559dfe385"
+    },
+    {
+      "file": "tests/reference/core/levels.js",
+      "SHA256": "4d5dbe0ad6154475bd1ae10261b551cd43e5a2d1fa89c8154fe1d03b662c735a"
+    },
+    {
+      "file": "tests/reference/core/rng.js",
+      "SHA256": "ceb346138817fb8887a25023d63675c6bf81d66c4f8331806854bda396433bc0"
+    },
+    {
+      "file": "tests/reference/core/rules.js",
+      "SHA256": "ed90220f64855e8e553788211d1406feb89f129a46afae62b9b5fd52b9f6ca17"
+    },
+    {
+      "file": "tests/cpu.test.js",
+      "SHA256": "0acc389f978a0a3d0889bd2462cc76b58a14445a9dfe478c67faad663b43bcbf"
+    },
+    {
+      "file": "tests/dice.test.js",
+      "SHA256": "df1ff34757906f193c421e93d538e073ccbe08013423c639322c73528a22cd1e"
+    },
+    {
+      "file": "tests/helpers.js",
+      "SHA256": "a065dc71d14357a7699dee003a469354081cd576bf1794166345cbda6c01eb53"
+    },
+    {
+      "file": "tests/levels.test.js",
+      "SHA256": "9e5cdc910c8a68580ce435236e27cde2023d2e52502376e59f296beb9191147f"
+    },
+    {
+      "file": "tests/rules.test.js",
+      "SHA256": "e0fa658489a450eba5843aebfc64bf31356f86b07a11086290c629d5a4e10d48"
+    },
+    {
+      "file": "tests/fixtures/levels-golden.json",
+      "SHA256": "f1e1fba9e2868162f60e08014b67030be5bf0c2ca3b61fc2a5e07c731e3fb904"
+    },
+    {
+      "file": "tests/fixtures/standard-golden.json",
+      "SHA256": "c46498d3fb98d73b4fda0e79c8184901de4bc777589faf66abb0c3c08268771e"
+    },
+    {
+      "file": "docs/ORIGINAL_RULES.md",
+      "SHA256": "5b6d15bd49182f16b5374e05ef2d450001a396631566559427849c2792da77c3"
+    },
+    {
+      "file": "tests/reference/manifest.json",
+      "SHA256": "32ba6e6d2509266750de8a8ead96651eb7a5e41d452516390c372cb6d5c260c1"
+    },
+    {
+      "file": "tests/reference/README.md",
+      "SHA256": "f482382ab3121b977d0334f29fe08b49f24d6049b4e0d8c6f7bc1d4058c58778"
+    },
+    {
+      "file": ".gitignore",
+      "SHA256": "342e9bc4471ec90e38eb001c2c2667e913af4b1b7862f5c8bfa2f5bd7fea29ad"
+    },
+    {
+      "file": ".gitattributes",
+      "SHA256": "de9f2768bc8b40ea332883cde4e5608bcf4b1aee51882382a6ea63675c283965"
+    }
+  ],
+  "summary": {
+    "coreCopies": 6,
+    "modifiedCopiedFiles": [
+      "src/ui/app.js",
+      "src/ui/fx.js",
+      "src/ui/view.js",
+      "vendor/inkstone/src/dungeon/architecture.js",
+      "vendor/inkstone/src/dungeon/props.js"
+    ],
+    "copiedGitDirectories": []
+  },
+  "cleanup": {
+    "date": "2026-10-24",
+    "removedDirectories": [
+      "dice-tactics",
+      "Storybook_Character_Studio",
+      "mockup"
+    ],
+    "note": "Studioとmockupはユーザーが削除。dice-tacticsは必要な検証資料を保存してから指定どおり削除。source/referenceパスは取り込み時点の出典履歴であり現在の依存先ではない。",
+    "referenceManifest": "tests/reference/manifest.json"
+  }
+}

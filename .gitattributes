@@ -1,0 +1,2 @@
+# 原本とのSHA-256・バイト照合を維持するため、改行を自動変換しない。
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

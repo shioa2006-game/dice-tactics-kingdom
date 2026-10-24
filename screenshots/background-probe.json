@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-24",
+  "attempts": [
+    "ブラウザ非表示",
+    "別タブ表示"
+  ],
+  "documentHidden": false,
+  "result": "このIABではvisibilityStateがvisibleのまま。実際の背景タブ遷移は未確認。"
+}

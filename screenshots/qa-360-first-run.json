@@ -1,0 +1,901 @@
+{
+  "type": "browser-synthetic-regression",
+  "started": "2026-10-24T08:19:40.984Z",
+  "viewport": {
+    "width": 360,
+    "height": 800,
+    "dpr": 1
+  },
+  "notes": [
+    "人工配置・固定出目を含む合成DOM/PointerEvent検証。",
+    "実機の指操作、聴感、ブラウザの実際の背景タブ遷移は別途確認が必要。"
+  ],
+  "results": [
+    {
+      "name": "12体・8種を描画キューへ渡す",
+      "pass": true,
+      "detail": {
+        "ids": [
+          [
+            "0",
+            "king"
+          ],
+          [
+            "1",
+            "warrior"
+          ],
+          [
+            "2",
+            "warrior"
+          ],
+          [
+            "3",
+            "archer"
+          ],
+          [
+            "4",
+            "archer"
+          ],
+          [
+            "5",
+            "mage"
+          ],
+          [
+            "6",
+            "demon-king"
+          ],
+          [
+            "7",
+            "goblin"
+          ],
+          [
+            "8",
+            "goblin"
+          ],
+          [
+            "9",
+            "skeleton-archer"
+          ],
+          [
+            "10",
+            "skeleton-archer"
+          ],
+          [
+            "11",
+            "dark-mage"
+          ]
+        ],
+        "order": [
+          "10",
+          "8",
+          "11",
+          "岩",
+          "6",
+          "7",
+          "9",
+          "岩",
+          "岩",
+          "1",
+          "3",
+          "岩",
+          "0",
+          "2",
+          "5",
+          "4"
+        ]
+      }
+    },
+    {
+      "name": "HP領域が各駒の足元座標に対応",
+      "pass": true
+    },
+    {
+      "name": "移動プレビューがコア候補と一致",
+      "pass": true
+    },
+    {
+      "name": "長いパンは行動・選択・プレビューを確定しない",
+      "pass": true
+    },
+    {
+      "name": "パンで背景を再生成しない",
+      "pass": true,
+      "detail": {
+        "builds": 1
+      }
+    },
+    {
+      "name": "閾値を超えて戻したドラッグをタップにしない",
+      "pass": true
+    },
+    {
+      "name": "pointercancel後の指離しで確定しない",
+      "pass": true
+    },
+    {
+      "name": "盤外へ出て戻った指で確定しない",
+      "pass": true
+    },
+    {
+      "name": "複数指を確定にしない",
+      "pass": true
+    },
+    {
+      "name": "blurで進行中ポインターを破棄",
+      "pass": true
+    },
+    {
+      "name": "極端なパンでも盤面周辺で制限",
+      "pass": true,
+      "detail": {
+        "x": -0.44999999999999946,
+        "y": -0.44999999999999946
+      }
+    },
+    {
+      "name": "四隅の駒 0 を中央で選択",
+      "pass": true
+    },
+    {
+      "name": "四隅の駒 1 を中央で選択",
+      "pass": true
+    },
+    {
+      "name": "四隅の駒 9 を中央で選択",
+      "pass": true
+    },
+    {
+      "name": "四隅の駒 10 を中央で選択",
+      "pass": true
+    },
+    {
+      "name": "密集した同職種2体をIDで選択",
+      "pass": true
+    },
+    {
+      "name": "密集したもう1体を取り違えない",
+      "pass": true
+    },
+    {
+      "name": "岩の背後の暗黒魔法使いを足元で選択",
+      "pass": true
+    },
+    {
+      "name": "数字キーで王を選択",
+      "pass": true
+    },
+    {
+      "name": "プレビュー取消は状態を変えない",
+      "pass": true
+    },
+    {
+      "name": "移動中は歩行アニメーション",
+      "pass": true
+    },
+    {
+      "name": "確定連打で1回だけコア結果を反映",
+      "pass": true
+    },
+    {
+      "name": "Zキーで移動前のAP・位置・フラグを復元",
+      "pass": true
+    },
+    {
+      "name": "Escで選択解除",
+      "pass": true
+    },
+    {
+      "name": "演出終了後は待機へ戻る",
+      "pass": false
+    },
+    {
+      "name": "移動・確定・取消・主要キー：例外",
+      "pass": false,
+      "detail": "Error: 演出終了後は待機へ戻る\n    at check (http://127.0.0.1:8150/tests/browser-qa.js:91:180)\n    at http://127.0.0.1:8150/tests/browser-qa.js:130:9\n    at async group (http://127.0.0.1:8150/tests/browser-qa.js:92:38)\n    at async HTMLButtonElement.runTests (http://127.0.0.1:8150/tests/browser-qa.js:122:7)"
+    },
+    {
+      "name": "岩で遮られた弓攻撃を拒否",
+      "pass": true
+    },
+    {
+      "name": "魔法の岩越しプレビュー",
+      "pass": true
+    },
+    {
+      "name": "魔法はコアどおりHP・AP更新",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー range",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": -1,
+        "blocked": "edge"
+      }
+    },
+    {
+      "name": "弓の結果 range",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー pushSuccess",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": 4,
+        "blocked": null
+      }
+    },
+    {
+      "name": "弓の結果 pushSuccess",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー pushUnit",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": -1,
+        "blocked": "unit"
+      }
+    },
+    {
+      "name": "弓の結果 pushUnit",
+      "pass": true
+    },
+    {
+      "name": "弓プレビュー pushRock",
+      "pass": true,
+      "detail": {
+        "kills": false,
+        "knockback": true,
+        "dest": -1,
+        "blocked": "obstacle"
+      }
+    },
+    {
+      "name": "弓の結果 pushRock",
+      "pass": true
+    },
+    {
+      "name": "攻撃後は待機・攻撃済み",
+      "pass": true
+    },
+    {
+      "name": "メニュー表示中の盤面入力を遮断",
+      "pass": true
+    },
+    {
+      "name": "速度・確定方法・控えめ演出を保存",
+      "pass": true
+    },
+    {
+      "name": "効果音オフと消音状態を保存",
+      "pass": true
+    },
+    {
+      "name": "Escで設定を閉じる",
+      "pass": true
+    },
+    {
+      "name": "ルール表示に兵種性能がある",
+      "pass": true
+    },
+    {
+      "name": "行動履歴を開ける",
+      "pass": true
+    },
+    {
+      "name": "タイトルから rookie・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "タイトルから easy・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "タイトルから normal・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "タイトルから hard・自軍先手",
+      "pass": true
+    },
+    {
+      "name": "CPU先手で開始",
+      "pass": true
+    },
+    {
+      "name": "実CPUが合法手を順に実行して自軍へ復帰",
+      "pass": true,
+      "detail": {
+        "trails": [
+          [
+            17,
+            27,
+            37,
+            36,
+            35
+          ]
+        ],
+        "state": {
+          "pos": [
+            84,
+            73,
+            76,
+            82,
+            87,
+            85,
+            15,
+            26,
+            23,
+            35,
+            12,
+            14
+          ],
+          "hp": [
+            4,
+            3,
+            3,
+            2,
+            2,
+            2,
+            4,
+            3,
+            3,
+            2,
+            2,
+            2
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ap": 0,
+          "apGained": 0,
+          "side": 0,
+          "phase": "roll",
+          "turn": 2,
+          "winner": null,
+          "lost": [
+            0,
+            0
+          ],
+          "dice": null
+        }
+      }
+    },
+    {
+      "name": "画面外のCPU行動へ追従",
+      "pass": true
+    },
+    {
+      "name": "Spaceで本来のダイスとAPを確定",
+      "pass": true
+    },
+    {
+      "name": "行動可能APがあるターン終了は確認待ち",
+      "pass": true
+    },
+    {
+      "name": "2回目のターン終了でCPUへ",
+      "pass": true
+    },
+    {
+      "name": "ランダム先手が両軍のいずれか",
+      "pass": true
+    },
+    {
+      "name": "CPU演出中のタイトル復帰で旧進行を停止",
+      "pass": true
+    },
+    {
+      "name": "王撃破の勝利プレビュー",
+      "pass": true
+    },
+    {
+      "name": "王撃破→勝利・対戦統計",
+      "pass": true
+    },
+    {
+      "name": "結果から再戦は12体初期状態",
+      "pass": true
+    },
+    {
+      "name": "合法CPU王撃破の状態→敗北画面",
+      "pass": true
+    },
+    {
+      "name": "結果からタイトルへ",
+      "pass": true
+    },
+    {
+      "name": "規定ターン終了→引き分け画面",
+      "pass": true
+    },
+    {
+      "name": "結果を閉じて終局盤面を見られる",
+      "pass": true
+    }
+  ],
+  "finished": "2026-10-24T08:19:54.932Z",
+  "passed": 61,
+  "failed": 2,
+  "finalState": {
+    "pos": [
+      84,
+      73,
+      76,
+      82,
+      87,
+      85,
+      15,
+      26,
+      23,
+      17,
+      12,
+      14
+    ],
+    "hp": [
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2
+    ],
+    "flags": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ap": 0,
+    "apGained": 0,
+    "side": 0,
+    "phase": "roll",
+    "turn": 1,
+    "winner": null,
+    "lost": [
+      0,
+      0
+    ],
+    "dice": null
+  },
+  "diagnostics": {
+    "tileWidth": 75,
+    "tileHeight": 42,
+    "characterScale": 1.25,
+    "sceneBuilds": 1,
+    "center": {
+      "x": 5.099999999999998,
+      "y": 7.499999999999998
+    },
+    "pan": {
+      "x": -380,
+      "y": -372.0999999999999
+    },
+    "p95": 1.100000023841858,
+    "max": 2.100000023841858,
+    "units": [
+      {
+        "id": "0",
+        "character": "king",
+        "x": 4.5,
+        "y": 8.5,
+        "direction": "SW",
+        "action": "idle",
+        "actionTime": 34.9273
+      },
+      {
+        "id": "1",
+        "character": "warrior",
+        "x": 3.5,
+        "y": 7.5,
+        "direction": "SW",
+        "action": "idle",
+        "actionTime": 35.097300000000004
+      },
+      {
+        "id": "2",
+        "character": "warrior",
+        "x": 6.5,
+        "y": 7.5,
+        "direction": "SW",
+        "action": "idle",
+        "actionTime": 35.267300000000006
+      },
+      {
+        "id": "3",
+        "character": "archer",
+        "x": 2.5,
+        "y": 8.5,
+        "direction": "SW",
+        "action": "idle",
+        "actionTime": 35.4373
+      },
+      {
+        "id": "4",
+        "character": "archer",
+        "x": 7.5,
+        "y": 8.5,
+        "direction": "SW",
+        "action": "idle",
+        "actionTime": 35.6073
+      },
+      {
+        "id": "5",
+        "character": "mage",
+        "x": 5.5,
+        "y": 8.5,
+        "direction": "SW",
+        "action": "idle",
+        "actionTime": 35.777300000000004
+      },
+      {
+        "id": "6",
+        "character": "demon-king",
+        "x": 5.5,
+        "y": 1.5,
+        "direction": "SE",
+        "action": "idle",
+        "actionTime": 35.947300000000006
+      },
+      {
+        "id": "7",
+        "character": "goblin",
+        "x": 6.5,
+        "y": 2.5,
+        "direction": "SE",
+        "action": "idle",
+        "actionTime": 36.1173
+      },
+      {
+        "id": "8",
+        "character": "goblin",
+        "x": 3.5,
+        "y": 2.5,
+        "direction": "SE",
+        "action": "idle",
+        "actionTime": 36.2873
+      },
+      {
+        "id": "9",
+        "character": "skeleton-archer",
+        "x": 7.5,
+        "y": 1.5,
+        "direction": "SE",
+        "action": "idle",
+        "actionTime": 36.457300000000004
+      },
+      {
+        "id": "10",
+        "character": "skeleton-archer",
+        "x": 2.5,
+        "y": 1.5,
+        "direction": "SE",
+        "action": "idle",
+        "actionTime": 36.627300000000005
+      },
+      {
+        "id": "11",
+        "character": "dark-mage",
+        "x": 4.5,
+        "y": 1.5,
+        "direction": "SE",
+        "action": "idle",
+        "actionTime": 36.7973
+      }
+    ],
+    "labels": [
+      {
+        "u": 0,
+        "x": 475,
+        "y": 618,
+        "w": 50,
+        "h": 17
+      },
+      {
+        "u": 1,
+        "x": 479.5,
+        "y": 576,
+        "w": 41,
+        "h": 17
+      },
+      {
+        "u": 2,
+        "x": 592,
+        "y": 639,
+        "w": 41,
+        "h": 17
+      },
+      {
+        "u": 3,
+        "x": 409,
+        "y": 576,
+        "w": 32,
+        "h": 17
+      },
+      {
+        "u": 4,
+        "x": 596.5,
+        "y": 681,
+        "w": 32,
+        "h": 17
+      },
+      {
+        "u": 5,
+        "x": 521.5,
+        "y": 639,
+        "w": 32,
+        "h": 17
+      },
+      {
+        "u": 6,
+        "x": 775,
+        "y": 492,
+        "w": 50,
+        "h": 17
+      },
+      {
+        "u": 7,
+        "x": 779.5,
+        "y": 534,
+        "w": 41,
+        "h": 17
+      },
+      {
+        "u": 8,
+        "x": 667,
+        "y": 471,
+        "w": 41,
+        "h": 17
+      },
+      {
+        "u": 9,
+        "x": 859,
+        "y": 534,
+        "w": 32,
+        "h": 17
+      },
+      {
+        "u": 10,
+        "x": 671.5,
+        "y": 429,
+        "w": 32,
+        "h": 17
+      },
+      {
+        "u": 11,
+        "x": 746.5,
+        "y": 471,
+        "w": 32,
+        "h": 17
+      }
+    ],
+    "last": {
+      "totalMs": 0.2999999523162842,
+      "characterMs": 0.19999992847442627,
+      "order": [
+        "10",
+        "8",
+        "11",
+        "岩",
+        "6",
+        "7",
+        "9",
+        "岩",
+        "岩",
+        "1",
+        "3",
+        "岩",
+        "0",
+        "2",
+        "5",
+        "4"
+      ],
+      "occluded": [],
+      "warnings": []
+    },
+    "cache": {
+      "mode": "cached",
+      "options": {
+        "mode": "cached",
+        "lineBoil": true,
+        "footFix": true,
+        "xray": true,
+        "characterScale": 1.25,
+        "footOffset": 3
+      },
+      "camera": {
+        "scale": 0.5,
+        "tx": 650,
+        "ty": 340,
+        "dpr": 1,
+        "width": 1300,
+        "height": 1100
+      },
+      "characterFrameScale": 0.625,
+      "lastFrame": {
+        "totalMs": 0.2999999523162842,
+        "characterMs": 0.19999992847442627,
+        "order": [
+          "10",
+          "8",
+          "11",
+          "岩",
+          "6",
+          "7",
+          "9",
+          "岩",
+          "岩",
+          "1",
+          "3",
+          "岩",
+          "0",
+          "2",
+          "5",
+          "4"
+        ],
+        "occluded": [],
+        "warnings": []
+      },
+      "scene": {
+        "buildMs": 26.800000071525574,
+        "bgBytesRGBA": 5720000,
+        "propBytesRGBA": 310080,
+        "props": 4
+      },
+      "caches": {
+        "characters": {
+          "king": {
+            "frames": 212,
+            "bytesRGBA": 8517312,
+            "buildMs": 195.10000002384186,
+            "frameW": 108,
+            "frameH": 93,
+            "k": 0.625
+          },
+          "warrior": {
+            "frames": 240,
+            "bytesRGBA": 10368000,
+            "buildMs": 389.2000000476837,
+            "frameW": 108,
+            "frameH": 100,
+            "k": 0.625
+          },
+          "archer": {
+            "frames": 184,
+            "bytesRGBA": 7125952,
+            "buildMs": 132.39999997615814,
+            "frameW": 103,
+            "frameH": 94,
+            "k": 0.625
+          },
+          "mage": {
+            "frames": 188,
+            "bytesRGBA": 9317280,
+            "buildMs": 118.5,
+            "frameW": 118,
+            "frameH": 105,
+            "k": 0.625
+          },
+          "demon-king": {
+            "frames": 224,
+            "bytesRGBA": 10752000,
+            "buildMs": 195.29999995231628,
+            "frameW": 120,
+            "frameH": 100,
+            "k": 0.625
+          },
+          "goblin": {
+            "frames": 188,
+            "bytesRGBA": 7483152,
+            "buildMs": 128.90000009536743,
+            "frameW": 107,
+            "frameH": 93,
+            "k": 0.625
+          },
+          "skeleton-archer": {
+            "frames": 208,
+            "bytesRGBA": 8716032,
+            "buildMs": 203.79999995231628,
+            "frameW": 108,
+            "frameH": 97,
+            "k": 0.625
+          },
+          "dark-mage": {
+            "frames": 204,
+            "bytesRGBA": 8759760,
+            "buildMs": 109.79999995231628,
+            "frameW": 113,
+            "frameH": 95,
+            "k": 0.625
+          }
+        },
+        "totalFrames": 1648,
+        "totalBytesRGBA": 71041336
+      },
+      "syncPauses": [
+        {
+          "id": "king",
+          "ms": 195.10000002384186,
+          "frames": 212,
+          "at": 736.5
+        },
+        {
+          "id": "warrior",
+          "ms": 389.2000000476837,
+          "frames": 240,
+          "at": 1346.2999999523163
+        },
+        {
+          "id": "archer",
+          "ms": 132.39999997615814,
+          "frames": 184,
+          "at": 3449.1999999284744
+        },
+        {
+          "id": "mage",
+          "ms": 118.5,
+          "frames": 188,
+          "at": 3585.7999999523163
+        },
+        {
+          "id": "demon-king",
+          "ms": 195.29999995231628,
+          "frames": 224,
+          "at": 4077.0999999046326
+        },
+        {
+          "id": "goblin",
+          "ms": 128.90000009536743,
+          "frames": 188,
+          "at": 4768.5
+        },
+        {
+          "id": "skeleton-archer",
+          "ms": 203.79999995231628,
+          "frames": 208,
+          "at": 5266.299999952316
+        },
+        {
+          "id": "dark-mage",
+          "ms": 109.79999995231628,
+          "frames": 204,
+          "at": 5849.299999952316
+        }
+      ],
+      "memoryNote": "bytesRGBA は幅×高さ×4 の理論値。ブラウザの実メモリ (GPU 側の複製などを含む) とは異なる"
+    }
+  },
+  "storageRestored": true
+}

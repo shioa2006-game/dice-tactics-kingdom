@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-24",
+  "sourceHashes": {
+    "ai.js": "8a63f768320e9868f701a1ff0ece954910142b0e857c95b3d17734e4c980413f",
+    "config.js": "0050d0f67beb87db72b8957bf7497c86e863c601a4930307c3c2f27fbe6b05ab",
+    "dice.js": "b12c628fb9949b1e743377710d65f6b51d65ae657cb0f36a09f9980559dfe385",
+    "levels.js": "4d5dbe0ad6154475bd1ae10261b551cd43e5a2d1fa89c8154fe1d03b662c735a",
+    "rng.js": "ceb346138817fb8887a25023d63675c6bf81d66c4f8331806854bda396433bc0",
+    "rules.js": "ed90220f64855e8e553788211d1406feb89f129a46afae62b9b5fd52b9f6ca17"
+  },
+  "matches": [
+    {
+      "level": "rookie",
+      "firstSide": 0,
+      "seed": 20261024,
+      "persona": null,
+      "turns": 58,
+      "actions": 93,
+      "winner": 1
+    },
+    {
+      "level": "rookie",
+      "firstSide": 1,
+      "seed": 20261025,
+      "persona": null,
+      "turns": 57,
+      "actions": 74,
+      "winner": 1
+    },
+    {
+      "level": "easy",
+      "firstSide": 0,
+      "seed": 20261024,
+      "persona": "rangedNovice",
+      "turns": 47,
+      "actions": 108,
+      "winner": 0
+    },
+    {
+      "level": "easy",
+      "firstSide": 1,
+      "seed": 20261025,
+      "persona": "rangedNovice",
+      "turns": 36,
+      "actions": 92,
+      "winner": 0
+    },
+    {
+      "level": "normal",
+      "firstSide": 0,
+      "seed": 20261024,
+      "persona": null,
+      "turns": 25,
+      "actions": 67,
+      "winner": 0
+    },
+    {
+      "level": "normal",
+      "firstSide": 1,
+      "seed": 20261025,
+      "persona": null,
+      "turns": 48,
+      "actions": 107,
+      "winner": 0
+    },
+    {
+      "level": "hard",
+      "firstSide": 0,
+      "seed": 20261024,
+      "persona": null,
+      "turns": 38,
+      "actions": 88,
+      "winner": 1
+    },
+    {
+      "level": "hard",
+      "firstSide": 1,
+      "seed": 20261025,
+      "persona": null,
+      "turns": 46,
+      "actions": 112,
+      "winner": 0
+    }
+  ],
+  "artificialCases": [
+    "ダイス強化0→1→2→3と上限、次回ダイスへの反映",
+    "弓の射程4",
+    "弓の隣接不可",
+    "弓の射程5不可",
+    "弓の斜め不可",
+    "弓の岩遮断",
+    "弓の味方遮断",
+    "魔法の岩越し",
+    "魔法の味方遮断",
+    "魔法の敵遮断",
+    "押出成功",
+    "端で不可",
+    "岩で不可",
+    "駒で不可",
+    "移動前stateの復元（UIの戻す操作自体はブラウザで別確認）",
+    "自軍勝利、CPU勝利、40ラウンド引分"
+  ]
+}
