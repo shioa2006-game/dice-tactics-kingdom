@@ -18,7 +18,7 @@
 node Storybook_Character_Studio/tools/export-game.mjs --characters king,warrior,archer,mage,demon-king,goblin,skeleton-archer,dark-mage --out vendor/inkstone
 ```
 
-`vendor/inkstone/export-manifest.json` は正式エクスポート時の出力記録としてそのまま保持しています。この中の `sharedLibrary: unmodified` は出力時点を表します。その後のコピー側の変更は次項の2行です。`characters/register.js`、キットの `main.js`・`index.html`・`package.json`・`USE_IN_GAME.md`・`export-manifest.json` はエクスポータが生成したファイルで、原本の同名ファイルとのバイト比較の対象ではありません。`.git` は取り込んでいません。
+`vendor/inkstone/export-manifest.json` は正式エクスポート時の出力記録としてそのまま保持しています。この中の `sharedLibrary: unmodified` は出力時点を表します。その後のコピー側の変更は次項に記録しています。`characters/register.js`、キットの `main.js`・`index.html`・`package.json`・`USE_IN_GAME.md`・`export-manifest.json` はエクスポータが生成したファイルで、原本の同名ファイルとのバイト比較の対象ではありません。`.git` は取り込んでいません。
 
 ## Studioコピー側の限定変更
 
@@ -41,6 +41,8 @@ node Storybook_Character_Studio/tools/export-game.mjs --characters king,warrior,
 初回取り込み時は上記2ファイル以外のバイト一致を確認しました。明示的な移動モードの追加で、`vendor/inkstone/src/rendering/renderer.js` に任意の `units[].opacity`（既定1）を追加しています。既存のキャッシュ画像を身体・影・遮蔽時の透視表示へ合成する時だけ透明度を適用し、背景やキャラクターのフレームを再生成しません。通常の駒は1、移動中の他の駒は0.28、移動先の仮表示は0.55です。キャラクター定義・装備・方向別描画・アニメーションは変更していません。
 
 向き・HPの前後関係はゲーム側のアダプタで処理しています。足元HPは公開 `floorOverlay` を使用し、移動先の半透明キャラクターにはHPや選択用ヒット領域を付けません。元の12体の状態・判定は変わりません。
+
+2026-10-25: 事前生成画像のため、コピー側の `cache.js` に検証付きアトラス登録と矩形参照、`renderer.js` に登録API、`character-view.js` に共通フレーム貼り付けを追加しました。キャラクター定義は変更せず、Studioの描画から全コマを生成しています。`assets/characters/manifest.json` に入力と画像のハッシュを記録。詳しい再生成方法は [アニメーション画像](ANIMATION_ASSETS.md) を参照してください。
 
 ## キャラクターIDとユニット対応
 

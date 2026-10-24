@@ -6,6 +6,7 @@
   "engines": { "node": ">=18" },
   "scripts": {
     "start": "node serve.mjs --open",
+    "assets:build": "node tools/build-atlases.mjs",
     "test": "node --test tests/*.test.js"
   }
 }

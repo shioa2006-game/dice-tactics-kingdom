@@ -12,7 +12,7 @@ import { PAL } from '../core/palette.js';
 import { strokePath } from '../core/ink.js';
 import { DIRS } from '../characters/rig.js';
 import { createCharacterRegistry, resolveAction, BUILTIN_CHARACTERS } from '../characters/registry.js';
-import { createFrameCacheStore, modT } from './cache.js';
+import { createFrameCacheStore, modT, drawCachedFrame } from './cache.js';
 import { SHADOW_BOX, drawUnitShadow } from './effects.js';
 import { drawTile } from './overlays.js';
 import { defaultDpr } from './camera.js';
@@ -82,7 +82,7 @@ export function createCharacterView(o = {}) {
           g.setTransform(1, 0, 0, 1, 0, 0);
           const sh = st.caches.shadowSprite(k);
           g.drawImage(sh, Math.round(X * st.dpr + SHADOW_BOX.x0 * k), Math.round(Y * st.dpr + SHADOW_BOX.y0 * k));
-          g.drawImage(c, Math.round(X * st.dpr + box.x0 * k), Math.round(Y * st.dpr + box.y0 * k));
+          drawCachedFrame(g, c, Math.round(X * st.dpr + box.x0 * k), Math.round(Y * st.dpr + box.y0 * k));
           g.setTransform(st.dpr, 0, 0, st.dpr, 0, 0);
         } else {
           g.save(); g.translate(X, Y); g.scale(S, S); drawUnitShadow(g); g.restore();

@@ -1,0 +1,571 @@
+{
+  "started": "2026-10-24T15:40:24.214Z",
+  "results": [
+    {
+      "id": "king",
+      "dpr": 1,
+      "frames": 212,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 44710,
+      "over2": 0,
+      "worst": {
+        "key": "NEidle",
+        "frame": 11,
+        "x": 69,
+        "y": 71,
+        "old": [
+          58,
+          58,
+          55,
+          167
+        ],
+        "now": [
+          56,
+          56,
+          55,
+          167
+        ],
+        "raw": [
+          58,
+          58,
+          55,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "warrior",
+      "dpr": 1,
+      "frames": 240,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 65317,
+      "over2": 0,
+      "worst": {
+        "key": "SEidle",
+        "frame": 1,
+        "x": 77,
+        "y": 76,
+        "old": [
+          58,
+          55,
+          52,
+          167
+        ],
+        "now": [
+          56,
+          55,
+          52,
+          167
+        ],
+        "raw": [
+          58,
+          55,
+          52,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "archer",
+      "dpr": 1,
+      "frames": 184,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 45042,
+      "over2": 0,
+      "worst": {
+        "key": "NWidle",
+        "frame": 1,
+        "x": 30,
+        "y": 57,
+        "old": [
+          41,
+          35,
+          29,
+          167
+        ],
+        "now": [
+          40,
+          34,
+          27,
+          167
+        ],
+        "raw": [
+          41,
+          35,
+          29,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "mage",
+      "dpr": 1,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 53798,
+      "over2": 0,
+      "worst": {
+        "key": "NWwalk",
+        "frame": 12,
+        "x": 59,
+        "y": 96,
+        "old": [
+          32,
+          29,
+          23,
+          167
+        ],
+        "now": [
+          31,
+          27,
+          23,
+          167
+        ],
+        "raw": [
+          32,
+          29,
+          23,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "demon-king",
+      "dpr": 1,
+      "frames": 224,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 45641,
+      "over2": 0,
+      "worst": {
+        "key": "NWwalk",
+        "frame": 6,
+        "x": 52,
+        "y": 85,
+        "old": [
+          29,
+          26,
+          24,
+          167
+        ],
+        "now": [
+          27,
+          26,
+          23,
+          167
+        ],
+        "raw": [
+          29,
+          26,
+          24,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "goblin",
+      "dpr": 1,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 50231,
+      "over2": 0,
+      "worst": {
+        "key": "NWwalk",
+        "frame": 3,
+        "x": 49,
+        "y": 58,
+        "old": [
+          40,
+          38,
+          29,
+          167
+        ],
+        "now": [
+          40,
+          37,
+          27,
+          167
+        ],
+        "raw": [
+          40,
+          38,
+          29,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "skeleton-archer",
+      "dpr": 1,
+      "frames": 208,
+      "maxPremultipliedDiff": 1.3254901960784313,
+      "differingPixels": 77235,
+      "over2": 0,
+      "worst": {
+        "key": "SWwalk",
+        "frame": 3,
+        "x": 59,
+        "y": 79,
+        "old": [
+          92,
+          86,
+          78,
+          169
+        ],
+        "now": [
+          91,
+          84,
+          77,
+          169
+        ],
+        "raw": [
+          92,
+          86,
+          78,
+          169
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "dark-mage",
+      "dpr": 1,
+      "frames": 204,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 46242,
+      "over2": 0,
+      "worst": {
+        "key": "NWidle",
+        "frame": 12,
+        "x": 44,
+        "y": 47,
+        "old": [
+          31,
+          29,
+          29,
+          167
+        ],
+        "now": [
+          31,
+          27,
+          27,
+          167
+        ],
+        "raw": [
+          31,
+          29,
+          29,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "king",
+      "dpr": 1.5,
+      "frames": 212,
+      "maxPremultipliedDiff": 1.3254901960784313,
+      "differingPixels": 52458,
+      "over2": 0,
+      "worst": {
+        "key": "NWidle",
+        "frame": 2,
+        "x": 86,
+        "y": 19,
+        "old": [
+          97,
+          86,
+          68,
+          169
+        ],
+        "now": [
+          97,
+          84,
+          68,
+          169
+        ],
+        "raw": [
+          97,
+          86,
+          68,
+          169
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "warrior",
+      "dpr": 1.5,
+      "frames": 240,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 74411,
+      "over2": 0,
+      "worst": {
+        "key": "NWidle",
+        "frame": 11,
+        "x": 87,
+        "y": 123,
+        "old": [
+          29,
+          26,
+          24,
+          167
+        ],
+        "now": [
+          27,
+          26,
+          23,
+          167
+        ],
+        "raw": [
+          29,
+          26,
+          24,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "archer",
+      "dpr": 1.5,
+      "frames": 184,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 51183,
+      "over2": 0,
+      "worst": {
+        "key": "NWidle",
+        "frame": 0,
+        "x": 61,
+        "y": 91,
+        "old": [
+          43,
+          37,
+          29,
+          167
+        ],
+        "now": [
+          43,
+          37,
+          27,
+          167
+        ],
+        "raw": [
+          43,
+          37,
+          29,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "mage",
+      "dpr": 1.5,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 65309,
+      "over2": 0,
+      "worst": {
+        "key": "NEwalk",
+        "frame": 4,
+        "x": 82,
+        "y": 128,
+        "old": [
+          34,
+          29,
+          24,
+          167
+        ],
+        "now": [
+          34,
+          27,
+          23,
+          167
+        ],
+        "raw": [
+          34,
+          29,
+          24,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "demon-king",
+      "dpr": 1.5,
+      "frames": 224,
+      "maxPremultipliedDiff": 1.2784313725490195,
+      "differingPixels": 54752,
+      "over2": 0,
+      "worst": {
+        "key": "NEidle",
+        "frame": 2,
+        "x": 106,
+        "y": 80,
+        "old": [
+          27,
+          25,
+          22,
+          163
+        ],
+        "now": [
+          27,
+          23,
+          22,
+          163
+        ],
+        "raw": [
+          27,
+          25,
+          22,
+          163
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "goblin",
+      "dpr": 1.5,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3019607843137255,
+      "differingPixels": 54298,
+      "over2": 0,
+      "worst": {
+        "key": "NWwalk",
+        "frame": 11,
+        "x": 41,
+        "y": 67,
+        "old": [
+          45,
+          43,
+          38,
+          166
+        ],
+        "now": [
+          45,
+          41,
+          37,
+          166
+        ],
+        "raw": [
+          45,
+          43,
+          38,
+          166
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "skeleton-archer",
+      "dpr": 1.5,
+      "frames": 208,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 91343,
+      "over2": 0,
+      "worst": {
+        "key": "SEidle",
+        "frame": 0,
+        "x": 67,
+        "y": 100,
+        "old": [
+          38,
+          34,
+          29,
+          167
+        ],
+        "now": [
+          37,
+          34,
+          27,
+          167
+        ],
+        "raw": [
+          38,
+          34,
+          29,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "dark-mage",
+      "dpr": 1.5,
+      "frames": 204,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 55933,
+      "over2": 0,
+      "worst": {
+        "key": "NWwalk",
+        "frame": 10,
+        "x": 79,
+        "y": 123,
+        "old": [
+          29,
+          24,
+          21,
+          167
+        ],
+        "now": [
+          27,
+          23,
+          20,
+          167
+        ],
+        "raw": [
+          29,
+          24,
+          21,
+          167
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "本番ローダー: 8種類を同期生成なしで登録",
+      "pass": true,
+      "loaded": {
+        "mode": "atlas",
+        "loaded": [
+          "archer",
+          "mage",
+          "demon-king",
+          "king",
+          "goblin",
+          "warrior",
+          "skeleton-archer",
+          "dark-mage"
+        ],
+        "failed": [],
+        "loadMs": 95.90000009536743
+      }
+    },
+    {
+      "name": "画像情報不正時は旧描画へ復帰",
+      "pass": true,
+      "recovered": {
+        "mode": "fallback",
+        "loaded": [],
+        "failed": [
+          {
+            "id": "king",
+            "error": "Error: Missing character atlas"
+          }
+        ],
+        "loadMs": 180.5
+      }
+    }
+  ],
+  "note": "PCブラウザで2解像度の全コマを照合。スマートフォン実機ではない。",
+  "finished": "2026-10-24T15:40:47.650Z",
+  "passed": 18,
+  "failed": 0
+}

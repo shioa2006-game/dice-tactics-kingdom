@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-24T12:02:28.509Z",
+  "recordedAt": "2026-10-24T15:48:20.162Z",
   "pathBase": "dice-tactics-kingdom/",
   "digest": "SHA-256",
   "note": "コピーの現在値を記録。app/view/fx/kingdom-board などを編集した場合は copySHA256 と ownFiles を再計算する。元の照合データは更新しない。",
@@ -438,8 +438,8 @@
       "source": "Storybook_Character_Studio/src/rendering/cache.js",
       "copy": "vendor/inkstone/src/rendering/cache.js",
       "sourceSHA256": "5b5604d1eec1042cc5b3e729b2e0a4cd7587b2b432fbd60eb959efcb7a0a6cd6",
-      "copySHA256": "5b5604d1eec1042cc5b3e729b2e0a4cd7587b2b432fbd60eb959efcb7a0a6cd6",
-      "identical": true
+      "copySHA256": "2ee195e18afed58cb0f28ad537451c79758632eac2d57f5974266245a7fe131b",
+      "identical": false
     },
     {
       "origin": "Storybook Character Studio",
@@ -454,8 +454,8 @@
       "source": "Storybook_Character_Studio/src/rendering/character-view.js",
       "copy": "vendor/inkstone/src/rendering/character-view.js",
       "sourceSHA256": "175ad1b598241068547a044c8a12e326d089b4c09b69d82461ecec36f39bb228",
-      "copySHA256": "175ad1b598241068547a044c8a12e326d089b4c09b69d82461ecec36f39bb228",
-      "identical": true
+      "copySHA256": "2b82dd3d082a775b9b204ade3f4cfc98c2ec98513c795e2e06c9f391b28d99d6",
+      "identical": false
     },
     {
       "origin": "Storybook Character Studio",
@@ -486,7 +486,7 @@
       "source": "Storybook_Character_Studio/src/rendering/renderer.js",
       "copy": "vendor/inkstone/src/rendering/renderer.js",
       "sourceSHA256": "20e2467b40587626822e59a9ddfd8f5710c1dbf6ba285df352e8e161b6d91bd7",
-      "copySHA256": "54d73cc028b29c1f52bbe8473e9223b47bea5dba5d07f061201df86e39eb286f",
+      "copySHA256": "a6de18fb254bd9b3a5637e9114c7d0a0b61093674d612807688fe12f38e9db3c",
       "identical": false
     },
     {
@@ -579,15 +579,15 @@
     },
     {
       "file": "src/ui/kingdom-board.js",
-      "SHA256": "eaae0e6aa3586df764c85b1b7815563d58955b9e0bc00a8aabc608d6152b9a9a"
+      "SHA256": "c10ab384c808bbfc59a34ac873378ada999dda1303b241caedacebc88021b767"
     },
     {
       "file": "package.json",
-      "SHA256": "7e0f66d61668bc4e507f6e518db22629d58e26f0d08b16020388a8ae47873729"
+      "SHA256": "cea9373e481c9a26eef4035e8b01f9ebb3de3cb0f4d3dc13305304f355b2ee1d"
     },
     {
       "file": "serve.mjs",
-      "SHA256": "1e3f097470d1ed3bb2c5ee042763b2df57a4dd8986ec576530cc41044ce1f6a6"
+      "SHA256": "b402e6d4e582df2ec03f9926cb7ab00eb68e0a4794a5242a3bda3a6f4282b89c"
     },
     {
       "file": "launch.bat",
@@ -595,11 +595,11 @@
     },
     {
       "file": "README.md",
-      "SHA256": "59e392c16640d81c9ee36d1f8fb4172b59875f879c5ad2796e0d2b49a1fa6003"
+      "SHA256": "7bbf22b394b1d5ff933aac2021ed1165d18d270e9fc6f5edaee76839d47b403e"
     },
     {
       "file": "docs/SOURCES.md",
-      "SHA256": "be90dcadc3546a47f029a89456b4378f1b587923e0020707a898efab85ce9033"
+      "SHA256": "525c5a4837021b6db489f98c2ea2006141378f6c342a1640e5077daf99b21fd4"
     },
     {
       "file": "docs/FEATURES.md",
@@ -607,7 +607,7 @@
     },
     {
       "file": "docs/TEST_REPORT.md",
-      "SHA256": "369d96a1f0f0a971b95c8189a177e3877ed94538106ecadff8c22aca37249e28"
+      "SHA256": "d8fc7e7328d3ed004de15c9622372bb83ed392cae3a4517e7b2ea9c45b6b4de6"
     },
     {
       "file": "tests/compatibility.test.js",
@@ -696,6 +696,130 @@
     {
       "file": "tests/facing.test.js",
       "SHA256": "ff5e7e5c3b54addae0c5ac16809321c7c033bed779786e195f6d0270beda9bfd"
+    },
+    {
+      "file": "src/ui/kingdom-atlas.js",
+      "SHA256": "731cede97a8d8ac74adb37129a537dc4493aa71f28186776d2f1a3a0f85d6266"
+    },
+    {
+      "file": "docs/ANIMATION_ASSETS.md",
+      "SHA256": "ef429b8afb62b646114b53be957a917586c7124e6bc21565531d1bd349c98c46"
+    },
+    {
+      "file": "docs/STARTUP_PERFORMANCE.md",
+      "SHA256": "d90662e3bc3c57a0a1628b7cbe5966fff8b40527d2963a108f49c8e2855d886c"
+    },
+    {
+      "file": "tools/atlas-source.mjs",
+      "SHA256": "be66b25df37ffd01389b82e4ca5b9cb356256b88d980836e0de76a89d7bb9f00"
+    },
+    {
+      "file": "tools/build-atlases.mjs",
+      "SHA256": "45f7d4d0d1a05cc8286023d01fddc23b688f8ad80ba6f0d96865a9cb35984182"
+    },
+    {
+      "file": "tools/export-atlases.js",
+      "SHA256": "aa656e3550557483e0ffc9c7f6fde38fb216683a5146d7cfcca62386288baa8e"
+    },
+    {
+      "file": "tools/encode-atlas.py",
+      "SHA256": "5ab4e284ad1afc8bd7130ab4b0e982f41054e4ca373ea7bd81c280899d8d7710"
+    },
+    {
+      "file": "tests/atlas.test.js",
+      "SHA256": "460e2a18559a73badd834e2d1112abb04e955defaca6650531bb6f807cf50bd4"
+    },
+    {
+      "file": "tests/atlas-qa.html",
+      "SHA256": "75dac4c4574a486206ed35b4e9ada157f730536641679a292aef7cb1344954ce"
+    },
+    {
+      "file": "tests/atlas-qa.js",
+      "SHA256": "3afa622bd612267abec95ae08f253faed36ef6be9afbefc7dde3cc620ad92931"
+    },
+    {
+      "file": "tests/fixtures/invalid-atlas.json",
+      "SHA256": "347f21e09d3a5aca017de3b2e8c807ab5a174a4e5412aaf453bba5e345accb48"
+    },
+    {
+      "file": "tests/build-startup-profile.mjs",
+      "SHA256": "48a42cbf1d697ceecd7f9708ea8a853a27b18475345a8a5304d1377f328b46bb"
+    },
+    {
+      "file": "tests/startup-profile.html",
+      "SHA256": "8ef9239c23774094c7ce23bde91588203b540b6f63d873bb11bf7f0a3b6f77d5"
+    },
+    {
+      "file": "tests/startup-profile.js",
+      "SHA256": "f1dedbe554c063e3c41c54bca8625b697fc64f7f35fd66821c5384fd22d150fa"
+    },
+    {
+      "file": "assets/characters/archer-1-95f98f3072852717.webp",
+      "SHA256": "95f98f307285271702e6979237c6575311102b59993a50723fc1f17ed939a042"
+    },
+    {
+      "file": "assets/characters/archer-1.5-9e62d352bc46bf50.webp",
+      "SHA256": "9e62d352bc46bf50e24f00137bb4a846386f980020be3e7ee845aa059b65a2e7"
+    },
+    {
+      "file": "assets/characters/dark-mage-1-4a897e61f1a3cfdd.webp",
+      "SHA256": "4a897e61f1a3cfdd357ac15587315cf4d0d4f41f9ba56ab73c69fb7310e84620"
+    },
+    {
+      "file": "assets/characters/dark-mage-1.5-a92f3d22cbc2630a.webp",
+      "SHA256": "a92f3d22cbc2630a6398886fba55dbab16e4c7a3b41b169406637b19abcc29b8"
+    },
+    {
+      "file": "assets/characters/demon-king-1-bdc18b882e29602a.webp",
+      "SHA256": "bdc18b882e29602a3b582fc1607b9496cca3ed0b69d1f34778daf5010f79d768"
+    },
+    {
+      "file": "assets/characters/demon-king-1.5-35826cb4dd4836d8.webp",
+      "SHA256": "35826cb4dd4836d8ce3d2245f22f81f4d72e0366d85b8050ce9c5ee4d767d9c8"
+    },
+    {
+      "file": "assets/characters/goblin-1-1bea195b8342aa3f.webp",
+      "SHA256": "1bea195b8342aa3f45fec8dce15886de93acd01a7fcbc4d6e05fe79ca8a57b78"
+    },
+    {
+      "file": "assets/characters/goblin-1.5-90707783726865b8.webp",
+      "SHA256": "90707783726865b8b382b7b814c7c84c2f05876697b234154ee3d4ec9bebf062"
+    },
+    {
+      "file": "assets/characters/king-1-02f01610bc6fd278.webp",
+      "SHA256": "02f01610bc6fd278d1085d3d59fc7a290a95002ee45136264689feb7e847be42"
+    },
+    {
+      "file": "assets/characters/king-1.5-879bd4799651bb11.webp",
+      "SHA256": "879bd4799651bb11911ae45c49ce3ecd55e911908caa8adf8547d6beb2f7e7b6"
+    },
+    {
+      "file": "assets/characters/mage-1-ae605c0d5cc74e2e.webp",
+      "SHA256": "ae605c0d5cc74e2e9cd271e86a78a73e5f1caf0b2fc00c38f7c1dd4f64506500"
+    },
+    {
+      "file": "assets/characters/mage-1.5-645a9e204c2fdbd3.webp",
+      "SHA256": "645a9e204c2fdbd34ebc1795d618bc1f0548e5e2c648f8401bfdd1b990a8d946"
+    },
+    {
+      "file": "assets/characters/manifest.json",
+      "SHA256": "ace6ad4f9da22641ee37cc3ba4a22216e5a442b8abb7849e5f7641f6b45973df"
+    },
+    {
+      "file": "assets/characters/skeleton-archer-1-32a748559cdbf91a.webp",
+      "SHA256": "32a748559cdbf91a59d32d861707640653ad4a8aeb4120564c0019618c977d3a"
+    },
+    {
+      "file": "assets/characters/skeleton-archer-1.5-d3578a166d7527ad.webp",
+      "SHA256": "d3578a166d7527ad5911aa1a3795880af222c6b6068f0fcafc96147569a336b3"
+    },
+    {
+      "file": "assets/characters/warrior-1-b27450d764238f04.webp",
+      "SHA256": "b27450d764238f049b93ff1bc2ee5fa9acb92c51e146cc4dd4621a5039c3e353"
+    },
+    {
+      "file": "assets/characters/warrior-1.5-69693534cc2aa85d.webp",
+      "SHA256": "69693534cc2aa85df9854f5232538475e37a89dd3f80ea3494d0292b699726ed"
     }
   ],
   "summary": {
@@ -706,6 +830,8 @@
       "src/ui/view.js",
       "vendor/inkstone/src/dungeon/architecture.js",
       "vendor/inkstone/src/dungeon/props.js",
+      "vendor/inkstone/src/rendering/cache.js",
+      "vendor/inkstone/src/rendering/character-view.js",
       "vendor/inkstone/src/rendering/renderer.js"
     ],
     "copiedGitDirectories": []

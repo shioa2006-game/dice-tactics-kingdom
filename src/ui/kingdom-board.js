@@ -6,13 +6,13 @@ import {STANDARD_LAYOUT, DIRS, MOVED, ATTACKED, HUMAN, MAGE} from '../core/confi
 import * as R from '../core/rules.js';
 import {CHARACTER_IDS, NAMES} from './kingdom-assets.js';
 import {createFacing, directionToward} from './kingdom-facing.js';
+import {atlasDpr,loadCharacterAtlases} from './kingdom-atlas.js';
 
 const $=id=>document.getElementById(id), W=1300, H=1100, TILE=75, SCALE=1.25;
 const defs=Object.fromEntries(characters.map(c=>[c.id,c]));
 const xy=c=>({x:c%10+.5,y:Math.floor(c/10)+.5});
 const clamp=(v,a,b)=>Math.max(a,Math.min(v,b));
 const ease=t=>t*t*(3-2*t);
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const room={id:'kingdom-stone-court-v2',width:10,depth:10,wallHeight:1.8,courseHeight:.45,wallThickness:.45,rim:.25,slab:.32,
   floor:{crack:.07,chip:.05,density:.14},doors:[],decor:[],
   torches:[{wall:'left',at:2.1,height:1.4,glow:.65},{wall:'left',at:7.4,height:1.4,glow:.65},{wall:'right',at:3.6,height:1.4,glow:.65},{wall:'right',at:8.1,height:1.4,glow:.65}],
@@ -28,16 +28,16 @@ let facing;
 let lastInfo=null, builds=0, cancelWaits=new Set();
 let attackReady=new Set();
 let previewUnit=null;
+let atlasLoad=null;
 
 export async function init(config, cellHandler){
   cfg=config;facing=createFacing(cfg);onCell=cellHandler;viewport=$('viewport');
-  renderer=createRenderer({canvas:$('kingdom-canvas'),width:W,height:H,dpr:Math.min(devicePixelRatio||1,1.5),characterScale:SCALE,footOffset:3,mode:'cached',characters,lineBoil:true,footFix:true,xray:true});
+  renderer=createRenderer({canvas:$('kingdom-canvas'),width:W,height:H,dpr:atlasDpr(devicePixelRatio||1),characterScale:SCALE,footOffset:3,mode:'cached',characters,lineBoil:true,footFix:true,xray:true});
   renderer.setCamera({scale:.5,centerX:5,centerY:5});renderer.setRoom(room);builds++;
   installInput();makePortraits();drawTitle();
-  for(let i=0;i<characters.length;i++){
-    $('loading-detail').textContent=`キャラクターを準備中 ${i+1} / ${characters.length}`;
-    await sleep(12);renderer.prepareCaches([characters[i].id]);
-  }
+  atlasLoad=await loadCharacterAtlases(renderer,characters,(loaded,total,fallback)=>{
+    $('loading-detail').textContent=fallback?'キャラクター画像を再準備中':`キャラクター画像を読み込み中 ${loaded} / ${total}`;
+  });
   ready=true;$('loading').hidden=true;centerOn(5.1,7.5);
   new ResizeObserver(()=>{
     const c=prevSize.w?fromViewport(prevSize.w/2,prevSize.h/2):{x:5.1,y:7.5};
@@ -276,6 +276,7 @@ function frame(now){
 }
 // 読み取り用診断。通常URLには人工局面や固定乱数の操作を置かない。
 export const diagnostics={
+  get atlas(){return atlasLoad;},
   get ready(){return ready;},get renderer(){return renderer;},get game(){return game;},get animation(){return animation;},
   get previewUnit(){return previewUnit&&{...previewUnit};},
   get info(){const t=timings.slice().sort((a,b)=>a-b);return{tileWidth:TILE,tileHeight:42,characterScale:SCALE,hpLayer:'floor-before-characters',sceneBuilds:builds,center:centerWorld(),pan:{...pan},p95:t[Math.floor(t.length*.95)]||0,max:Math.max(0,...t),units:currentUnits.map(u=>({...u})),labels:labels.map(l=>({...l})),last:lastInfo,cache:renderer.getDiagnostics()};}

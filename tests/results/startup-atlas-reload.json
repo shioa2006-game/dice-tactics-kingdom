@@ -1,0 +1,886 @@
+{
+  "kind": "actual-app-startup",
+  "at": "2026-10-24T15:42:31.335Z",
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "dpr": 1,
+    "actualDpr": 1
+  },
+  "documentHidden": false,
+  "started": 28.100000023841858,
+  "initialized": 552.1000000238419,
+  "painted": 577.5,
+  "startupMs": 524,
+  "titleVisible": true,
+  "stages": [
+    {
+      "at": 472.5,
+      "text": "キャラクター画像を読み込み中 1 / 8",
+      "hidden": false
+    },
+    {
+      "at": 489.7999999523163,
+      "text": "キャラクター画像を読み込み中 2 / 8",
+      "hidden": false
+    },
+    {
+      "at": 498.7000000476837,
+      "text": "キャラクター画像を読み込み中 3 / 8",
+      "hidden": false
+    },
+    {
+      "at": 508.89999997615814,
+      "text": "キャラクター画像を読み込み中 4 / 8",
+      "hidden": false
+    },
+    {
+      "at": 520.7999999523163,
+      "text": "キャラクター画像を読み込み中 5 / 8",
+      "hidden": false
+    },
+    {
+      "at": 529.2999999523163,
+      "text": "キャラクター画像を読み込み中 6 / 8",
+      "hidden": false
+    },
+    {
+      "at": 538.7999999523163,
+      "text": "キャラクター画像を読み込み中 7 / 8",
+      "hidden": false
+    },
+    {
+      "at": 548.2000000476837,
+      "text": "キャラクター画像を読み込み中 8 / 8",
+      "hidden": false
+    }
+  ],
+  "longTasks": [
+    {
+      "start": 82.89999997615814,
+      "ms": 370
+    }
+  ],
+  "cache": {
+    "mode": "cached",
+    "options": {
+      "mode": "cached",
+      "lineBoil": true,
+      "footFix": true,
+      "xray": true,
+      "characterScale": 1.25,
+      "footOffset": 3
+    },
+    "camera": {
+      "scale": 0.5,
+      "tx": 650,
+      "ty": 340,
+      "dpr": 1,
+      "width": 1300,
+      "height": 1100
+    },
+    "characterFrameScale": 0.625,
+    "lastFrame": {
+      "totalMs": 0.3999999761581421,
+      "characterMs": 0.19999992847442627,
+      "order": [
+        "10",
+        "8",
+        "11",
+        "岩",
+        "6",
+        "7",
+        "9",
+        "岩",
+        "岩",
+        "1",
+        "3",
+        "岩",
+        "0",
+        "2",
+        "5",
+        "4"
+      ],
+      "occluded": [],
+      "warnings": []
+    },
+    "scene": {
+      "buildMs": 23.5,
+      "bgBytesRGBA": 5720000,
+      "propBytesRGBA": 310080,
+      "props": 4
+    },
+    "caches": {
+      "characters": {
+        "king": {
+          "frames": 212,
+          "bytesRGBA": 8999424,
+          "buildMs": 0,
+          "frameW": 108,
+          "frameH": 93,
+          "k": 0.625,
+          "source": "atlas"
+        },
+        "warrior": {
+          "frames": 240,
+          "bytesRGBA": 10368000,
+          "buildMs": 0,
+          "frameW": 108,
+          "frameH": 100,
+          "k": 0.625,
+          "source": "atlas"
+        },
+        "archer": {
+          "frames": 184,
+          "bytesRGBA": 7435776,
+          "buildMs": 0,
+          "frameW": 103,
+          "frameH": 94,
+          "k": 0.625,
+          "source": "atlas"
+        },
+        "mage": {
+          "frames": 188,
+          "bytesRGBA": 9515520,
+          "buildMs": 0,
+          "frameW": 118,
+          "frameH": 105,
+          "k": 0.625,
+          "source": "atlas"
+        },
+        "demon-king": {
+          "frames": 224,
+          "bytesRGBA": 10752000,
+          "buildMs": 0,
+          "frameW": 120,
+          "frameH": 100,
+          "k": 0.625,
+          "source": "atlas"
+        },
+        "goblin": {
+          "frames": 188,
+          "bytesRGBA": 7642368,
+          "buildMs": 0,
+          "frameW": 107,
+          "frameH": 93,
+          "k": 0.625,
+          "source": "atlas"
+        },
+        "skeleton-archer": {
+          "frames": 208,
+          "bytesRGBA": 8716032,
+          "buildMs": 0,
+          "frameW": 108,
+          "frameH": 97,
+          "k": 0.625,
+          "source": "atlas"
+        },
+        "dark-mage": {
+          "frames": 204,
+          "bytesRGBA": 8931520,
+          "buildMs": 0,
+          "frameW": 113,
+          "frameH": 95,
+          "k": 0.625,
+          "source": "atlas"
+        }
+      },
+      "totalFrames": 1648,
+      "totalBytesRGBA": 72362488
+    },
+    "syncPauses": [],
+    "memoryNote": "bytesRGBA は幅×高さ×4 の理論値。ブラウザの実メモリ (GPU 側の複製などを含む) とは異なる"
+  },
+  "atlas": {
+    "mode": "atlas",
+    "loaded": [
+      "king",
+      "warrior",
+      "archer",
+      "mage",
+      "demon-king",
+      "goblin",
+      "skeleton-archer",
+      "dark-mage"
+    ],
+    "failed": [],
+    "loadMs": 95.59999990463257
+  },
+  "resources": [
+    {
+      "url": "/styles.css",
+      "type": "link",
+      "start": 9.5,
+      "end": 17.799999952316284,
+      "duration": 8.299999952316284,
+      "bytes": 33505,
+      "transfer": 33805
+    },
+    {
+      "url": "/tests/startup-profile.js",
+      "type": "script",
+      "start": 9.700000047683716,
+      "end": 18.200000047683716,
+      "duration": 8.5,
+      "bytes": 2742,
+      "transfer": 3042
+    },
+    {
+      "url": "/src/ui/app.js",
+      "type": "script",
+      "start": 28.200000047683716,
+      "end": 30,
+      "duration": 1.7999999523162842,
+      "bytes": 46076,
+      "transfer": 46376
+    },
+    {
+      "url": "/src/core/config.js",
+      "type": "script",
+      "start": 36.10000002384186,
+      "end": 41.799999952316284,
+      "duration": 5.699999928474426,
+      "bytes": 6732,
+      "transfer": 7032
+    },
+    {
+      "url": "/src/ui/kingdom-assets.js",
+      "type": "script",
+      "start": 36.200000047683716,
+      "end": 42.200000047683716,
+      "duration": 6,
+      "bytes": 511,
+      "transfer": 811
+    },
+    {
+      "url": "/src/ui/kingdom-board.js",
+      "type": "script",
+      "start": 36.200000047683716,
+      "end": 42.39999997615814,
+      "duration": 6.199999928474426,
+      "bytes": 21643,
+      "transfer": 21943
+    },
+    {
+      "url": "/src/core/dice.js",
+      "type": "script",
+      "start": 36.200000047683716,
+      "end": 42.89999997615814,
+      "duration": 6.699999928474426,
+      "bytes": 2650,
+      "transfer": 2950
+    },
+    {
+      "url": "/src/core/rules.js",
+      "type": "script",
+      "start": 36.200000047683716,
+      "end": 43.200000047683716,
+      "duration": 7,
+      "bytes": 16414,
+      "transfer": 16714
+    },
+    {
+      "url": "/src/ui/cpu.js",
+      "type": "script",
+      "start": 36.299999952316284,
+      "end": 43.700000047683716,
+      "duration": 7.400000095367432,
+      "bytes": 2206,
+      "transfer": 2506
+    },
+    {
+      "url": "/src/core/levels.js",
+      "type": "script",
+      "start": 36.299999952316284,
+      "end": 44.10000002384186,
+      "duration": 7.800000071525574,
+      "bytes": 18935,
+      "transfer": 19235
+    },
+    {
+      "url": "/src/ui/view.js",
+      "type": "script",
+      "start": 36.299999952316284,
+      "end": 44.89999997615814,
+      "duration": 8.600000023841858,
+      "bytes": 23932,
+      "transfer": 24232
+    },
+    {
+      "url": "/src/ui/fx.js",
+      "type": "script",
+      "start": 36.299999952316284,
+      "end": 45,
+      "duration": 8.700000047683716,
+      "bytes": 4917,
+      "transfer": 5217
+    },
+    {
+      "url": "/src/ui/audio/engine.js",
+      "type": "script",
+      "start": 36.39999997615814,
+      "end": 45.200000047683716,
+      "duration": 8.800000071525574,
+      "bytes": 13263,
+      "transfer": 13563
+    },
+    {
+      "url": "/src/ui/audio/sfx.js",
+      "type": "script",
+      "start": 36.39999997615814,
+      "end": 45.5,
+      "duration": 9.100000023841858,
+      "bytes": 15872,
+      "transfer": 16172
+    },
+    {
+      "url": "/src/ui/audio/music.js",
+      "type": "script",
+      "start": 36.5,
+      "end": 45.60000002384186,
+      "duration": 9.100000023841858,
+      "bytes": 3524,
+      "transfer": 3824
+    },
+    {
+      "url": "/vendor/inkstone/src/index.js",
+      "type": "script",
+      "start": 46,
+      "end": 50.200000047683716,
+      "duration": 4.200000047683716,
+      "bytes": 2185,
+      "transfer": 2485
+    },
+    {
+      "url": "/vendor/inkstone/characters/register.js",
+      "type": "script",
+      "start": 46.10000002384186,
+      "end": 50.5,
+      "duration": 4.399999976158142,
+      "bytes": 759,
+      "transfer": 1059
+    },
+    {
+      "url": "/src/ui/kingdom-facing.js",
+      "type": "script",
+      "start": 46.200000047683716,
+      "end": 50.799999952316284,
+      "duration": 4.599999904632568,
+      "bytes": 1880,
+      "transfer": 2180
+    },
+    {
+      "url": "/src/ui/kingdom-atlas.js",
+      "type": "script",
+      "start": 46.200000047683716,
+      "end": 50.89999997615814,
+      "duration": 4.699999928474426,
+      "bytes": 2224,
+      "transfer": 2524
+    },
+    {
+      "url": "/src/core/rng.js",
+      "type": "script",
+      "start": 46.39999997615814,
+      "end": 51.200000047683716,
+      "duration": 4.800000071525574,
+      "bytes": 484,
+      "transfer": 784
+    },
+    {
+      "url": "/src/core/ai.js",
+      "type": "script",
+      "start": 47.200000047683716,
+      "end": 51.700000047683716,
+      "duration": 4.5,
+      "bytes": 46223,
+      "transfer": 46523
+    },
+    {
+      "url": "/src/ui/art.js",
+      "type": "script",
+      "start": 47.700000047683716,
+      "end": 52.200000047683716,
+      "duration": 4.5,
+      "bytes": 10036,
+      "transfer": 10336
+    },
+    {
+      "url": "/src/ui/audio/score.js",
+      "type": "script",
+      "start": 47.799999952316284,
+      "end": 52.39999997615814,
+      "duration": 4.600000023841858,
+      "bytes": 28234,
+      "transfer": 28534
+    },
+    {
+      "url": "/src/ui/audio/render.js",
+      "type": "script",
+      "start": 47.89999997615814,
+      "end": 52.700000047683716,
+      "duration": 4.800000071525574,
+      "bytes": 8036,
+      "transfer": 8336
+    },
+    {
+      "url": "/src/ui/audio/instruments.js",
+      "type": "script",
+      "start": 47.89999997615814,
+      "end": 52.799999952316284,
+      "duration": 4.899999976158142,
+      "bytes": 19501,
+      "transfer": 19801
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/renderer.js",
+      "type": "script",
+      "start": 52.39999997615814,
+      "end": 58.299999952316284,
+      "duration": 5.899999976158142,
+      "bytes": 19723,
+      "transfer": 20023
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/character-view.js",
+      "type": "script",
+      "start": 52.39999997615814,
+      "end": 59.299999952316284,
+      "duration": 6.899999976158142,
+      "bytes": 6759,
+      "transfer": 7059
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/registry.js",
+      "type": "script",
+      "start": 52.39999997615814,
+      "end": 59.700000047683716,
+      "duration": 7.300000071525574,
+      "bytes": 4205,
+      "transfer": 4505
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/swordsman.js",
+      "type": "script",
+      "start": 52.5,
+      "end": 60.10000002384186,
+      "duration": 7.600000023841858,
+      "bytes": 16427,
+      "transfer": 16727
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/archer.js",
+      "type": "script",
+      "start": 52.5,
+      "end": 60.5,
+      "duration": 8,
+      "bytes": 12310,
+      "transfer": 12610
+    },
+    {
+      "url": "/vendor/inkstone/src/dungeon/room.js",
+      "type": "script",
+      "start": 52.60000002384186,
+      "end": 61.10000002384186,
+      "duration": 8.5,
+      "bytes": 5000,
+      "transfer": 5300
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/skeleton.js",
+      "type": "script",
+      "start": 52.60000002384186,
+      "end": 61,
+      "duration": 8.399999976158142,
+      "bytes": 20883,
+      "transfer": 21183
+    },
+    {
+      "url": "/vendor/inkstone/src/dungeon/props.js",
+      "type": "script",
+      "start": 52.60000002384186,
+      "end": 62.39999997615814,
+      "duration": 9.799999952316284,
+      "bytes": 14184,
+      "transfer": 14484
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/rig.js",
+      "type": "script",
+      "start": 52.60000002384186,
+      "end": 62.700000047683716,
+      "duration": 10.100000023841858,
+      "bytes": 11108,
+      "transfer": 11408
+    },
+    {
+      "url": "/vendor/inkstone/src/core/palette.js",
+      "type": "script",
+      "start": 52.60000002384186,
+      "end": 63.10000002384186,
+      "duration": 10.5,
+      "bytes": 878,
+      "transfer": 1178
+    },
+    {
+      "url": "/vendor/inkstone/src/core/geometry.js",
+      "type": "script",
+      "start": 52.60000002384186,
+      "end": 63.200000047683716,
+      "duration": 10.600000023841858,
+      "bytes": 3272,
+      "transfer": 3572
+    },
+    {
+      "url": "/vendor/inkstone/characters/king/character.js",
+      "type": "script",
+      "start": 52.89999997615814,
+      "end": 63.60000002384186,
+      "duration": 10.700000047683716,
+      "bytes": 12483,
+      "transfer": 12783
+    },
+    {
+      "url": "/vendor/inkstone/characters/warrior/character.js",
+      "type": "script",
+      "start": 52.89999997615814,
+      "end": 64.5,
+      "duration": 11.600000023841858,
+      "bytes": 25120,
+      "transfer": 25420
+    },
+    {
+      "url": "/vendor/inkstone/characters/mage/character.js",
+      "type": "script",
+      "start": 52.89999997615814,
+      "end": 65.5,
+      "duration": 12.600000023841858,
+      "bytes": 11028,
+      "transfer": 11328
+    },
+    {
+      "url": "/vendor/inkstone/characters/demon-king/character.js",
+      "type": "script",
+      "start": 52.89999997615814,
+      "end": 65.5,
+      "duration": 12.600000023841858,
+      "bytes": 12155,
+      "transfer": 12455
+    },
+    {
+      "url": "/vendor/inkstone/characters/goblin/character.js",
+      "type": "script",
+      "start": 53,
+      "end": 66.5,
+      "duration": 13.5,
+      "bytes": 11258,
+      "transfer": 11558
+    },
+    {
+      "url": "/vendor/inkstone/characters/skeleton-archer/character.js",
+      "type": "script",
+      "start": 53.10000002384186,
+      "end": 66.70000004768372,
+      "duration": 13.600000023841858,
+      "bytes": 10388,
+      "transfer": 10688
+    },
+    {
+      "url": "/vendor/inkstone/characters/dark-mage/character.js",
+      "type": "script",
+      "start": 53.10000002384186,
+      "end": 67.20000004768372,
+      "duration": 14.100000023841858,
+      "bytes": 10151,
+      "transfer": 10451
+    },
+    {
+      "url": "/vendor/inkstone/src/core/settings.js",
+      "type": "script",
+      "start": 60.60000002384186,
+      "end": 70.5,
+      "duration": 9.899999976158142,
+      "bytes": 1692,
+      "transfer": 1992
+    },
+    {
+      "url": "/vendor/inkstone/src/core/random.js",
+      "type": "script",
+      "start": 60.700000047683716,
+      "end": 72,
+      "duration": 11.299999952316284,
+      "bytes": 1681,
+      "transfer": 1981
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/camera.js",
+      "type": "script",
+      "start": 60.799999952316284,
+      "end": 72.10000002384186,
+      "duration": 11.300000071525574,
+      "bytes": 2867,
+      "transfer": 3167
+    },
+    {
+      "url": "/vendor/inkstone/src/dungeon/architecture.js",
+      "type": "script",
+      "start": 60.799999952316284,
+      "end": 72.20000004768372,
+      "duration": 11.400000095367432,
+      "bytes": 14766,
+      "transfer": 15066
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/cache.js",
+      "type": "script",
+      "start": 60.89999997615814,
+      "end": 73,
+      "duration": 12.100000023841858,
+      "bytes": 7322,
+      "transfer": 7622
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/depth-sort.js",
+      "type": "script",
+      "start": 60.89999997615814,
+      "end": 72.10000002384186,
+      "duration": 11.200000047683716,
+      "bytes": 1744,
+      "transfer": 2044
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/scene.js",
+      "type": "script",
+      "start": 60.89999997615814,
+      "end": 72.89999997615814,
+      "duration": 12,
+      "bytes": 2284,
+      "transfer": 2584
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/effects.js",
+      "type": "script",
+      "start": 61,
+      "end": 74.70000004768372,
+      "duration": 13.700000047683716,
+      "bytes": 3676,
+      "transfer": 3976
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/overlays.js",
+      "type": "script",
+      "start": 61.39999997615814,
+      "end": 74.79999995231628,
+      "duration": 13.399999976158142,
+      "bytes": 5208,
+      "transfer": 5508
+    },
+    {
+      "url": "/vendor/inkstone/src/core/ink.js",
+      "type": "script",
+      "start": 62.39999997615814,
+      "end": 74.89999997615814,
+      "duration": 12.5,
+      "bytes": 10507,
+      "transfer": 10807
+    },
+    {
+      "url": "/vendor/inkstone/src/core/paint.js",
+      "type": "script",
+      "start": 65.5,
+      "end": 75.29999995231628,
+      "duration": 9.799999952316284,
+      "bytes": 3328,
+      "transfer": 3628
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/painting.js",
+      "type": "script",
+      "start": 65.60000002384186,
+      "end": 76.10000002384186,
+      "duration": 10.5,
+      "bytes": 3522,
+      "transfer": 3822
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/archer-pose.js",
+      "type": "script",
+      "start": 65.60000002384186,
+      "end": 76.60000002384186,
+      "duration": 11,
+      "bytes": 8950,
+      "transfer": 9250
+    },
+    {
+      "url": "/vendor/inkstone/src/characters/archer-parts.js",
+      "type": "script",
+      "start": 65.70000004768372,
+      "end": 78.70000004768372,
+      "duration": 13,
+      "bytes": 11170,
+      "transfer": 11470
+    },
+    {
+      "url": "/vendor/inkstone/src/dungeon/stone.js",
+      "type": "script",
+      "start": 65.79999995231628,
+      "end": 78.89999997615814,
+      "duration": 13.100000023841858,
+      "bytes": 7077,
+      "transfer": 7377
+    },
+    {
+      "url": "/vendor/inkstone/src/authoring.js",
+      "type": "script",
+      "start": 68.60000002384186,
+      "end": 79.20000004768372,
+      "duration": 10.600000023841858,
+      "bytes": 1560,
+      "transfer": 1860
+    },
+    {
+      "url": "/vendor/inkstone/src/rendering/sprites.js",
+      "type": "script",
+      "start": 77.70000004768372,
+      "end": 82.20000004768372,
+      "duration": 4.5,
+      "bytes": 1877,
+      "transfer": 2177
+    },
+    {
+      "url": "/assets/characters/manifest.json",
+      "type": "fetch",
+      "start": 453,
+      "end": 455.89999997615814,
+      "duration": 2.899999976158142,
+      "bytes": 42331,
+      "transfer": 42631
+    },
+    {
+      "url": "/assets/characters/king-1-02f01610bc6fd278.webp",
+      "type": "img",
+      "start": 459.39999997615814,
+      "end": 459.39999997615814,
+      "duration": 0,
+      "bytes": 419256,
+      "transfer": 0
+    },
+    {
+      "url": "/assets/characters/warrior-1-b27450d764238f04.webp",
+      "type": "img",
+      "start": 459.5,
+      "end": 459.5,
+      "duration": 0,
+      "bytes": 797514,
+      "transfer": 0
+    },
+    {
+      "url": "/assets/characters/archer-1-95f98f3072852717.webp",
+      "type": "img",
+      "start": 459.60000002384186,
+      "end": 459.60000002384186,
+      "duration": 0,
+      "bytes": 362206,
+      "transfer": 0
+    },
+    {
+      "url": "/assets/characters/mage-1-ae605c0d5cc74e2e.webp",
+      "type": "img",
+      "start": 459.60000002384186,
+      "end": 459.60000002384186,
+      "duration": 0,
+      "bytes": 363106,
+      "transfer": 0
+    },
+    {
+      "url": "/assets/characters/demon-king-1-bdc18b882e29602a.webp",
+      "type": "img",
+      "start": 459.7000000476837,
+      "end": 459.7000000476837,
+      "duration": 0,
+      "bytes": 356182,
+      "transfer": 0
+    },
+    {
+      "url": "/assets/characters/goblin-1-1bea195b8342aa3f.webp",
+      "type": "img",
+      "start": 459.7000000476837,
+      "end": 459.7000000476837,
+      "duration": 0,
+      "bytes": 324080,
+      "transfer": 0
+    },
+    {
+      "url": "/assets/characters/skeleton-archer-1-32a748559cdbf91a.webp",
+      "type": "img",
+      "start": 459.7999999523163,
+      "end": 459.7999999523163,
+      "duration": 0,
+      "bytes": 398292,
+      "transfer": 0
+    },
+    {
+      "url": "/assets/characters/dark-mage-1-4a897e61f1a3cfdd.webp",
+      "type": "img",
+      "start": 459.7999999523163,
+      "end": 459.7999999523163,
+      "duration": 0,
+      "bytes": 273422,
+      "transfer": 0
+    }
+  ],
+  "navigation": {
+    "name": "http://127.0.0.1:8160/tests/startup-profile.html",
+    "entryType": "navigation",
+    "startTime": 0,
+    "duration": 34.5,
+    "navigationId": 4546,
+    "initiatorType": "navigation",
+    "deliveryType": "",
+    "nextHopProtocol": "http/1.1",
+    "renderBlockingStatus": "non-blocking",
+    "contentType": "text/html",
+    "contentEncoding": "",
+    "workerStart": 0,
+    "workerRouterEvaluationStart": 0,
+    "workerCacheLookupStart": 0,
+    "workerMatchedSourceType": "",
+    "workerFinalSourceType": "",
+    "redirectStart": 0,
+    "redirectEnd": 0,
+    "fetchStart": 0.5,
+    "domainLookupStart": 2.299999952316284,
+    "domainLookupEnd": 2.399999976158142,
+    "connectStart": 2.399999976158142,
+    "secureConnectionStart": 0,
+    "connectEnd": 2.600000023841858,
+    "requestStart": 2.600000023841858,
+    "responseStart": 3.399999976158142,
+    "firstInterimResponseStart": 0,
+    "finalResponseHeadersStart": 3.399999976158142,
+    "responseEnd": 3.700000047683716,
+    "transferSize": 9278,
+    "encodedBodySize": 8978,
+    "decodedBodySize": 8978,
+    "responseStatus": 200,
+    "serverTiming": [],
+    "unloadEventStart": 7.399999976158142,
+    "unloadEventEnd": 7.399999976158142,
+    "domInteractive": 27.899999976158142,
+    "domContentLoadedEventStart": 28.299999952316284,
+    "domContentLoadedEventEnd": 33.200000047683716,
+    "domComplete": 34.5,
+    "loadEventStart": 34.5,
+    "loadEventEnd": 34.5,
+    "type": "reload",
+    "redirectCount": 0,
+    "activationStart": 0,
+    "criticalCHRestart": 0,
+    "notRestoredReasons": null,
+    "confidence": {
+      "randomizedTriggerRate": 0.4994798,
+      "value": "high"
+    }
+  },
+  "note": "通常app.jsを計測ページから起動。JS生成時間・長時間タスクと経過時間を分離。dprクエリは描画解像度の比較だけであり、実機エミュレーションではない。"
+}

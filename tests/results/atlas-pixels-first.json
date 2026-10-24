@@ -1,0 +1,171 @@
+{
+  "started": "2026-10-24T15:35:12.769Z",
+  "results": [
+    {
+      "id": "king",
+      "dpr": 1,
+      "frames": 212,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 44710,
+      "pass": false
+    },
+    {
+      "id": "warrior",
+      "dpr": 1,
+      "frames": 240,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 65317,
+      "pass": false
+    },
+    {
+      "id": "archer",
+      "dpr": 1,
+      "frames": 184,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 45042,
+      "pass": false
+    },
+    {
+      "id": "mage",
+      "dpr": 1,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 53798,
+      "pass": false
+    },
+    {
+      "id": "demon-king",
+      "dpr": 1,
+      "frames": 224,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 45641,
+      "pass": false
+    },
+    {
+      "id": "goblin",
+      "dpr": 1,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 50231,
+      "pass": false
+    },
+    {
+      "id": "skeleton-archer",
+      "dpr": 1,
+      "frames": 208,
+      "maxPremultipliedDiff": 1.3254901960784313,
+      "differingPixels": 77235,
+      "pass": false
+    },
+    {
+      "id": "dark-mage",
+      "dpr": 1,
+      "frames": 204,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 46242,
+      "pass": false
+    },
+    {
+      "id": "king",
+      "dpr": 1.5,
+      "frames": 212,
+      "maxPremultipliedDiff": 1.3254901960784313,
+      "differingPixels": 52458,
+      "pass": false
+    },
+    {
+      "id": "warrior",
+      "dpr": 1.5,
+      "frames": 240,
+      "maxPremultipliedDiff": 32,
+      "differingPixels": 74413,
+      "pass": false
+    },
+    {
+      "id": "archer",
+      "dpr": 1.5,
+      "frames": 184,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 51183,
+      "pass": false
+    },
+    {
+      "id": "mage",
+      "dpr": 1.5,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 65309,
+      "pass": false
+    },
+    {
+      "id": "demon-king",
+      "dpr": 1.5,
+      "frames": 224,
+      "maxPremultipliedDiff": 1.2784313725490195,
+      "differingPixels": 54752,
+      "pass": false
+    },
+    {
+      "id": "goblin",
+      "dpr": 1.5,
+      "frames": 188,
+      "maxPremultipliedDiff": 1.3019607843137255,
+      "differingPixels": 54298,
+      "pass": false
+    },
+    {
+      "id": "skeleton-archer",
+      "dpr": 1.5,
+      "frames": 208,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 91343,
+      "pass": false
+    },
+    {
+      "id": "dark-mage",
+      "dpr": 1.5,
+      "frames": 204,
+      "maxPremultipliedDiff": 1.3098039215686275,
+      "differingPixels": 55933,
+      "pass": false
+    },
+    {
+      "name": "本番ローダー: 8種類を同期生成なしで登録",
+      "pass": true,
+      "loaded": {
+        "mode": "atlas",
+        "loaded": [
+          "archer",
+          "mage",
+          "king",
+          "demon-king",
+          "goblin",
+          "warrior",
+          "skeleton-archer",
+          "dark-mage"
+        ],
+        "failed": [],
+        "loadMs": 96.30000007152557
+      }
+    },
+    {
+      "name": "画像情報不正時は旧描画へ復帰",
+      "pass": true,
+      "recovered": {
+        "mode": "fallback",
+        "loaded": [],
+        "failed": [
+          {
+            "id": "king",
+            "error": "Error: Missing character atlas"
+          }
+        ],
+        "loadMs": 181.10000002384186
+      }
+    }
+  ],
+  "note": "PCブラウザで2解像度の全コマを照合。スマートフォン実機ではない。",
+  "finished": "2026-10-24T15:35:36.205Z",
+  "passed": 2,
+  "failed": 16
+}

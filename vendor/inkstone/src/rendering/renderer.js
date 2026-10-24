@@ -21,7 +21,7 @@ import { DIRS, walkSecondsPerTile } from '../characters/rig.js';
 import { createCharacterRegistry, resolveAction, BUILTIN_CHARACTERS } from '../characters/registry.js';
 import { createCamera, defaultDpr, fitCameraToRoom, camTransform, devX, devY, worldToScreen, screenToWorld } from './camera.js';
 import { depthSort, unitFootprint } from './depth-sort.js';
-import { createFrameCacheStore } from './cache.js';
+import { createFrameCacheStore, drawCachedFrame } from './cache.js';
 import { buildStaticScene, disposeScene } from './scene.js';
 import { SHADOW_BOX, drawUnitShadow, drawArrowProjectile, drawHitSpark } from './effects.js';
 import { drawHighlightTile, dashedCell, floorDot, drawUnitMarker, drawDepthDebug, cellPoly } from './overlays.js';
@@ -73,7 +73,7 @@ export function createRenderer(o = {}) {
       const kk = k(), box = def.frameBox, c = st.caches.frame(st.caches.get(def, kk, st.draw), u.direction, action, t);
       const F = Math.round(devX(cam, fx)), top = Math.round(devY(cam, fy) + box.y0 * kk);
       ctx.setTransform(flip ? -1 : 1, 0, 0, 1, flip ? 2 * F : 0, 0);
-      ctx.drawImage(c, Math.round(F + box.x0 * kk), top);
+      drawCachedFrame(ctx, c, Math.round(F + box.x0 * kk), top);
       return;
     }
     camTransform(ctx, cam);
@@ -115,7 +115,7 @@ export function createRenderer(o = {}) {
     }
     const F = Math.round(devX(cam, p.x)), top = Math.round(devY(cam, p.y + st.footOffset) + box.y0 * kk);
     ctx.save(); ctx.setTransform(flip ? -1 : 1, 0, 0, 1, flip ? 2 * F : 0, 0);
-    ctx.globalAlpha = alpha; ctx.drawImage(src, Math.round(F + box.x0 * kk), top); ctx.restore();
+    ctx.globalAlpha = alpha; drawCachedFrame(ctx, src, Math.round(F + box.x0 * kk), top); ctx.restore();
   }
   /* ---- 描画フックに渡す道具 (カメラ変換は設定済み) ---- */
   function overlayApi(timeSeconds, order) {
@@ -201,6 +201,8 @@ export function createRenderer(o = {}) {
     listCharacters: () => st.registry.list(),
 
     /* ---- キャッシュ ---- */
+    /** 既存の動作定義・方向・倍率と一致する事前生成画像を登録する。 */
+    installCacheAtlas(meta, image) { alive();st.caches.installAtlas(st.registry.get(meta.id),k(),st.draw,meta,image);return api; },
     /** コマを今すぐ作る (ゲームの読み込み中に呼ぶと、描画中の同期生成による停止を避けられる)。ids 省略 = 登録済み全部 */
     prepareCaches(ids) {
       alive();

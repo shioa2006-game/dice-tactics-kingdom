@@ -31,7 +31,8 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     if (!(await stat(file)).isFile()) throw new Error('not file');
-    res.writeHead(200, { 'Content-Type': mime[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-store' });
+    const immutable=/^\/assets\/characters\/[a-z-]+-(?:1|1\.5)-[a-f0-9]{16}\.(?:png|webp)$/.test(route);
+    res.writeHead(200, { 'Content-Type': mime[path.extname(file)] || 'application/octet-stream', 'Cache-Control': immutable?'public, max-age=31536000, immutable':'no-store' });
     res.end(await readFile(file));
   } catch { res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Not found'); }
 });

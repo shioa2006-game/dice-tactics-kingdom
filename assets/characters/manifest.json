@@ -1,0 +1,1744 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-24T15:38:55.567Z",
+  "source": {
+    "hash": "e0fd19c8e3ae71b1b5e13d051096e3d147a1dddb52dbf631a321648f5ca9334d",
+    "files": [
+      {
+        "file": "vendor/inkstone/characters/dark-mage/character.js",
+        "sha256": "bb040540c25644bd1e11ac389b2b81b0ff23d92ebd0b2dd6201fed83b640fd47"
+      },
+      {
+        "file": "vendor/inkstone/characters/demon-king/character.js",
+        "sha256": "35a44259cd76fd42c8365e0197094f3cec0e1ef0e9697e4bb59db28d80c201c1"
+      },
+      {
+        "file": "vendor/inkstone/characters/goblin/character.js",
+        "sha256": "4a31b1d0658fbdf3728cd932af411ce66879f34b55adbf67bcba06cced931c20"
+      },
+      {
+        "file": "vendor/inkstone/characters/king/character.js",
+        "sha256": "ddd4a9293c774a83cf8afd04ee8ad3a341b3b9be7cb11fa5f11dc6c600d2e939"
+      },
+      {
+        "file": "vendor/inkstone/characters/mage/character.js",
+        "sha256": "4f1d0e77535cfb3214f971819aecb96f36ce06099971c71f2be6c235741df942"
+      },
+      {
+        "file": "vendor/inkstone/characters/register.js",
+        "sha256": "b7680c6ea0ab80babc0f6597ee68716e31d966b9e5823aa0abf4b9c687903aad"
+      },
+      {
+        "file": "vendor/inkstone/characters/skeleton-archer/character.js",
+        "sha256": "988764fb11686fc6b16f9357671eaf1eca0cafd19ee8e750cce1b9b8d87bf572"
+      },
+      {
+        "file": "vendor/inkstone/characters/warrior/character.js",
+        "sha256": "c1abe9f7eb461c9e9201eb14d6c4e8825749dd95297351181b906cf6f7e51d44"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/archer-parts.js",
+        "sha256": "c46d86d33ad7354dcfa9e2638cbb99b67e99ed133b4603c09784bd22e64cb9ad"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/archer-pose.js",
+        "sha256": "29dfd49e555c6cb0f0367d60cba8f7a55d31184205cd5f496c737b90a3c7d095"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/archer.js",
+        "sha256": "b9f69ba44aa5ed842563e24d3312e71cdc2f877b449ff2eb1296846cdbdec2c8"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/painting.js",
+        "sha256": "78069937944bc48dd906ccce37a5f1e18957ddb941ca2fd7d3364779b8c27044"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/registry.js",
+        "sha256": "13bad43a78ed45830513079d58ae53654a31cb49761925433c7ba28cf6b75e0b"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/rig.js",
+        "sha256": "26e85fd7dd6e7afc3c8738fd78f90e89d54fe11d19f4be2f6e585b404a938dc9"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/skeleton.js",
+        "sha256": "557ac64807bef2734ea0cf05104daad3703abcb3d5f4d35ded00f9fab3f2c0d7"
+      },
+      {
+        "file": "vendor/inkstone/src/characters/swordsman.js",
+        "sha256": "800bfb8d0f2100955442e3badc3252b4bb5463d0a0f879636c56b167210f1547"
+      },
+      {
+        "file": "vendor/inkstone/src/core/geometry.js",
+        "sha256": "f8d0e3cf48139280393f472ca2c14ecadb8ea50ba96e0a6c240cfc6162c9bfde"
+      },
+      {
+        "file": "vendor/inkstone/src/core/ink.js",
+        "sha256": "5c47c378ed781e30438fdb880bae6c70eb29902d0b97efbccb2739f8e548f5a0"
+      },
+      {
+        "file": "vendor/inkstone/src/core/paint.js",
+        "sha256": "0865226416ec248499b1b91e1278052fa4d027666493ecf09796bdfdba65d1ed"
+      },
+      {
+        "file": "vendor/inkstone/src/core/palette.js",
+        "sha256": "46f374d330a6ed16f634258a03a021dc2d2ff41c2a4d18aa4d3ad316a5d18df2"
+      },
+      {
+        "file": "vendor/inkstone/src/core/random.js",
+        "sha256": "24416438bba7c28eaaf412619967f7ea3d5551a9bef20674a1eb0cbafb2ac33e"
+      },
+      {
+        "file": "vendor/inkstone/src/core/settings.js",
+        "sha256": "3ccf1cf84f9324ba996e809c6c5585ddb6dc928e40aec6ff028e7f5d094339c7"
+      },
+      {
+        "file": "vendor/inkstone/src/rendering/effects.js",
+        "sha256": "d8b3e4cfd3cd3b699c66e652261c471d699392160d691cf72dfc1b50e2ca637d"
+      },
+      {
+        "file": "vendor/inkstone/src/rendering/sprites.js",
+        "sha256": "7c9f62f47bfa3e30f2a082658e0e30bc9a06727d471482ce3eb881db2b2149ab"
+      }
+    ]
+  },
+  "format": "webp",
+  "variants": {
+    "1": {
+      "dpr": 1,
+      "k": 0.625,
+      "characters": {
+        "king": {
+          "id": "king",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -86,
+            "x1": 86,
+            "y0": -124,
+            "y1": 24
+          },
+          "frameWidth": 108,
+          "frameHeight": 93,
+          "columns": 16,
+          "rows": 14,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.4,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.3,
+              "keys": [
+                0,
+                0.12,
+                0.22,
+                0.3,
+                0.38,
+                0.42,
+                0.46,
+                0.49,
+                0.52,
+                0.56,
+                0.6,
+                0.68,
+                0.76,
+                0.82,
+                0.9,
+                0.96,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 212,
+          "file": "king-1-02f01610bc6fd278.webp",
+          "sha256": "02f01610bc6fd278d1085d3d59fc7a290a95002ee45136264689feb7e847be42",
+          "bytes": 419256
+        },
+        "warrior": {
+          "id": "warrior",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -86,
+            "x1": 86,
+            "y0": -130,
+            "y1": 29
+          },
+          "frameWidth": 108,
+          "frameHeight": 100,
+          "columns": 16,
+          "rows": 15,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.141592653589793,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.35,
+              "keys": [
+                0,
+                0.06,
+                0.12,
+                0.2,
+                0.27,
+                0.33,
+                0.38,
+                0.42,
+                0.45,
+                0.47,
+                0.49,
+                0.51,
+                0.53,
+                0.55,
+                0.58,
+                0.62,
+                0.67,
+                0.72,
+                0.77,
+                0.82,
+                0.87,
+                0.92,
+                0.96,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 240,
+          "file": "warrior-1-b27450d764238f04.webp",
+          "sha256": "b27450d764238f049b93ff1bc2ee5fa9acb92c51e146cc4dd4621a5039c3e353",
+          "bytes": 797514
+        },
+        "archer": {
+          "id": "archer",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -82,
+            "x1": 82,
+            "y0": -126,
+            "y1": 24
+          },
+          "frameWidth": 103,
+          "frameHeight": 94,
+          "columns": 16,
+          "rows": 12,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 2.855993321445266,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.8,
+                0.9
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.7,
+              "keys": [
+                0,
+                0.07,
+                0.14,
+                0.2,
+                0.25,
+                0.3,
+                0.36,
+                0.41,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.66,
+                0.72,
+                0.75,
+                0.78,
+                0.82,
+                0.87,
+                0.93,
+                0.97
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 184,
+          "file": "archer-1-95f98f3072852717.webp",
+          "sha256": "95f98f307285271702e6979237c6575311102b59993a50723fc1f17ed939a042",
+          "bytes": 362206
+        },
+        "mage": {
+          "id": "mage",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -94,
+            "x1": 94,
+            "y0": -145,
+            "y1": 22
+          },
+          "frameWidth": 118,
+          "frameHeight": 105,
+          "columns": 16,
+          "rows": 12,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.2,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.6,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.28,
+                0.38,
+                0.47,
+                0.52,
+                0.57,
+                0.6,
+                0.65,
+                0.7,
+                0.78,
+                0.85,
+                0.92,
+                0.98
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 188,
+          "file": "mage-1-ae605c0d5cc74e2e.webp",
+          "sha256": "ae605c0d5cc74e2e9cd271e86a78a73e5f1caf0b2fc00c38f7c1dd4f64506500",
+          "bytes": 363106
+        },
+        "demon-king": {
+          "id": "demon-king",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -96,
+            "x1": 96,
+            "y0": -134,
+            "y1": 26
+          },
+          "frameWidth": 120,
+          "frameHeight": 100,
+          "columns": 16,
+          "rows": 14,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 4,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.75,
+              "keys": [
+                0,
+                0.08,
+                0.16,
+                0.24,
+                0.32,
+                0.4,
+                0.45,
+                0.48,
+                0.51,
+                0.54,
+                0.57,
+                0.59,
+                0.62,
+                0.65,
+                0.7,
+                0.75,
+                0.82,
+                0.88,
+                0.94,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 224,
+          "file": "demon-king-1-bdc18b882e29602a.webp",
+          "sha256": "bdc18b882e29602a3b582fc1607b9496cca3ed0b69d1f34778daf5010f79d768",
+          "bytes": 356182
+        },
+        "goblin": {
+          "id": "goblin",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -85,
+            "x1": 85,
+            "y0": -120,
+            "y1": 28
+          },
+          "frameWidth": 107,
+          "frameHeight": 93,
+          "columns": 16,
+          "rows": 12,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.1,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.25,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.28,
+                0.36,
+                0.42,
+                0.46,
+                0.5,
+                0.54,
+                0.6,
+                0.68,
+                0.78,
+                0.86,
+                0.94,
+                0.98
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 188,
+          "file": "goblin-1-1bea195b8342aa3f.webp",
+          "sha256": "1bea195b8342aa3f45fec8dce15886de93acd01a7fcbc4d6e05fe79ca8a57b78",
+          "bytes": 324080
+        },
+        "skeleton-archer": {
+          "id": "skeleton-archer",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -86,
+            "x1": 86,
+            "y0": -126,
+            "y1": 28
+          },
+          "frameWidth": 108,
+          "frameHeight": 97,
+          "columns": 16,
+          "rows": 13,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 2.855993321445266,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.7,
+              "keys": [
+                0,
+                0.07,
+                0.14,
+                0.2,
+                0.25,
+                0.3,
+                0.36,
+                0.41,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.66,
+                0.72,
+                0.749999999,
+                0.78,
+                0.82,
+                0.87,
+                0.93,
+                0.97
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 208,
+          "file": "skeleton-archer-1-32a748559cdbf91a.webp",
+          "sha256": "32a748559cdbf91a59d32d861707640653ad4a8aeb4120564c0019618c977d3a",
+          "bytes": 398292
+        },
+        "dark-mage": {
+          "id": "dark-mage",
+          "k": 0.625,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -90,
+            "x1": 90,
+            "y0": -126,
+            "y1": 25
+          },
+          "frameWidth": 113,
+          "frameHeight": 95,
+          "columns": 16,
+          "rows": 13,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.8,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.8,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.26,
+                0.36,
+                0.46,
+                0.5,
+                0.55,
+                0.59,
+                0.65,
+                0.72,
+                0.78,
+                0.86,
+                0.94,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 204,
+          "file": "dark-mage-1-4a897e61f1a3cfdd.webp",
+          "sha256": "4a897e61f1a3cfdd357ac15587315cf4d0d4f41f9ba56ab73c69fb7310e84620",
+          "bytes": 273422
+        }
+      }
+    },
+    "1.5": {
+      "dpr": 1.5,
+      "k": 0.9375,
+      "characters": {
+        "king": {
+          "id": "king",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -86,
+            "x1": 86,
+            "y0": -124,
+            "y1": 24
+          },
+          "frameWidth": 162,
+          "frameHeight": 139,
+          "columns": 16,
+          "rows": 14,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.4,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.3,
+              "keys": [
+                0,
+                0.12,
+                0.22,
+                0.3,
+                0.38,
+                0.42,
+                0.46,
+                0.49,
+                0.52,
+                0.56,
+                0.6,
+                0.68,
+                0.76,
+                0.82,
+                0.9,
+                0.96,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 212,
+          "file": "king-1.5-879bd4799651bb11.webp",
+          "sha256": "879bd4799651bb11911ae45c49ce3ecd55e911908caa8adf8547d6beb2f7e7b6",
+          "bytes": 571852
+        },
+        "warrior": {
+          "id": "warrior",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -86,
+            "x1": 86,
+            "y0": -130,
+            "y1": 29
+          },
+          "frameWidth": 162,
+          "frameHeight": 150,
+          "columns": 16,
+          "rows": 15,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.141592653589793,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.35,
+              "keys": [
+                0,
+                0.06,
+                0.12,
+                0.2,
+                0.27,
+                0.33,
+                0.38,
+                0.42,
+                0.45,
+                0.47,
+                0.49,
+                0.51,
+                0.53,
+                0.55,
+                0.58,
+                0.62,
+                0.67,
+                0.72,
+                0.77,
+                0.82,
+                0.87,
+                0.92,
+                0.96,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 240,
+          "file": "warrior-1.5-69693534cc2aa85d.webp",
+          "sha256": "69693534cc2aa85df9854f5232538475e37a89dd3f80ea3494d0292b699726ed",
+          "bytes": 1172300
+        },
+        "archer": {
+          "id": "archer",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -82,
+            "x1": 82,
+            "y0": -126,
+            "y1": 24
+          },
+          "frameWidth": 154,
+          "frameHeight": 141,
+          "columns": 16,
+          "rows": 12,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 2.855993321445266,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.8,
+                0.9
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.7,
+              "keys": [
+                0,
+                0.07,
+                0.14,
+                0.2,
+                0.25,
+                0.3,
+                0.36,
+                0.41,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.66,
+                0.72,
+                0.75,
+                0.78,
+                0.82,
+                0.87,
+                0.93,
+                0.97
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 184,
+          "file": "archer-1.5-9e62d352bc46bf50.webp",
+          "sha256": "9e62d352bc46bf50e24f00137bb4a846386f980020be3e7ee845aa059b65a2e7",
+          "bytes": 479030
+        },
+        "mage": {
+          "id": "mage",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -94,
+            "x1": 94,
+            "y0": -145,
+            "y1": 22
+          },
+          "frameWidth": 177,
+          "frameHeight": 157,
+          "columns": 16,
+          "rows": 12,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.2,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.6,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.28,
+                0.38,
+                0.47,
+                0.52,
+                0.57,
+                0.6,
+                0.65,
+                0.7,
+                0.78,
+                0.85,
+                0.92,
+                0.98
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 188,
+          "file": "mage-1.5-645a9e204c2fdbd3.webp",
+          "sha256": "645a9e204c2fdbd34ebc1795d618bc1f0548e5e2c648f8401bfdd1b990a8d946",
+          "bytes": 516702
+        },
+        "demon-king": {
+          "id": "demon-king",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -96,
+            "x1": 96,
+            "y0": -134,
+            "y1": 26
+          },
+          "frameWidth": 180,
+          "frameHeight": 150,
+          "columns": 16,
+          "rows": 14,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 4,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.75,
+              "keys": [
+                0,
+                0.08,
+                0.16,
+                0.24,
+                0.32,
+                0.4,
+                0.45,
+                0.48,
+                0.51,
+                0.54,
+                0.57,
+                0.59,
+                0.62,
+                0.65,
+                0.7,
+                0.75,
+                0.82,
+                0.88,
+                0.94,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 224,
+          "file": "demon-king-1.5-35826cb4dd4836d8.webp",
+          "sha256": "35826cb4dd4836d8ce3d2245f22f81f4d72e0366d85b8050ce9c5ee4d767d9c8",
+          "bytes": 525080
+        },
+        "goblin": {
+          "id": "goblin",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -85,
+            "x1": 85,
+            "y0": -120,
+            "y1": 28
+          },
+          "frameWidth": 160,
+          "frameHeight": 139,
+          "columns": 16,
+          "rows": 12,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.1,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.25,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.28,
+                0.36,
+                0.42,
+                0.46,
+                0.5,
+                0.54,
+                0.6,
+                0.68,
+                0.78,
+                0.86,
+                0.94,
+                0.98
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 188,
+          "file": "goblin-1.5-90707783726865b8.webp",
+          "sha256": "90707783726865b8b382b7b814c7c84c2f05876697b234154ee3d4ec9bebf062",
+          "bytes": 432756
+        },
+        "skeleton-archer": {
+          "id": "skeleton-archer",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -86,
+            "x1": 86,
+            "y0": -126,
+            "y1": 28
+          },
+          "frameWidth": 162,
+          "frameHeight": 145,
+          "columns": 16,
+          "rows": 13,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 2.855993321445266,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.7,
+              "keys": [
+                0,
+                0.07,
+                0.14,
+                0.2,
+                0.25,
+                0.3,
+                0.36,
+                0.41,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.66,
+                0.72,
+                0.749999999,
+                0.78,
+                0.82,
+                0.87,
+                0.93,
+                0.97
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 208,
+          "file": "skeleton-archer-1.5-d3578a166d7527ad.webp",
+          "sha256": "d3578a166d7527ad5911aa1a3795880af222c6b6068f0fcafc96147569a336b3",
+          "bytes": 527984
+        },
+        "dark-mage": {
+          "id": "dark-mage",
+          "k": 0.9375,
+          "draw": {
+            "lw": 1,
+            "boil": true,
+            "footGround": true,
+            "linearStance": true
+          },
+          "frameBox": {
+            "x0": -90,
+            "x1": 90,
+            "y0": -126,
+            "y1": 25
+          },
+          "frameWidth": 169,
+          "frameHeight": 142,
+          "columns": 16,
+          "rows": 13,
+          "directions": [
+            "NW",
+            "NE",
+            "SW",
+            "SE"
+          ],
+          "actions": {
+            "idle": {
+              "period": 3.8,
+              "keys": [
+                0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95
+              ],
+              "index": "keys"
+            },
+            "walk": {
+              "period": 0.7142857142857143,
+              "keys": [
+                0,
+                0.0625,
+                0.125,
+                0.1875,
+                0.25,
+                0.3125,
+                0.375,
+                0.4375,
+                0.5,
+                0.5625,
+                0.625,
+                0.6875,
+                0.75,
+                0.8125,
+                0.875,
+                0.9375
+              ],
+              "index": "keys"
+            },
+            "attack": {
+              "period": 1.8,
+              "keys": [
+                0,
+                0.1,
+                0.2,
+                0.26,
+                0.36,
+                0.46,
+                0.5,
+                0.55,
+                0.59,
+                0.65,
+                0.72,
+                0.78,
+                0.86,
+                0.94,
+                0.99
+              ],
+              "index": "keys"
+            }
+          },
+          "frameCount": 204,
+          "file": "dark-mage-1.5-a92f3d22cbc2630a.webp",
+          "sha256": "a92f3d22cbc2630a6398886fba55dbab16e4c7a3b41b169406637b19abcc29b8",
+          "bytes": 405934
+        }
+      }
+    }
+  }
+}
